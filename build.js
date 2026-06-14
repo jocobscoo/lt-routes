@@ -14,7 +14,6 @@ try {
   process.exit(1);
 }
 
-// Sadece gecerli rota dosyalarini dahil et (id + stops olmali)
 const valid = [];
 for (const f of files) {
   try {
@@ -26,7 +25,6 @@ for (const f of files) {
   }
 }
 
-// Rota numarasina gore artan sirala (141, 231, 270, 271, ...)
 valid.sort((a, b) => {
   const na = parseInt(a, 10), nb = parseInt(b, 10);
   if (!isNaN(na) && !isNaN(nb) && na !== nb) return na - nb;
