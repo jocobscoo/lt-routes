@@ -1,0 +1,112 @@
+{
+ "id": "271",
+ "name": "Route 271",
+ "subtitle": "Route Sheet",
+ "stops": [
+  {
+   "no": "1",
+   "short": "102 Kildrummy Ln",
+   "full": "102 Kildrummy Ln, Austin, TX 78738",
+   "lat": 30.3512544,
+   "lng": -98.0080664,
+   "segments": [
+    {
+     "nums": "102 – 133",
+     "street": "Kildrummy Ln"
+    },
+    {
+     "nums": "102 – 408",
+     "street": "Duffy Ln"
+    },
+    {
+     "nums": "101 – 105",
+     "street": "Fraser Cove"
+    }
+   ]
+  },
+  {
+   "no": "2",
+   "short": "302 Wester Ross Ln",
+   "full": "302 Wester Ross Ln, Lakeway, TX 78738",
+   "lat": 30.3509893,
+   "lng": -98.0109724,
+   "segments": [
+    {
+     "nums": "201 – 306",
+     "street": "Tavish Trl"
+    },
+    {
+     "nums": "104 – 510",
+     "street": "Wester Ross Ln"
+    },
+    {
+     "nums": "101 – 107",
+     "street": "Edinburgh Isle"
+    },
+    {
+     "nums": "101 – 205",
+     "street": "Glenfiddich"
+    },
+    {
+     "nums": "101 – 106",
+     "street": "Princes"
+    },
+    {
+     "nums": "101 – 111",
+     "street": "Waverly Spire"
+    }
+   ]
+  },
+  {
+   "no": "3",
+   "short": "103 Birdie Dr",
+   "full": "103 Birdie Dr, The Hills, TX 78738",
+   "lat": 30.353729,
+   "lng": -97.987309,
+   "segments": [
+    {
+     "nums": "105 – 117",
+     "street": "Birdie Dr"
+    },
+    {
+     "nums": "101 – 118",
+     "street": "W Eagle Dr"
+    }
+   ]
+  },
+  {
+   "no": "4",
+   "short": "1 Troon Dr",
+   "full": "1 Troon Dr, Lakeway, TX 78738",
+   "lat": 30.3548523,
+   "lng": -97.9883431,
+   "segments": [
+    {
+     "nums": "1 – 48",
+     "street": "Troon Dr"
+    },
+    {
+     "nums": "1 – 7",
+     "street": "Muirfield Greens Cv"
+    },
+    {
+     "nums": "1 – 43",
+     "street": "Muirfield Greens Ln"
+    }
+   ]
+  },
+  {
+   "no": "5",
+   "short": "109 Double Eagle Dr",
+   "full": "109 Double Eagle Dr, Austin, TX 78738",
+   "lat": 30.3547301,
+   "lng": -97.9869962,
+   "segments": [
+    {
+     "nums": "101 – 152",
+     "street": "Double Eagle Dr"
+    }
+   ]
+  }
+ ]
+}

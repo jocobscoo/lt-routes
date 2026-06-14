@@ -1,0 +1,451 @@
+{
+ "4": [
+  {
+   "loc": "Monte Castillo",
+   "code": "9090",
+   "note": ""
+  },
+  {
+   "loc": "Villa Montana",
+   "code": "1283#",
+   "note": ""
+  },
+  {
+   "loc": "Door",
+   "code": "7777#",
+   "note": ""
+  },
+  {
+   "loc": "Off Alarm",
+   "code": "",
+   "note": ""
+  },
+  {
+   "loc": "1705 N Quinlan",
+   "code": "Push Key Button",
+   "note": "Spa Resort 1942"
+  },
+  {
+   "loc": "Mailroom",
+   "code": "4847",
+   "note": ""
+  }
+ ],
+ "7": [
+  {
+   "loc": "Scenic Overlook",
+   "code": "1128",
+   "note": ""
+  },
+  {
+   "loc": "16100 Webb",
+   "code": "",
+   "note": ""
+  },
+  {
+   "loc": "8901 Laguna",
+   "code": "",
+   "note": ""
+  }
+ ],
+ "15": [
+  {
+   "loc": "Harbor Hill",
+   "code": "6158",
+   "note": ""
+  }
+ ],
+ "21": [
+  {
+   "loc": "Atwater",
+   "code": "5445",
+   "note": ""
+  },
+  {
+   "loc": "611 Cuernavaca",
+   "code": "4158*",
+   "note": ""
+  },
+  {
+   "loc": "Rider Trail",
+   "code": "0420*",
+   "note": ""
+  }
+ ],
+ "29": [
+  {
+   "loc": "Vista",
+   "code": "4166",
+   "note": ""
+  },
+  {
+   "loc": "5101 Beacon Dr",
+   "code": "669012",
+   "note": ""
+  }
+ ],
+ "31": [
+  {
+   "loc": "13201 Country Trails",
+   "code": "#3033",
+   "note": ""
+  },
+  {
+   "loc": "12404 Beverly Villas",
+   "code": "6470#",
+   "note": ""
+  }
+ ],
+ "34": [
+  {
+   "loc": "Lake Como",
+   "code": "1961",
+   "note": ""
+  }
+ ],
+ "35": [
+  {
+   "loc": "Lakeway Blvd",
+   "code": "#9135",
+   "note": ""
+  },
+  {
+   "loc": "Martinique Pass",
+   "code": "8585",
+   "note": ""
+  },
+  {
+   "loc": "Marina Way",
+   "code": "6771",
+   "note": ""
+  },
+  {
+   "loc": "Waterfront",
+   "code": "7602",
+   "note": ""
+  }
+ ],
+ "36": [
+  {
+   "loc": "Vineyard",
+   "code": "8919",
+   "note": ""
+  },
+  {
+   "loc": "Kollmeyer",
+   "code": "1696",
+   "note": ""
+  },
+  {
+   "loc": "4300 Mansfield",
+   "code": "Arrow Key",
+   "note": ""
+  }
+ ],
+ "50": [
+  {
+   "loc": "Palomino",
+   "code": "3050",
+   "note": ""
+  }
+ ],
+ "88": [
+  {
+   "loc": "Lone Rider",
+   "code": "3232",
+   "note": ""
+  },
+  {
+   "loc": "Foxfield",
+   "code": "1260",
+   "note": ""
+  }
+ ],
+ "91": [
+  {
+   "loc": "Mansfield Dam",
+   "code": "8888#",
+   "note": ""
+  },
+  {
+   "loc": "Lago Viento",
+   "code": "#608111",
+   "note": ""
+  },
+  {
+   "loc": "2918 RR 620",
+   "code": "Arrow Key",
+   "note": ""
+  }
+ ],
+ "107": [
+  {
+   "loc": "Vista Verde",
+   "code": "1999#",
+   "note": ""
+  },
+  {
+   "loc": "Aura High — Gate",
+   "code": "423182",
+   "note": ""
+  },
+  {
+   "loc": "Aura High — Package Room",
+   "code": "963258",
+   "note": ""
+  },
+  {
+   "loc": "Mansfield View",
+   "code": "0116# or 1325",
+   "note": ""
+  }
+ ],
+ "108": [
+  {
+   "loc": "Prestonwood Circle",
+   "code": "8484",
+   "note": ""
+  }
+ ],
+ "114": [
+  {
+   "loc": "Resaca",
+   "code": "6890",
+   "note": ""
+  },
+  {
+   "loc": "Upland Hills",
+   "code": "8880",
+   "note": ""
+  }
+ ],
+ "122": [
+  {
+   "loc": "Horseback Hollow",
+   "code": "6672",
+   "note": ""
+  },
+  {
+   "loc": "Lakewood Hills",
+   "code": "8777",
+   "note": ""
+  }
+ ],
+ "123": [
+  {
+   "loc": "Piperglen",
+   "code": "7798",
+   "note": ""
+  }
+ ],
+ "139": [
+  {
+   "loc": "Eagle Glen",
+   "code": "8787",
+   "note": ""
+  }
+ ],
+ "141": [
+  {
+   "loc": "Aria",
+   "code": "6100",
+   "note": ""
+  }
+ ],
+ "152": [
+  {
+   "loc": "13815 Pecan Dr",
+   "code": "8777",
+   "note": "Gate code"
+  }
+ ],
+ "153": [
+  {
+   "loc": "Flameleaf",
+   "code": "7926",
+   "note": ""
+  }
+ ],
+ "155": [
+  {
+   "loc": "13217 Zen Gardens",
+   "code": "8777",
+   "note": ""
+  },
+  {
+   "loc": "701 Zen Gardens",
+   "code": "5321",
+   "note": ""
+  },
+  {
+   "loc": "Casalano",
+   "code": "5910",
+   "note": ""
+  }
+ ],
+ "161": [
+  {
+   "loc": "1000 Patterson",
+   "code": "6527",
+   "note": ""
+  }
+ ],
+ "183": [
+  {
+   "loc": "Overlook Pass",
+   "code": "1624",
+   "note": ""
+  }
+ ],
+ "189": [
+  {
+   "loc": "8501 Rollins Dr",
+   "code": "021062",
+   "note": "Enter code"
+  }
+ ],
+ "191": [
+  {
+   "loc": "Ameno",
+   "code": "9665",
+   "note": ""
+  },
+  {
+   "loc": "Bella Strada",
+   "code": "6106",
+   "note": "Mailbox 524"
+  },
+  {
+   "loc": "Camino Arbolargo",
+   "code": "9411",
+   "note": ""
+  },
+  {
+   "loc": "Bella Montagna",
+   "code": "4201",
+   "note": ""
+  }
+ ],
+ "192": [
+  {
+   "loc": "4500 Steiner Ranch Lockers",
+   "code": "7593",
+   "note": ""
+  },
+  {
+   "loc": "400 Dawn River",
+   "code": "8777",
+   "note": ""
+  }
+ ],
+ "193": [
+  {
+   "loc": "3400 RR 620 — Door",
+   "code": "4890",
+   "note": ""
+  },
+  {
+   "loc": "3400 RR 620 — Amazon Hub",
+   "code": "069813",
+   "note": ""
+  },
+  {
+   "loc": "5511 Caprock Summit",
+   "code": "2854 or 5123",
+   "note": ""
+  },
+  {
+   "loc": "Madrone Tree",
+   "code": "3453 or 8738",
+   "note": ""
+  }
+ ],
+ "209": [
+  {
+   "loc": "Grumbles (via Las Flores)",
+   "code": "2102 / 4202",
+   "note": ""
+  },
+  {
+   "loc": "3501 RR 620 — Door",
+   "code": "1104#",
+   "note": ""
+  },
+  {
+   "loc": "3501 RR 620 — Screen",
+   "code": "2270",
+   "note": ""
+  }
+ ],
+ "211": [
+  {
+   "loc": "14000 Flat Top Ranch",
+   "code": "1515 / 8777",
+   "note": ""
+  }
+ ],
+ "219": [
+  {
+   "loc": "Davenport Divide",
+   "code": "1212",
+   "note": ""
+  }
+ ],
+ "228": [
+  {
+   "loc": "3544 RR 620",
+   "code": "2295",
+   "note": ""
+  },
+  {
+   "loc": "Woodside Terrace",
+   "code": "0591",
+   "note": ""
+  }
+ ],
+ "237": [
+  {
+   "loc": "2208 RR 620 — Parcel Locker",
+   "code": "556492",
+   "note": ""
+  }
+ ],
+ "238": [
+  {
+   "loc": "Cades Spirit",
+   "code": "7861",
+   "note": ""
+  }
+ ],
+ "244": [
+  {
+   "loc": "Madrone Ranch",
+   "code": "8020",
+   "note": ""
+  },
+  {
+   "loc": "8001 Spire",
+   "code": "",
+   "note": ""
+  }
+ ],
+ "270": [
+  {
+   "loc": "Pearl Bee Cave",
+   "code": "5981#",
+   "note": "Parcel room · Stop 9"
+  },
+  {
+   "loc": "Code (handwritten)",
+   "code": "6811",
+   "note": ""
+  }
+ ],
+ "271": [
+  {
+   "loc": "Double Eagle",
+   "code": "9875",
+   "note": ""
+  }
+ ]
+}
