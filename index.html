@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LT Routes">
+<meta name="theme-color" content="#1d3557">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<title>Lake Travis — Route Sheets</title>
+<style>
+  :root{--navy:#1d3557;--blue:#2a4d7a;--light:#eef2f7;--grid:#c9d2de;--accent:#c1272d;
+    --gold:#fff4d6;--goldb:#e0a500;--apple:#0a84ff;--green:#34c759;--red:#d9342b;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:#f1f4f8;color:#1a1a1a;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-text-size-adjust:100%;}
+  .wrap{max-width:860px;margin:0 auto;padding:16px 14px 48px;}
+  header h1{font-size:24px;letter-spacing:.4px;color:var(--navy);margin:0;font-weight:800;}
+  header p{margin:2px 0 8px;color:#5a6470;font-size:13px;}
+
+  .topbar{position:sticky;top:0;z-index:30;background:#f1f4f8;display:flex;gap:8px;align-items:center;
+    padding:8px 0;margin:0 -14px;padding-left:14px;padding-right:14px;
+    box-shadow:0 4px 10px -8px rgba(20,40,70,.4);}
+  .rbtn{flex:1;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    border:1.5px solid var(--grid);background:#fff;color:var(--navy);border-radius:10px;
+    padding:11px 14px;font-size:15px;font-weight:800;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .rbtn .caret{color:#8a93a0;font-size:12px;}
+  .kbtn{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;border:none;border-radius:10px;
+    background:var(--navy);color:#fff;padding:11px 14px;font-size:14px;font-weight:800;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;}
+  .kbtn:active,.rbtn:active{transform:scale(.98);}
+
+  .backdrop{position:fixed;inset:0;background:rgba(15,25,40,.45);z-index:40;opacity:0;
+    pointer-events:none;transition:opacity .2s ease;}
+  .backdrop.show{opacity:1;pointer-events:auto;}
+
+  /* route menu */
+  .rmenu{position:fixed;z-index:45;top:64px;left:50%;transform:translateX(-50%) translateY(-8px);
+    width:min(560px,92vw);background:#fff;border:1px solid var(--grid);border-radius:14px;
+    box-shadow:0 16px 40px rgba(20,40,70,.28);padding:10px;opacity:0;pointer-events:none;
+    transition:opacity .18s ease,transform .18s ease;max-height:74vh;display:flex;flex-direction:column;}
+  .rmenu.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+  #rsearch{width:100%;border:1.5px solid var(--grid);border-radius:9px;padding:11px 12px;font-size:15px;margin-bottom:8px;}
+  .rlist{overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .ritem{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 12px;
+    border-radius:9px;cursor:pointer;font-size:15px;color:var(--navy);font-weight:600;}
+  .ritem:active{background:var(--light);}
+  .ritem.sel{background:var(--navy);color:#fff;}
+  .ritem .sub{font-size:11px;color:#8a93a0;font-weight:600;}
+  .ritem.sel .sub{color:#cdd6e4;}
+  .ritem.add{border-top:1px dashed var(--grid);margin-top:6px;color:var(--blue);font-weight:800;}
+
+  .route-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 2px 10px;flex-wrap:wrap;}
+  .route-sub{color:#5a6470;font-size:13px;font-weight:600;}
+  .route-sub .pill{font-size:11px;background:#e7edf5;color:var(--blue);padding:2px 7px;border-radius:6px;margin-left:6px;font-weight:700;}
+  .toolbar{display:flex;gap:6px;flex-wrap:wrap;}
+  .tbtn{border:1px solid var(--grid);background:#fff;color:var(--navy);border-radius:8px;padding:6px 11px;
+    font-size:12.5px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .tbtn:active{transform:scale(.96);} .tbtn.danger{color:var(--red);border-color:#f0c4c0;}
+
+  .station{background:var(--blue);color:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;
+    gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+  .station .lbl0{font-weight:700;font-size:11px;letter-spacing:.5px;background:rgba(255,255,255,.16);padding:4px 8px;border-radius:6px;}
+  .station .addr{flex:1;min-width:150px;font-weight:600;font-size:13.5px;}
+
+  .stop{background:#fff;border:1px solid var(--grid);border-radius:12px;overflow:hidden;margin-bottom:15px;box-shadow:0 1px 3px rgba(20,40,70,.06);}
+  .stop-bar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:10px;padding:11px 12px;flex-wrap:wrap;}
+  .stop-no{background:var(--blue);font-weight:800;padding:5px 11px;border-radius:7px;font-size:14px;}
+  .stop-addr{font-weight:700;font-size:15.5px;flex:1;min-width:130px;}
+
+  .actions{display:flex;gap:8px;}
+  .btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:9px;padding:9px 13px;font-size:13px;
+    font-weight:700;cursor:pointer;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .08s ease,background .15s ease;}
+  .btn:active{transform:scale(.95);}
+  .btn.maps{background:var(--apple);color:#fff;} .btn.copy{background:#e7edf5;color:var(--navy);}
+  .btn.copy.copied{background:var(--green);color:#fff;} .btn svg{flex:0 0 auto;}
+
+  .dps-cap{font-size:10.5px;letter-spacing:.6px;color:#8a93a0;font-weight:700;padding:7px 12px 2px;text-transform:uppercase;}
+  .slist{padding:2px 12px 8px;}
+  .sitem{padding:5px 0;font-size:14px;border-top:1px solid #eef1f6;line-height:1.45;}
+  .sitem:first-of-type{border-top:none;}
+  .sitem .nums{color:#222;}
+  .sitem .street{font-weight:600;color:var(--navy);}
+  .sitem .street.dup{color:var(--red);font-weight:800;}
+  .sitem.muted{color:#9aa3ad;font-style:italic;font-size:13px;}
+
+  .stop-note{background:var(--gold);border-top:1px solid var(--goldb);padding:9px 12px;font-size:13px;line-height:1.45;}
+  .stop-note b{color:var(--navy);}
+
+  /* per-route gate card */
+  .gatecard{background:#fff;border:1px solid var(--grid);border-left:4px solid var(--goldb);border-radius:12px;
+    margin-top:16px;overflow:hidden;}
+  .gc-head{background:#fbf5e3;color:#7a5d00;font-weight:800;font-size:13.5px;padding:10px 13px;border-bottom:1px solid #efe2bf;}
+  .g-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 13px;border-top:1px solid #f0f2f6;}
+  .g-row:first-of-type{border-top:none;}
+  .g-loc{font-size:13.5px;color:var(--navy);font-weight:600;}
+  .g-loc .g-note{display:block;font-size:11px;color:#8a93a0;font-weight:500;margin-top:1px;}
+  .g-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;font-size:14px;color:#111;white-space:nowrap;}
+
+  .note{background:var(--gold);border:1px solid var(--goldb);border-radius:12px;padding:13px 15px;margin-top:16px;font-size:13.5px;line-height:1.5;}
+  .note b{color:var(--navy);}
+  .legend{font-size:12px;color:#5a6470;margin:12px 2px 0;}
+  .legend .sw{color:var(--red);font-weight:800;}
+
+  /* gate panel (slide-over) */
+  #gatePanel{position:fixed;top:0;right:0;height:100%;width:min(440px,92vw);background:#f6f8fb;z-index:46;
+    transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(20,40,70,.25);}
+  #gatePanel.show{transform:translateX(0);}
+  .gp-head{background:var(--navy);color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;}
+  .gp-head h3{margin:0;font-size:17px;font-weight:800;}
+  .gp-x{background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:8px;font-size:18px;cursor:pointer;}
+  .gp-search{padding:10px 14px;background:#fff;border-bottom:1px solid var(--grid);}
+  .gp-search input{width:100%;border:1.5px solid var(--grid);border-radius:9px;padding:10px 12px;font-size:15px;}
+  .gp-list{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:6px 12px 24px;}
+  .g-rt{position:sticky;top:0;background:#f6f8fb;color:var(--blue);font-weight:800;font-size:12px;letter-spacing:.5px;
+    padding:10px 2px 4px;border-bottom:1px solid var(--grid);margin-top:6px;}
+  .g-empty{color:#8a93a0;text-align:center;padding:24px;font-style:italic;}
+
+  #editor{background:#fff;border:1px solid var(--grid);border-radius:12px;padding:14px;margin-bottom:16px;}
+  .ed-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:10px;}
+  .ed-head h2{margin:0;font-size:18px;color:var(--navy);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .ed-head .btn{flex:0 0 auto;}
+  .ed-help{font-size:13px;color:#5a6470;line-height:1.5;margin:4px 0 10px;}
+  .ed-help code{background:#eef2f7;padding:1px 5px;border-radius:4px;font-size:12px;}
+  #ed-json{width:100%;min-height:230px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.45;
+    border:1px solid var(--grid);border-radius:8px;padding:10px;resize:vertical;}
+  .ed-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+  .btn.primary{background:var(--navy);color:#fff;} .btn.ghost{background:#eef2f7;color:var(--navy);}
+
+  footer{margin-top:18px;color:#7a828c;font-size:12px;font-style:italic;text-align:center;line-height:1.5;}
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;
+    padding:11px 18px;border-radius:999px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all .25s ease;z-index:60;box-shadow:0 6px 20px rgba(20,40,70,.3);}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  @media (max-width:430px){
+    .stop-addr{flex-basis:100%;order:2;} .actions{order:3;width:100%;} .btn{flex:1;justify-content:center;}
+  }
+
+  #loader{position:fixed;inset:0;background:#f1f4f8;z-index:80;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:14px;color:#5a6470;font-size:14px;}
+  #loader.hide{display:none;}
+  .spin{width:34px;height:34px;border:3px solid #c9d2de;border-top-color:#1d3557;border-radius:50%;
+    animation:sp 0.8s linear infinite;}
+  @keyframes sp{to{transform:rotate(360deg);}}
+  #errbox{display:none;background:#fdeceb;border:1px solid #f0c4c0;color:#9b2620;border-radius:12px;
+    padding:14px;margin:14px 0;font-size:13.5px;line-height:1.5;}
+</style>
+</head>
+<body>
+<div id="loader"><div class="spin"></div><div>Loading routes…</div></div>
+<div class="wrap">
+  <header>
+    <h1>Lake Travis Route Sheets</h1>
+    <p>USPS AUS — Lake Travis Station · Works offline</p>
+  </header>
+
+  <div class="topbar">
+    <button class="rbtn" id="routeBtn"><span id="routeBtnLbl">Route</span><span class="caret">▼</span></button>
+    <button class="kbtn" id="codesBtn">🔑 Codes</button>
+  </div>
+
+  <div id="errbox"></div>
+
+  <div id="view">
+    <div class="route-head"><div class="route-sub" id="rsub"></div></div>
+    <div class="station" id="station"></div>
+    <main id="route"></main>
+    <div class="legend"><span class="sw">Bold red</span> = same street delivered across more than one stop.</div>
+  </div>
+
+  <footer>
+    Addresses verified • Maps buttons open in Apple Maps • Copy puts the address on your clipboard<br>
+    Routes load from the <b>data/</b> folder · works offline after first load.
+  </footer>
+</div>
+
+<div class="backdrop" id="backdrop"></div>
+<div class="rmenu" id="rmenu">
+  <input id="rsearch" placeholder="Search route number or name…" autocomplete="off">
+  <div class="rlist" id="rlist"></div>
+</div>
+
+<aside id="gatePanel">
+  <div class="gp-head"><h3>🔑 Gate / Locker Codes</h3><button class="gp-x" id="gateX">×</button></div>
+  <div class="gp-search"><input id="gsearch" placeholder="Search route or location…" autocomplete="off"></div>
+  <div class="gp-list" id="gateList"></div>
+</aside>
+
+<div id="toast"></div>
+
+<script>
+const STATION = {"name": "USPS Lake Travis", "addr": "2110 Ranch Rd 620 S, Lakeway, TX 78734", "lat": 30.3431868, "lng": -97.9686593};
+const DB = { station: STATION, routes: [], gates: {} };
+const LS_LAST='lt_last_repo';
+let CURRENT=null;
+
+const MAP_SVG='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+const COPY_SVG='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+
+function esc(s){return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function norm(s){return (s||'').replace(/<[^>]+>/g,'').trim().toLowerCase();}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
+
+function dupStreets(route){
+  const m={};
+  (route.stops||[]).forEach((s,si)=>{ if(s.kind==='business')return;
+    (s.segments||[]).forEach(seg=>{ if(seg.muted||!seg.street)return; const k=norm(seg.street);
+      (m[k]=m[k]||new Set()).add(si); });});
+  const d=new Set(); Object.keys(m).forEach(k=>{if(m[k].size>=2)d.add(k);}); return d;
+}
+function mapsUrl(label,full,lat,lng){
+  if(lat!=null&&lng!=null) return 'https://maps.apple.com/?ll='+lat+','+lng+'&q='+encodeURIComponent(label);
+  return 'https://maps.apple.com/?q='+encodeURIComponent(full||label);
+}
+function buttons(pin,full,lat,lng){
+  return '<div class="actions">'+
+    '<a class="btn maps" href="'+esc(mapsUrl(pin,full,lat,lng))+'">'+MAP_SVG+'<span>Maps</span></a>'+
+    '<button class="btn copy" type="button" data-addr="'+esc(full||pin)+'">'+COPY_SVG+'<span class="lbl">Copy</span></button></div>';
+}
+function stopBlock(s,route,dup){
+  const isBiz=s.kind==='business'; const segs=s.segments||[]; let body='';
+  if(segs.length){
+    if(!isBiz) body+='<div class="dps-cap">Delivery order (DPS)</div>';
+    body+='<div class="slist">';
+    segs.forEach(seg=>{
+      if(seg.muted){body+='<div class="sitem muted">'+esc(seg.street)+'</div>';return;}
+      const isDup=!isBiz && dup.has(norm(seg.street));
+      const nums=seg.nums?('<span class="nums">'+esc(seg.nums)+'</span> '):'';
+      body+='<div class="sitem">'+nums+'<span class="street'+(isDup?' dup':'')+'">'+esc(seg.street)+'</span></div>';
+    });
+    body+='</div>';
+  }
+  const pin='R'+route.id+' Stop '+s.no+' - '+s.short;
+  const note=s.note?'<div class="stop-note">'+s.note+'</div>':'';
+  return '<section class="stop"><div class="stop-bar">'+
+    '<span class="stop-no">STOP '+esc(s.no)+'</span><span class="stop-addr">'+esc(s.short)+'</span>'+
+    buttons(pin,s.full,s.lat,s.lng)+'</div>'+body+note+'</section>';
+}
+function gateRowsHtml(list){
+  let h=''; list.forEach(e=>{ h+='<div class="g-row"><div class="g-loc">'+esc(e.loc)+
+    (e.note?'<span class="g-note">'+esc(e.note)+'</span>':'')+'</div><div class="g-code">'+(e.code?esc(e.code):'—')+'</div></div>'; });
+  return h;
+}
+function gateCard(id){ const list=DB.gates[id]; if(!list||!list.length) return '';
+  return '<div class="gatecard"><div class="gc-head">🔑 Gate / Locker Codes</div>'+gateRowsHtml(list)+'</div>'; }
+function quickref(qr){
+  let cards=''; qr.forEach(g=>{let items='';(g[1]||[]).forEach(it=>{items+='<li><span>'+esc(it[0])+'</span><b>'+esc(it[1])+'</b></li>';});
+    cards+='<div class="qr-stop"><h4>'+esc(g[0])+'</h4><ul>'+items+'</ul></div>';});
+  return '<h2 class="sec">Quick Street Reference</h2><div class="qr">'+cards+'</div>'; }
+function renderStation(){const st=DB.station;
+  document.getElementById('station').innerHTML='<span class="lbl0">STATION</span>'+
+    '<span class="addr">'+esc(st.name)+' • '+esc(st.addr)+'</span>'+buttons(st.name,st.addr,st.lat,st.lng);}
+function renderRoute(route){
+  const dup=dupStreets(route);
+  document.getElementById('rsub').textContent=(route.name||route.id)+' — '+(route.subtitle||'');
+  let h=''; (route.stops||[]).forEach(s=>h+=stopBlock(s,route,dup));
+  if(route.quickref)h+=quickref(route.quickref);
+  if(route.notes)route.notes.forEach(n=>h+='<div class="note">'+n.html+'</div>');
+  h+=gateCard(route.id);
+  document.getElementById('route').innerHTML=h;
+}
+function setRouteBtn(route){document.getElementById('routeBtnLbl').textContent=(route.name||route.id).replace('Route ','R');}
+function selectRoute(id){
+  const route=DB.routes.find(r=>r.id===id)||DB.routes[0]; if(!route)return;
+  CURRENT=route.id; setRouteBtn(route); renderRoute(route);
+  try{localStorage.setItem(LS_LAST,route.id);}catch(e){}
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function buildRouteList(filter){
+  filter=(filter||'').trim().toLowerCase();
+  const rl=document.getElementById('rlist'); let h='';
+  DB.routes.forEach(r=>{
+    const name=(r.name||r.id), lbl=name.replace('Route ','R');
+    if(filter && !(r.id.toLowerCase().includes(filter)||name.toLowerCase().includes(filter))) return;
+    h+='<div class="ritem'+(r.id===CURRENT?' sel':'')+'" data-id="'+esc(r.id)+'"><span>'+esc(lbl)+'</span></div>';
+  });
+  if(!h) h='<div class="ritem" style="color:#8a93a0">No match</div>';
+  rl.innerHTML=h;
+  rl.querySelectorAll('.ritem[data-id]').forEach(it=>it.onclick=()=>{closeMenu();selectRoute(it.dataset.id);});
+}
+function openMenu(){document.getElementById('rmenu').classList.add('show');document.getElementById('backdrop').classList.add('show');
+  const s=document.getElementById('rsearch'); s.value='';buildRouteList('');setTimeout(()=>s.focus(),50);}
+function closeMenu(){document.getElementById('rmenu').classList.remove('show');document.getElementById('backdrop').classList.remove('show');}
+document.getElementById('routeBtn').onclick=openMenu;
+document.getElementById('rsearch').oninput=function(){buildRouteList(this.value);};
+
+function buildGate(filter){
+  filter=(filter||'').trim().toLowerCase();
+  const keys=Object.keys(DB.gates).sort((a,b)=>(+a)-(+b)); let h='';
+  keys.forEach(rt=>{ const es=DB.gates[rt].filter(e=> !filter || rt.includes(filter) ||
+      (e.loc||'').toLowerCase().includes(filter) || (e.code||'').toLowerCase().includes(filter));
+    if(!es.length) return; h+='<div class="g-rt">RT '+esc(rt)+'</div>'+gateRowsHtml(es); });
+  document.getElementById('gateList').innerHTML=h||'<div class="g-empty">No match</div>';
+}
+function openGate(){document.getElementById('gatePanel').classList.add('show');document.getElementById('backdrop').classList.add('show');
+  const s=document.getElementById('gsearch'); s.value='';buildGate('');}
+function closeGate(){document.getElementById('gatePanel').classList.remove('show');document.getElementById('backdrop').classList.remove('show');}
+document.getElementById('codesBtn').onclick=openGate;
+document.getElementById('gateX').onclick=closeGate;
+document.getElementById('gsearch').oninput=function(){buildGate(this.value);};
+document.getElementById('backdrop').onclick=function(){closeMenu();closeGate();};
+
+document.addEventListener('click',function(e){
+  const btn=e.target.closest('.btn.copy'); if(!btn)return;
+  const text=btn.getAttribute('data-addr'); const lbl=btn.querySelector('.lbl');
+  const show=ok=>{btn.classList.add('copied');lbl.textContent=ok?'Copied ✓':'Select & copy';
+    setTimeout(()=>{btn.classList.remove('copied');lbl.textContent='Copy';},1600);};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(()=>show(true)).catch(()=>fbCopy(text,show));
+  else fbCopy(text,show);
+});
+function fbCopy(text,done){
+  const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');
+  ta.style.position='fixed';ta.style.top='-1000px';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);
+  try{document.execCommand('copy');done(true);}catch(e){done(false);}document.body.removeChild(ta);
+}
+
+async function loadData(){
+  const man = await fetch('data/manifest.json').then(r=>{if(!r.ok)throw 0;return r.json();});
+  const routes = await Promise.all(man.map(f=> fetch('data/routes/'+f).then(r=>r.ok?r.json():null).catch(()=>null)));
+  DB.routes = routes.filter(Boolean);
+  try{ DB.gates = await fetch('data/gates.json').then(r=>r.json()); }catch(e){ DB.gates={}; }
+  try{ const st = await fetch('data/station.json').then(r=>r.json()); if(st) DB.station=st; }catch(e){}
+}
+async function init(){
+  try{
+    await loadData();
+    if(!DB.routes.length) throw new Error('No routes found');
+    renderStation();
+    let start=DB.routes[0].id; try{const last=localStorage.getItem(LS_LAST); if(last&&DB.routes.find(r=>r.id===last))start=last;}catch(e){}
+    selectRoute(start);
+    document.getElementById('loader').classList.add('hide');
+  }catch(err){
+    document.getElementById('loader').classList.add('hide');
+    const eb=document.getElementById('errbox'); eb.style.display='block';
+    eb.innerHTML='Could not load route data.<br>If this is the first time, open it <b>once with internet</b> so it can cache for offline use. (Local file:// won\'t work — it must be hosted.)';
+  }
+}
+
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}
+init();
+</script>
+</body>
+</html>
