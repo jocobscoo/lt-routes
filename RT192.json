@@ -1,0 +1,273 @@
+{
+ "id": "192",
+ "name": "Route 192",
+ "subtitle": "Route Sheet · Steiner Ranch",
+ "stops": [
+  {
+   "no": "1",
+   "short": "13221 Bright Sky Overlook",
+   "full": "13221 Bright Sky Overlook, Austin, TX 78732",
+   "lat": 30.3620747,
+   "lng": -97.9099445,
+   "segments": [
+    {
+     "nums": "13100 – 13341",
+     "street": "Bright Sky Overlook"
+    }
+   ],
+   "note": "CBU 9110 / 9111 / 9115. ⚠ Lower block 13100–13121 had no printed name on the case — matched to Bright Sky Overlook via public records (unconfirmed)."
+  },
+  {
+   "no": "2",
+   "short": "12516 Capella Trl",
+   "full": "12516 Capella Trail, Austin, TX 78732",
+   "lat": 30.3604431,
+   "lng": -97.9049173,
+   "segments": [
+    {
+     "nums": "12516 – 12825",
+     "street": "Capella Trl"
+    }
+   ],
+   "note": "CBU 9112 / 9113."
+  },
+  {
+   "no": "3",
+   "short": "1501 Austrina Pass",
+   "full": "1501 Austrina Pass, Austin, TX 78732",
+   "lat": 30.3602638,
+   "lng": -97.9072685,
+   "segments": [
+    {
+     "nums": "1501 – 1516",
+     "street": "Austrina Pass"
+    }
+   ]
+  },
+  {
+   "no": "4",
+   "short": "1501 Cassiopeia Way",
+   "full": "1501 Cassiopeia Way, Austin, TX 78732",
+   "lat": 30.3588838,
+   "lng": -97.9058616,
+   "segments": [
+    {
+     "nums": "1501 – 1513",
+     "street": "Cassiopeia Way"
+    }
+   ],
+   "note": "CBU 9114."
+  },
+  {
+   "no": "5",
+   "short": "12700 Little Dipper Path",
+   "full": "12700 Little Dipper Path, Austin, TX 78732",
+   "lat": 30.3593088,
+   "lng": -97.9060522,
+   "segments": [
+    {
+     "nums": "12700 – 12813",
+     "street": "Little Dipper Path"
+    }
+   ]
+  },
+  {
+   "no": "6",
+   "short": "1500 Sirius Cv",
+   "full": "1500 Sirius Cove, Austin, TX 78732",
+   "lat": 30.3600549,
+   "lng": -97.9068335,
+   "segments": [
+    {
+     "nums": "1500 – 1516",
+     "street": "Sirius Cv"
+    }
+   ]
+  },
+  {
+   "no": "7",
+   "short": "217 Dawn River Cv",
+   "full": "217 Dawn River Cove, Austin, TX 78732",
+   "lat": 30.3492925,
+   "lng": -97.9153867,
+   "segments": [
+    {
+     "nums": "100 – 518",
+     "street": "Dawn River Cv"
+    }
+   ],
+   "note": "CBU 9033 / 9034 / 9035 · gate #8777."
+  },
+  {
+   "no": "B1",
+   "short": "4800 Steiner Ranch Blvd",
+   "full": "4800 Steiner Ranch Blvd, Austin, TX 78732",
+   "kind": "business",
+   "segments": [
+    {
+     "nums": "4206 – 6003",
+     "street": "Units"
+    },
+    {
+     "nums": "6102 – 7203",
+     "street": "Units"
+    },
+    {
+     "nums": "7204 – 8003",
+     "street": "Units"
+    },
+    {
+     "nums": "8005 – 9201",
+     "street": "Units"
+    },
+    {
+     "nums": "9202 – 11107",
+     "street": "Units"
+    },
+    {
+     "nums": "11108 – 12106",
+     "street": "Units"
+    },
+    {
+     "nums": "12201 – 13203",
+     "street": "Units"
+    },
+    {
+     "nums": "13204 – 13307",
+     "street": "Units"
+    },
+    {
+     "nums": "14002 – 14203",
+     "street": "Units"
+    },
+    {
+     "nums": "14003",
+     "street": "Units"
+    },
+    {
+     "nums": "14204 – 15301",
+     "street": "Units"
+    },
+    {
+     "nums": "15303 – 17305",
+     "street": "Units"
+    },
+    {
+     "nums": "17306 – 21201",
+     "street": "Units"
+    },
+    {
+     "nums": "21202 – 22203",
+     "street": "Units"
+    },
+    {
+     "nums": "22204 – 22308",
+     "street": "Units"
+    }
+   ],
+   "lat": 30.3833328,
+   "lng": -97.8742009,
+   "note": "🏢 Apartments — DPS starts apt #1102 · mail room on left · gate 2701. ⚠ Unit ranges photo-read (first cell ~approx); verify."
+  },
+  {
+   "no": "B2",
+   "short": "4500 Steiner Ranch Blvd",
+   "full": "4500 Steiner Ranch Blvd, Austin, TX 78732",
+   "kind": "business",
+   "segments": [
+    {
+     "nums": "201 – 402",
+     "street": "Units"
+    },
+    {
+     "nums": "403 – 508",
+     "street": "Units"
+    },
+    {
+     "nums": "509 – 808",
+     "street": "Units"
+    },
+    {
+     "nums": "809 – 1108",
+     "street": "Units"
+    },
+    {
+     "nums": "1109 – 1208",
+     "street": "Units"
+    },
+    {
+     "nums": "1209 – 1404",
+     "street": "Units"
+    },
+    {
+     "nums": "1405 – 1512",
+     "street": "Units"
+    },
+    {
+     "nums": "1513 – 1610",
+     "street": "Units"
+    },
+    {
+     "nums": "1611 – 1808",
+     "street": "Units"
+    },
+    {
+     "nums": "1809 – 1916",
+     "street": "Units"
+    },
+    {
+     "nums": "1917 – 2104",
+     "street": "Units"
+    },
+    {
+     "nums": "2105 – 2310",
+     "street": "Units"
+    }
+   ],
+   "lat": 30.3806936,
+   "lng": -97.8776982,
+   "note": "🏢 Apartments — DPS starts apt #201 · locker 7593. ⚠ Shelf 5 (units 2311+) not captured — incomplete."
+  },
+  {
+   "no": "B3",
+   "short": "4715 Steiner Ranch Blvd",
+   "full": "4715 Steiner Ranch Blvd, Austin, TX 78732",
+   "kind": "business",
+   "segments": [],
+   "lat": 30.3818739,
+   "lng": -97.8733929,
+   "note": "🏢 Warehouse — curbside delivery."
+  },
+  {
+   "no": "B4",
+   "short": "5925 Steiner Ranch Blvd",
+   "full": "5925 Steiner Ranch Blvd, Austin, TX 78732",
+   "kind": "business",
+   "segments": [],
+   "lat": 30.3941284,
+   "lng": -97.8663675,
+   "note": "🏢 SouthStar Bank — curbside delivery."
+  },
+  {
+   "no": "B5",
+   "short": "5810 Steiner Ranch Blvd",
+   "full": "5810 Steiner Ranch Blvd, Austin, TX 78732",
+   "kind": "business",
+   "segments": [],
+   "lat": 30.39396,
+   "lng": -97.86748,
+   "note": "🏢 Starbucks — curbside delivery."
+  },
+  {
+   "no": "B6",
+   "short": "5424 Steiner Ranch Blvd",
+   "full": "5424 Steiner Ranch Blvd, Austin, TX 78732",
+   "kind": "business",
+   "segments": [],
+   "lat": 30.3901274,
+   "lng": -97.8715847,
+   "note": "🏢 Steiner Ranch Steakhouse — curbside · gate opens 9:45 AM."
+  }
+ ],
+ "notes": []
+}
