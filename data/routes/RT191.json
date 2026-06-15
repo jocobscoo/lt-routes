@@ -1,0 +1,289 @@
+{
+ "id": "191",
+ "name": "Route 191",
+ "subtitle": "Route Sheet · Bella Colinas",
+ "stops": [
+  {
+   "no": "1",
+   "short": "102 Bella Toscana Ave",
+   "full": "102 Bella Toscana Ave, Lakeway, TX 78734",
+   "kind": "business",
+   "segments": [
+    {
+     "nums": "1109 – 1111",
+     "street": "Units"
+    },
+    {
+     "nums": "1201 – 1211",
+     "street": "Units"
+    },
+    {
+     "nums": "1301 – 1311",
+     "street": "Units"
+    }
+   ],
+   "lat": 30.3444845,
+   "lng": -97.9758665,
+   "note": "🏢 Condo · Bella Toscana Ave · CBU 9121."
+  },
+  {
+   "no": "2",
+   "short": "104 Bella Toscana Ave",
+   "full": "104 Bella Toscana Ave, Lakeway, TX 78734",
+   "kind": "business",
+   "segments": [
+    {
+     "nums": "2101 – 2111",
+     "street": "Units"
+    },
+    {
+     "nums": "2201 – 2208",
+     "street": "Units"
+    }
+   ],
+   "lat": 30.34486,
+   "lng": -97.9766928,
+   "note": "🏢 Condo · Bella Toscana Ave. ⚠ 2201–2208 partly cut off — verify."
+  },
+  {
+   "no": "3",
+   "short": "106 Bella Toscana Ave",
+   "full": "106 Bella Toscana Ave, Lakeway, TX 78734",
+   "kind": "business",
+   "segments": [
+    {
+     "nums": "3108 – 3111",
+     "street": "Units"
+    },
+    {
+     "nums": "3201 – 3211",
+     "street": "Units"
+    },
+    {
+     "nums": "3301 – 3311",
+     "street": "Units"
+    }
+   ],
+   "lat": 30.343926,
+   "lng": -97.9766386,
+   "note": "🏢 Condo · Bella Toscana Ave."
+  },
+  {
+   "no": "4",
+   "short": "102 Belforte Ave",
+   "full": "102 Belforte Ave, Austin, TX 78734",
+   "lat": 30.3437109,
+   "lng": -97.9772493,
+   "segments": [
+    {
+     "nums": "204 – 228",
+     "street": "Delfino Cir"
+    },
+    {
+     "nums": "102 – 420",
+     "street": "Belforte Ave"
+    },
+    {
+     "nums": "101 – 111",
+     "street": "Rivalto Cir"
+    },
+    {
+     "nums": "105 – 110",
+     "street": "Lucia Cir"
+    },
+    {
+     "nums": "102 – 103",
+     "street": "Gallia Dr"
+    },
+    {
+     "nums": "",
+     "street": "Amaita (verify)"
+    },
+    {
+     "nums": "",
+     "street": "Versilia Cir (verify)"
+    }
+   ],
+   "note": "Medici Club House area · CBU 9096–9100. ⚠ Amaita & Versilia Cir on employee list but not readable from shelves — verify."
+  },
+  {
+   "no": "5",
+   "short": "103 Ameno Dr",
+   "full": "103 Ameno Dr, Lakeway, TX 78734",
+   "lat": 30.3386379,
+   "lng": -97.9656492,
+   "segments": [
+    {
+     "nums": "103 – 110",
+     "street": "Ameno Dr"
+    },
+    {
+     "nums": "101 – 212",
+     "street": "Far Vela Ln"
+    }
+   ],
+   "note": "Far Vela handwritten code 1941 (see gate note)."
+  },
+  {
+   "no": "6",
+   "short": "2301 Ranch Rd 620 S (Randalls)",
+   "full": "2301 Ranch Rd 620 S, Lakeway, TX 78734",
+   "kind": "business",
+   "segments": [
+    {
+     "nums": "100 – 150",
+     "street": "Units · 2303 RR 620"
+    }
+   ],
+   "lat": 30.3414184,
+   "lng": -97.9663825,
+   "note": "🏢 Randalls Parking Lot — 2301 & 2303 CBU. PacMail & ALL packages → front desk. 2301 / 2105 / 2103 CBU behind Valero gas station. 2013 Hampton's Hotel behind Whataburger. 2011 curbside box on 620. ⚠ Some business names on shelves were blurry."
+  },
+  {
+   "no": "7",
+   "short": "201 Costa Bella Dr",
+   "full": "201 Costa Bella Dr, Austin, TX 78734",
+   "lat": 30.3852684,
+   "lng": -97.9531253,
+   "segments": [
+    {
+     "nums": "201 – 214",
+     "street": "Costa Bella Dr"
+    },
+    {
+     "nums": "102 – 106",
+     "street": "Costa Bella Cv"
+    },
+    {
+     "nums": "205 – 221",
+     "street": "Bella Riva Dr"
+    },
+    {
+     "nums": "101 – 111",
+     "street": "Bella Cima Dr"
+    },
+    {
+     "nums": "",
+     "street": "Bella Vista (verify)"
+    }
+   ],
+   "note": "15706 Oak Grove Blvd — curbside box. ⚠ Bella Vista on employee list but range not readable — verify."
+  },
+  {
+   "no": "8",
+   "short": "102 Bella Strada Cv",
+   "full": "102 Bella Strada Cove, Austin, TX 78734",
+   "lat": 30.3820739,
+   "lng": -97.948313,
+   "segments": [
+    {
+     "nums": "102 – 119",
+     "street": "Bella Strada Cv"
+    }
+   ],
+   "note": "15707 Oak Grove Blvd Hotel — curbside box at front/entrance. CBU outside gate. ⚠ Gate code: shelf note says 5124, but gate panel has 6106 — verify which is current."
+  },
+  {
+   "no": "9",
+   "short": "Camino Arbolago",
+   "full": "Camino Arbolago, Lakeway, TX 78734",
+   "lat": 30.376296,
+   "lng": -97.9555508,
+   "segments": [
+    {
+     "nums": "",
+     "street": "Camino Arbolago (verify)"
+    },
+    {
+     "nums": "",
+     "street": "Arroyo Claro (verify)"
+    },
+    {
+     "nums": "",
+     "street": "Sendera Bonita (verify)"
+    }
+   ],
+   "note": "⚠ All three streets on employee list but not readable from shelves — ranges/locations to verify."
+  },
+  {
+   "no": "10",
+   "short": "110 Bella Montagna Cir",
+   "full": "110 Bella Montagna Cir, Austin, TX 78734",
+   "lat": 30.3607278,
+   "lng": -97.9580612,
+   "segments": [
+    {
+     "nums": "110 – 427",
+     "street": "Bella Montagna Cir"
+    },
+    {
+     "nums": "104 – 210",
+     "street": "Palazza Alto Dr (approx)"
+    },
+    {
+     "nums": "101 – 105",
+     "street": "Montagna Cv"
+    },
+    {
+     "nums": "101 – 105",
+     "street": "Bellago Cv (verify spelling)"
+    },
+    {
+     "nums": "",
+     "street": "Piazza Vetta (verify)"
+    },
+    {
+     "nums": "",
+     "street": "La Stada (verify)"
+    }
+   ],
+   "note": "⚠ Palazza Alto range estimated. Shelf reads 'Bellago Cv'; employee list says 'Bel Lago' — verify. Piazza Vetta & La Stada not readable — verify."
+  },
+  {
+   "no": "11",
+   "short": "107 Bella Montagna Cir",
+   "full": "107 Bella Montagna Cir, Lakeway, TX 78734",
+   "kind": "business",
+   "segments": [
+    {
+     "nums": "1 – 15",
+     "street": "Units"
+    },
+    {
+     "nums": "113 – 135",
+     "street": "Units"
+    },
+    {
+     "nums": "136 – 208",
+     "street": "Units"
+    },
+    {
+     "nums": "209 – 223",
+     "street": "Units"
+    },
+    {
+     "nums": "302 – 322",
+     "street": "Units"
+    },
+    {
+     "nums": "342 – 348",
+     "street": "Units"
+    }
+   ],
+   "lat": 30.3588341,
+   "lng": -97.9585197,
+   "note": "🏢 Bella Montagna Senior Living Condos — single condo delivery. ⚠ Unit ranges approximate (photo-read)."
+  },
+  {
+   "no": "12",
+   "short": "1504 Ranch Rd 620 S (businesses)",
+   "full": "1504 Ranch Rd 620 S, Lakeway, TX 78734",
+   "kind": "business",
+   "segments": [],
+   "lat": 30.3483628,
+   "lng": -97.9644772,
+   "note": "🏢 RR 620 business cluster (last stop): 1504 RR 620 Jason's Deli — curbside box · Jack Brown's Cleaners — CBU · 1700-A Vision Center — curbside box · Medical Dr CBU (across from Torchy's Tacos, ~1945 Medical Dr) · HEB CBU (2000 RR 620) — last stop. ⚠ Shelf business names blurry; employee list is primary source."
+  }
+ ],
+ "notes": []
+}
