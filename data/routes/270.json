@@ -167,61 +167,175 @@
   },
   {
    "no": "7",
-   "short": "17804 Hattie Trce",
-   "full": "17804 Hattie Trce, Austin, TX 78738",
+   "short": "17425 Hattie Trce",
+   "full": "17425 Hattie Trce, Austin, TX 78738",
    "lat": 30.317133,
    "lng": -98.024975,
    "segments": [
     {
-     "nums": "17425 – 17812",
+     "street": "CBU 1",
+     "muted": true
+    },
+    {
+     "nums": "17425, 17429, 17500, 17504, 17600, 17604, 17608, 17612, 17616, 17700, 17704, 17708, 17712, 17716",
      "street": "Hattie Trce"
     },
     {
-     "nums": "17300 – 17332",
+     "street": "CBU 2",
+     "muted": true
+    },
+    {
+     "nums": "17800, 17804, 17812",
+     "street": "Hattie Trce"
+    },
+    {
+     "nums": "17300 – 17321",
      "street": "Cain Clearing Pass"
     },
     {
-     "nums": "6200 – 6225",
+     "street": "CBU 3",
+     "muted": true
+    },
+    {
+     "nums": "17324 – 17332",
+     "street": "Cain Clearing Pass"
+    },
+    {
+     "street": "Vacant",
+     "muted": true
+    },
+    {
+     "nums": "6200 – 6217",
      "street": "Hilltop Plateau Dr"
     },
     {
-     "nums": "6308 – 6320",
+     "street": "CBU 4",
+     "muted": true
+    },
+    {
+     "nums": "6220 – 6225",
+     "street": "Hilltop Plateau Dr"
+    },
+    {
+     "nums": "6304 – 6320",
      "street": "Lipan Bayou Trl"
+    },
+    {
+     "nums": "17700 – 17816",
+     "street": "Pancho Trl"
+    },
+    {
+     "street": "Vacant ×2",
+     "muted": true
+    },
+    {
+     "street": "CBU 5",
+     "muted": true
     },
     {
      "nums": "6200 – 6224",
      "street": "Sontag Dr"
     },
     {
-     "nums": "6204 – 6313",
+     "nums": "6204 – 6209",
      "street": "Wavell Pl"
     },
     {
-     "nums": "",
-     "street": "Pancho Trl"
+     "street": "CBU 6",
+     "muted": true
+    },
+    {
+     "nums": "6212 – 6313",
+     "street": "Wavell Pl"
+    },
+    {
+     "street": "Vacant ×4",
+     "muted": true
     }
-   ]
+   ],
+   "note": "Cased in DPS order by CBU (1–6). Grey lines = vacant slots."
   },
   {
    "no": "8",
-   "short": "Homestead Haven Dr",
-   "full": "Homestead Haven Dr, The Hills, TX 78738",
-   "lat": 30.3203714,
-   "lng": -98.0169708,
+   "short": "5702 Proud Bear Pass",
+   "full": "5702 Proud Bear Pass, Bee Cave, TX 78738",
+   "lat": 30.3210155,
+   "lng": -98.0172251,
    "segments": [
     {
-     "nums": "",
+     "street": "CBU 1",
+     "muted": true
+    },
+    {
+     "nums": "5702, 5704, 5706, 5708, 5710, 5712",
      "street": "Proud Bear Pass"
     },
     {
-     "nums": "",
+     "nums": "17002, 17004, 17006, 17008, 17010, 17012, 17113",
      "street": "Homestead Haven Dr"
     },
     {
-     "nums": "",
+     "street": "CBU 2",
+     "muted": true
+    },
+    {
+     "nums": "17114, 17115, 17116, 17117, 17118, 17119, 17120, 17122, 17200, 17202, 17204, 17206, 17208, 17210, 17302, 17304",
+     "street": "Homestead Haven Dr"
+    },
+    {
+     "street": "CBU 3",
+     "muted": true
+    },
+    {
+     "nums": "17306, 17308, 17312, 17314, 17316, 17318, 17400, 17401, 17402, 17403, 17405, 17407, 17408, 17409, 17411",
+     "street": "Homestead Haven Dr"
+    },
+    {
+     "street": "CBU 4",
+     "muted": true
+    },
+    {
+     "nums": "17412, 17413, 17414",
+     "street": "Homestead Haven Dr"
+    },
+    {
+     "nums": "5402, 5404, 5406, 5408, 5410, 5412, 5414, 5418, 5420, 5422, 5424, 5500",
+     "street": "Mobeetie Loop"
+    },
+    {
+     "street": "CBU 5",
+     "muted": true
+    },
+    {
+     "nums": "5504 – 5606",
+     "street": "Mobeetie Loop"
+    },
+    {
+     "street": "CBU 6",
+     "muted": true
+    },
+    {
+     "nums": "5607 – 5703",
+     "street": "Mobeetie Loop"
+    },
+    {
+     "street": "CBU 7",
+     "muted": true
+    },
+    {
+     "nums": "5706 – 5801",
+     "street": "Mobeetie Loop"
+    },
+    {
+     "street": "CBU 8",
+     "muted": true
+    },
+    {
+     "nums": "5800 – 5822",
      "street": "Mobeetie Loop"
     }
-   ]
+   ],
+   "note": "Cased in DPS order by CBU (1–8)."
   },
   {
    "no": "9",
