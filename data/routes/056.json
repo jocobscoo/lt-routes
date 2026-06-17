@@ -1,0 +1,150 @@
+{
+ "id": "56",
+ "name": "Route 56",
+ "subtitle": "Tek CBU · 2 bitişik konum",
+ "stops": [
+  {
+   "no": "1",
+   "short": "3532 John Simpson Trl",
+   "full": "3532 John Simpson Trl, Austin, TX 78732",
+   "lat": 30.3768697,
+   "lng": -97.8936925,
+   "note": "23 CBU. İlk: 3500 Rip Ford Dr → Son: 3911 John Simpson Trl",
+   "segments": [
+    {
+     "nums": "3500 – 3708",
+     "street": "Rip Ford Dr"
+    },
+    {
+     "nums": "3710 – 3921",
+     "street": "Caney Creek Rd"
+    },
+    {
+     "nums": "12400 – 12414",
+     "street": "Old Salt Trl"
+    },
+    {
+     "nums": "3405 – 3917",
+     "street": "Latimer Dr"
+    },
+    {
+     "nums": "3702 – 3707",
+     "street": "Bivins Ct"
+    },
+    {
+     "nums": "12900 – 12909",
+     "street": "Runnels Ct"
+    },
+    {
+     "nums": "12910 – 13014",
+     "street": "Medina River Way"
+    },
+    {
+     "nums": "12805 – 12916",
+     "street": "Schleicher Trl"
+    },
+    {
+     "nums": "3600 – 3904",
+     "street": "Sandoval Ct"
+    },
+    {
+     "nums": "3905 – 4007",
+     "street": "Schreiner Ct"
+    },
+    {
+     "nums": "4008 – 12608",
+     "street": "Varner Ct"
+    },
+    {
+     "nums": "12610 – 12819",
+     "street": "McNelly Trl"
+    },
+    {
+     "nums": "12608 – 12702",
+     "street": "Grierson Trl"
+    },
+    {
+     "nums": "12704 – 3810",
+     "street": "Randlett Ct"
+    },
+    {
+     "nums": "3701 – 3817",
+     "street": "Standfield Ct"
+    },
+    {
+     "nums": "3713 – 3829",
+     "street": "Epperson Trl"
+    },
+    {
+     "nums": "3426 – 3911",
+     "street": "John Simpson Trl"
+    }
+   ]
+  },
+  {
+   "no": "2",
+   "short": "3412 Steiner Ranch Blvd",
+   "full": "3412 Steiner Ranch Blvd, Austin, TX 78732",
+   "lat": 30.3759521,
+   "lng": -97.8934033,
+   "note": "İlk: 3912 John Simpson Trl → Son: 13013 Brigham Dr",
+   "segments": [
+    {
+     "nums": "3912 – 3917",
+     "street": "John Simpson Trl"
+    },
+    {
+     "nums": "12400 – 12609",
+     "street": "Chittim Cir"
+    },
+    {
+     "nums": "12500 – 12508",
+     "street": "Scates Ct"
+    },
+    {
+     "nums": "12509 – 3509",
+     "street": "Refugio Ct"
+    },
+    {
+     "nums": "3326 – 3468",
+     "street": "Mulberry Creek Dr"
+    },
+    {
+     "nums": "3105 – 3529",
+     "street": "Grimes Ranch Rd"
+    },
+    {
+     "nums": "3001 – 3016",
+     "street": "Burks Cv"
+    },
+    {
+     "nums": "3005 – 3432",
+     "street": "Burks Ln"
+    },
+    {
+     "nums": "12716 – 12813",
+     "street": "Oxen Way"
+    },
+    {
+     "nums": "3200 – 3417",
+     "street": "Oxsheer Dr"
+    },
+    {
+     "nums": "3420 – 3524",
+     "street": "Cowden Dr"
+    },
+    {
+     "nums": "12816 – 3109",
+     "street": "Noyes Ln"
+    },
+    {
+     "nums": "12924 – 13013",
+     "street": "Brigham Dr"
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Tek büyük CBU kompleksi, yan yana 2 kutu bankası. John Simpson Trl iki konuma da yayılır."
+ ]
+}
