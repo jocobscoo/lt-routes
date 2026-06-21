@@ -235,8 +235,17 @@ function stopBlock(s,route,dup){
   }
   const pin='R'+route.id+' Stop '+s.no+' - '+s.short;
   const note=s.note?'<div class="stop-note">'+s.note+'</div>':'';
+  
+  // Route Sequence Badge Logic
+  let seqBadge = '';
+  if (s.seqStart != null && s.seqEnd != null) {
+    let seqNoteTooltip = s.seqNote ? ` title="${esc(s.seqNote)}"` : '';
+    seqBadge = `<span class="seq-badge"${seqNoteTooltip} style="font-size:11px; background:#eef2f7; color:#2a4d7a; padding:3px 8px; border-radius:5px; font-weight:800; margin-left:8px; border:1px solid #c9d2de;">SEQ ${esc(s.seqStart)}–${esc(s.seqEnd)}</span>`;
+  }
+
   return '<section class="stop"><div class="stop-bar">'+
     '<span class="stop-no">STOP '+esc(s.no)+'</span><span class="stop-addr">'+esc(s.short)+'</span>'+
+    seqBadge + // Added the sequence badge right after the address
     buttons(pin,s.full,s.lat,s.lng)+'</div>'+body+note+'</section>';
 }
 function gateRowsHtml(list){
