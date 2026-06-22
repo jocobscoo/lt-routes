@@ -12,95 +12,86 @@
 <title>Lake Travis — Carrier Console</title>
 <style>
   :root{--navy:#1d3557;--blue:#2a4d7a;--light:#eef2f7;--grid:#c9d2de;--accent:#c1272d;
-    --gold:#fff4d6;--goldb:#e0a500;--apple:#0a84ff;--green:#34c759;--red:#d9342b;
-    --amber:#e09600;--teal:#1c8a7a;--violet:#6c4bd1;--ink:#1a2230;--muted:#6b7480;--line:#e6e9ef;}
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+    --gold:#fff4d6;--goldb:#e0a500;--apple:#0a84ff;--green:#34c759;--red:#d9342b;}
+  *{box-sizing:border-box;}
   body{margin:0;background:#f1f4f8;color:#1a1a1a;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    -webkit-text-size-adjust:100%;
-    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
+    -webkit-text-size-adjust:100%;}
   .wrap{max-width:860px;margin:0 auto;padding:16px 14px 48px;}
-  
-  /* Views structure */
-  .view-section{display:none;}
-  .view-section.on{display:block;}
+  header h1{font-size:24px;letter-spacing:.4px;color:var(--navy);margin:0;font-weight:800;}
+  header p{margin:2px 0 8px;color:#5a6470;font-size:13px;}
 
-  /* Header & Console Home */
-  .home-head{padding:20px 4px 14px;}
-  .eyebrow{font-size:11px;font-weight:800;letter-spacing:1.6px;color:var(--blue);text-transform:uppercase;opacity:.85;}
-  .home-title{font-size:30px;font-weight:800;letter-spacing:-.6px;margin:3px 0 0;color:var(--navy);}
-  .home-sub{font-size:13px;color:var(--muted);margin-top:4px;}
-  
-  .tiles{display:flex;flex-direction:column;gap:12px;margin-top:16px;}
-  .tile{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
-    border-radius:16px;padding:16px 14px;cursor:pointer;text-align:left;width:100%;font-family:inherit;
-    position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(20,30,50,.05);transition:transform .08s ease;}
-  .tile:active{transform:scale(.985);}
-  .tile::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c,var(--navy));}
-  .tile .ic{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:23px;
-    background:color-mix(in srgb, var(--c,var(--navy)) 12%, #fff);}
-  .tile .tx{flex:1;min-width:0;}
-  .tile .t-name{font-size:17px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px;}
-  .tile .t-desc{font-size:12.5px;color:var(--muted);margin-top:2px;}
-  .tile .chev{flex:none;color:#c4ccd6;font-size:22px;font-weight:700;}
-  .badge{font-size:9.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:2px 7px;border-radius:8px;}
-  .b-live{background:#e7f1ff;color:#1f5fbf;}
-
-  /* Sticky Sub-screen Top Bar */
-  .bar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:8px;
-    background:rgba(241,244,248,.92);backdrop-filter:saturate(180%) blur(8px);
-    margin:0 -14px;padding:10px 14px;border-bottom:1px solid var(--grid);
+  .topbar{position:sticky;top:0;z-index:30;background:#f1f4f8;display:flex;gap:8px;align-items:center;
+    padding:8px 0;margin:0 -14px;padding-left:14px;padding-right:14px;
     box-shadow:0 4px 10px -8px rgba(20,40,70,.4);}
-  .back-btn{appearance:none;border:none;background:#fff;border:1px solid var(--grid);border-radius:10px;
-    padding:8px 14px;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;font-family:inherit;
-    display:inline-flex;align-items:center;gap:4px;}
-  .back-btn:active{background:var(--light);transform:scale(.98);}
-  .bar h2{font-size:18px;font-weight:800;margin:0;color:var(--navy);}
-  .bar .sp{flex:1;}
-  
-  /* Route Screen Navigation Row */
-  .route-nav-bar{display:flex;gap:8px;margin-bottom:14px;}
+  .homebtn{flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+    border:1.5px solid var(--grid);background:#fff;color:var(--navy);border-radius:10px;
+    padding:11px 14px;font-size:18px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
   .rbtn{flex:1;display:flex;align-items:center;justify-content:space-between;gap:8px;
     border:1.5px solid var(--grid);background:#fff;color:var(--navy);border-radius:10px;
-    padding:11px 14px;font-size:15px;font-weight:800;cursor:pointer;}
+    padding:11px 14px;font-size:15px;font-weight:800;cursor:pointer;-webkit-tap-highlight-color:transparent;}
   .rbtn .caret{color:#8a93a0;font-size:12px;}
   .kbtn{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;border:none;border-radius:10px;
-    background:var(--navy);color:#fff;padding:11px 14px;font-size:14px;font-weight:800;cursor:pointer;}
-  .kbtn:active, .rbtn:active{transform:scale(.98);}
+    background:var(--navy);color:#fff;padding:11px 14px;font-size:14px;font-weight:800;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;}
+  .homebtn:active,.kbtn:active,.rbtn:active{transform:scale(.98);}
 
-  /* Route List Styling inside screen */
-  .route-grid{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
-  .route-card{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--grid);
-    border-radius:12px;padding:14px;cursor:pointer;width:100%;text-align:left;}
-  .route-card:active{background:var(--light);}
-  .route-card .rn{font-weight:800;font-size:17px;color:var(--navy);}
-  .route-card .rc{font-size:13px;color:var(--muted);font-weight:600;}
+  .backdrop{position:fixed;inset:0;background:rgba(15,25,40,.45);z-index:40;opacity:0;
+    pointer-events:none;transition:opacity .2s ease;}
+  .backdrop.show{opacity:1;pointer-events:auto;}
 
-  /* Route content details */
+  /* route menu */
+  .rmenu{position:fixed;z-index:45;top:64px;left:50%;transform:translateX(-50%) translateY(-8px);
+    width:min(560px,92vw);background:#fff;border:1px solid var(--grid);border-radius:14px;
+    box-shadow:0 16px 40px rgba(20,40,70,.28);padding:10px;opacity:0;pointer-events:none;
+    transition:opacity .18s ease,transform .18s ease;max-height:74vh;display:flex;flex-direction:column;}
+  .rmenu.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+  #rsearch{width:100%;border:1.5px solid var(--grid);border-radius:9px;padding:11px 12px;font-size:15px;margin-bottom:8px;}
+  .rlist{overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .ritem{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 12px;
+    border-radius:9px;cursor:pointer;font-size:15px;color:var(--navy);font-weight:600;}
+  .ritem:active{background:var(--light);}
+  .ritem.sel{background:var(--navy);color:#fff;}
+
+  /* Console Dashboard */
+  #consoleView { display: none; margin-top: 16px; }
+  .c-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .c-card { background: #fff; border: 1px solid var(--grid); border-radius: 12px; padding: 16px; box-shadow: 0 2px 6px rgba(20,40,70,.05); }
+  .c-card h2 { margin: 0 0 12px; font-size: 16px; color: var(--navy); display: flex; align-items: center; gap: 8px; }
+  .c-card p { margin: 0; font-size: 14px; color: #5a6470; line-height: 1.5; }
+  
+  .seq-input-group { display: flex; gap: 8px; margin-top: 12px; }
+  .seq-input-group input { flex: 1; border: 1.5px solid var(--grid); border-radius: 8px; padding: 10px 12px; font-size: 16px; font-weight:700; width: 100%; }
+  .seq-input-group button { background: var(--navy); color: #fff; border: none; border-radius: 8px; padding: 0 16px; font-weight: 800; cursor: pointer; }
+  #seqResult { margin-top: 12px; padding: 12px; border-radius: 8px; background: var(--light); display: none; }
+  #seqResult.found { background: #e6f4ea; border: 1px solid #cce8d6; color: #1e4620; }
+  #seqResult.not-found { background: #fdeceb; border: 1px solid #f0c4c0; color: #9b2620; }
+  .seq-stop-no { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
+  .seq-addr { font-size: 18px; font-weight: 800; margin-top: 4px; }
+  .seq-note { font-size: 12px; margin-top: 6px; font-style: italic; }
+
+  /* Route View */
+  #routeView { display: none; }
   .route-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 2px 10px;flex-wrap:wrap;}
   .route-sub{color:#5a6470;font-size:13px;font-weight:600;}
-  .station{background:var(--blue);color:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+
+  .station{background:var(--blue);color:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;
+    gap:10px;flex-wrap:wrap;margin-bottom:16px;}
   .station .lbl0{font-weight:700;font-size:11px;letter-spacing:.5px;background:rgba(255,255,255,.16);padding:4px 8px;border-radius:6px;}
   .station .addr{flex:1;min-width:150px;font-weight:600;font-size:13.5px;}
 
-  /* Stops */
   .stop{background:#fff;border:1px solid var(--grid);border-radius:12px;overflow:hidden;margin-bottom:15px;box-shadow:0 1px 3px rgba(20,40,70,.06);}
   .stop-bar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:10px;padding:11px 12px;flex-wrap:wrap;}
   .stop-no{background:var(--blue);font-weight:800;padding:5px 11px;border-radius:7px;font-size:14px;}
   .stop-addr{font-weight:700;font-size:15.5px;flex:1;min-width:130px;}
-  
-  /* Sequence badges & fields */
-  .seq-badge{font-size:11px;background:#eef2f7;color:var(--blue);padding:3px 8px;border-radius:6px;font-weight:800;margin-left:6px;border:1px solid var(--grid);display:inline-block;}
-  .seq-lookup-card{background:#fff;border:1px solid var(--grid);border-radius:14px;padding:16px;margin-bottom:16px;box-shadow:0 1px 2px rgba(20,30,50,.04);}
-  .lookup-row{display:flex;gap:12px;align-items:flex-end;}
-  .lookup-out{flex:1;font-size:14.5px;color:var(--muted);padding-bottom:10px;font-weight:600;line-height:1.4;}
+  .seq-badge{font-size:11px;background:#eef2f7;color:var(--blue);padding:3px 8px;border-radius:5px;font-weight:800;margin-left:auto;border:1px solid #c9d2de; white-space: nowrap;}
 
   .actions{display:flex;gap:8px;}
   .btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:9px;padding:9px 13px;font-size:13px;
-    font-weight:700;cursor:pointer;text-decoration:none;transition:transform .08s ease,background .15s ease;}
+    font-weight:700;cursor:pointer;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .08s ease,background .15s ease;}
   .btn:active{transform:scale(.95);}
   .btn.maps{background:var(--apple);color:#fff;} .btn.copy{background:#e7edf5;color:var(--navy);}
-  .btn.copy.copied{background:var(--green);color:#fff;}
+  .btn.copy.copied{background:var(--green);color:#fff;} .btn svg{flex:0 0 auto;}
 
   .dps-cap{font-size:10.5px;letter-spacing:.6px;color:#8a93a0;font-weight:700;padding:7px 12px 2px;text-transform:uppercase;}
   .slist{padding:2px 12px 8px;}
@@ -114,43 +105,46 @@
   .stop-note{background:var(--gold);border-top:1px solid var(--goldb);padding:9px 12px;font-size:13px;line-height:1.45;}
   .stop-note b{color:var(--navy);}
 
-  /* Per-route gate card & panels */
-  .gatecard{background:#fff;border:1px solid var(--grid);border-left:4px solid var(--goldb);border-radius:12px;margin-top:16px;overflow:hidden;}
+  /* Hold Mail Section */
+  .hold-card { background: #fff; border: 1px solid var(--grid); border-left: 4px solid var(--accent); border-radius: 12px; margin-top: 16px; overflow: hidden; }
+  .hc-head { background: #fdeceb; color: var(--accent); font-weight: 800; font-size: 13.5px; padding: 10px 13px; border-bottom: 1px solid #f0c4c0; display:flex; justify-content:space-between; align-items:center;}
+  .hc-status { font-size:10px; background:#fff; padding:2px 6px; border-radius:4px; border:1px solid #f0c4c0; }
+  .hc-form { padding: 12px 13px; background: #fafbfc; border-bottom: 1px solid var(--grid); display: flex; gap: 8px; flex-wrap: wrap; }
+  .hc-form input { flex: 1; min-width: 120px; border: 1px solid var(--grid); border-radius: 6px; padding: 8px 10px; font-size: 14px; }
+  .hc-form button { background: var(--navy); color: #fff; border: none; border-radius: 6px; padding: 8px 14px; font-weight: 700; cursor: pointer; }
+  .h-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 13px; border-bottom: 1px solid #f0f2f6; }
+  .h-row:last-child { border-bottom: none; }
+  .h-house { font-weight: 700; font-size: 15px; color: var(--navy); }
+  .h-dates { font-size: 12px; color: #5a6470; margin-top: 2px; }
+  .h-del { background: none; border: none; color: var(--red); font-size: 18px; cursor: pointer; padding: 4px; line-height:1;}
+
+  /* per-route gate card */
+  .gatecard{background:#fff;border:1px solid var(--grid);border-left:4px solid var(--goldb);border-radius:12px;
+    margin-top:16px;overflow:hidden;}
   .gc-head{background:#fbf5e3;color:#7a5d00;font-weight:800;font-size:13.5px;padding:10px 13px;border-bottom:1px solid #efe2bf;}
   .g-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 13px;border-top:1px solid #f0f2f6;}
   .g-row:first-of-type{border-top:none;}
   .g-loc{font-size:13.5px;color:var(--navy);font-weight:600;}
   .g-loc .g-note{display:block;font-size:11px;color:#8a93a0;font-weight:500;margin-top:1px;}
   .g-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;font-size:14px;color:#111;white-space:nowrap;}
-  .g-rt{background:#f6f8fb;color:var(--blue);font-weight:800;font-size:12px;letter-spacing:.5px;padding:10px 2px 4px;border-bottom:1px solid var(--grid);margin-top:6px;}
 
   .note{background:var(--gold);border:1px solid var(--goldb);border-radius:12px;padding:13px 15px;margin-top:16px;font-size:13.5px;line-height:1.5;}
   .note b{color:var(--navy);}
   .legend{font-size:12px;color:#5a6470;margin:12px 2px 0;}
-  .legend .sw{color:var(--red);font-weight:800;}
 
-  /* Inputs & Selectors global */
-  select,input[type=text],input[type=date]{width:100%;border:1px solid #d7dce4;border-radius:10px;padding:11px 12px;font-size:15px;font-family:inherit;color:var(--ink);background:#fff;-webkit-appearance:none;}
-  .field{display:flex;flex-direction:column;gap:4px;}
-  .field>span{font-size:10.5px;font-weight:800;letter-spacing:.4px;color:#7a828d;text-transform:uppercase;}
-  .card{background:#fff;border:1px solid var(--grid);border-radius:14px;padding:14px;margin-top:14px;box-shadow:0 1px 2px rgba(20,30,50,.04);}
-  .seg{display:flex;background:#e7ebf1;border-radius:11px;padding:3px;gap:3px;margin:10px 0 14px;}
-  .seg button{flex:1;border:none;background:transparent;border-radius:9px;padding:8px;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;}
-  .seg button.on{background:#fff;color:var(--navy);box-shadow:0 1px 2px rgba(20,30,50,.12);}
-
-  /* Modals / Overlays menu */
-  .backdrop{position:fixed;inset:0;background:rgba(15,25,40,.45);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s ease;}
-  .backdrop.show{opacity:1;pointer-events:auto;}
-  .rmenu{position:fixed;z-index:45;top:64px;left:50%;transform:translateX(-50%) translateY(-8px);
-    width:min(560px,92vw);background:#fff;border:1px solid var(--grid);border-radius:14px;
-    box-shadow:0 16px 40px rgba(20,40,70,.28);padding:10px;opacity:0;pointer-events:none;
-    transition:opacity .18s ease,transform .18s ease;max-height:74vh;display:flex;flex-direction:column;}
-  .rmenu.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
-  #rsearch{width:100%;border:1.5px solid var(--grid);border-radius:9px;padding:11px 12px;font-size:15px;margin-bottom:8px;}
-  .rlist{overflow-y:auto;-webkit-overflow-scrolling:touch;}
-  .ritem{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 12px;border-radius:9px;cursor:pointer;font-size:15px;color:var(--navy);font-weight:600;}
-  .ritem:active{background:var(--light);}
-  .ritem.sel{background:var(--navy);color:#fff;}
+  /* gate panel (slide-over) */
+  #gatePanel{position:fixed;top:0;right:0;height:100%;width:min(440px,92vw);background:#f6f8fb;z-index:46;
+    transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(20,40,70,.25);}
+  #gatePanel.show{transform:translateX(0);}
+  .gp-head{background:var(--navy);color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;}
+  .gp-head h3{margin:0;font-size:17px;font-weight:800;}
+  .gp-x{background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:8px;font-size:18px;cursor:pointer;}
+  .gp-search{padding:10px 14px;background:#fff;border-bottom:1px solid var(--grid);}
+  .gp-search input{width:100%;border:1.5px solid var(--grid);border-radius:9px;padding:10px 12px;font-size:15px;}
+  .gp-list{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:6px 12px 24px;}
+  .g-rt{position:sticky;top:0;background:#f6f8fb;color:var(--blue);font-weight:800;font-size:12px;letter-spacing:.5px;
+    padding:10px 2px 4px;border-bottom:1px solid var(--grid);margin-top:6px;}
+  .g-empty{color:#8a93a0;text-align:center;padding:24px;font-style:italic;}
 
   footer{margin-top:24px;color:#7a828c;font-size:12px;font-style:italic;text-align:center;line-height:1.5;}
   #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;
@@ -158,142 +152,88 @@
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
   @media (max-width:430px){
-    .stop-addr{flex-basis:100%;order:2;} .actions{order:3;width:100%;} .btn{flex:1;justify-content:center;}
+    .stop-addr{flex-basis:100%;order:2;} .seq-badge{margin-left:0; order:3; margin-top:2px;} .actions{order:4;width:100%;} .btn{flex:1;justify-content:center;}
   }
 
-  #loader{position:fixed;inset:0;background:#f1f4f8;z-index:80;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#5a6470;font-size:14px;}
+  #loader{position:fixed;inset:0;background:#f1f4f8;z-index:80;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:14px;color:#5a6470;font-size:14px;}
   #loader.hide{display:none;}
-  .spin{width:34px;height:34px;border:3px solid #c9d2de;border-top-color:#1d3557;border-radius:50%;animation:sp 0.8s linear infinite;}
+  .spin{width:34px;height:34px;border:3px solid #c9d2de;border-top-color:#1d3557;border-radius:50%;
+    animation:sp 0.8s linear infinite;}
   @keyframes sp{to{transform:rotate(360deg);}}
-  #errbox{display:none;background:#fdeceb;border:1px solid #f0c4c0;color:#9b2620;border-radius:12px;padding:14px;margin:14px 0;font-size:13.5px;line-height:1.5;}
-
-  /* Hold mail cards inside view */
-  .holdcard{background:#fff;border:1px solid #e6e9ef;border-radius:14px;padding:14px;margin-top:14px;box-shadow:0 1px 2px rgba(20,30,50,.04);}
-  .hc-head{font-weight:800;color:var(--navy);font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:7px;}
-  .hc-head .cnt{font-size:11.5px;font-weight:700;color:#6b7480;background:#eef1f6;border-radius:10px;padding:1px 8px;}
-  .hold-empty{color:#9aa3ad;font-size:13.5px;font-style:italic;padding:2px 0 4px;}
-  .hrow{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid #eef1f6;}
-  .hrow:first-of-type{border-top:none;}
-  .hrow .h-main{flex:1;min-width:0;}
-  .hrow .h-house{font-weight:700;font-size:14.5px;color:#1a2230;word-break:break-word;}
-  .hrow .h-dates{font-size:12.5px;color:#5a626d;margin-top:1px;}
-  .hrow .h-tag{flex:none;font-size:10px;font-weight:800;letter-spacing:.4px;padding:2px 7px;border-radius:9px;text-transform:uppercase;white-space:nowrap;}
-  .tag-on{background:#e7f6ec;color:#1c7a3e;} .tag-up{background:#fff4e0;color:#a8700f;} .tag-end{background:#f0f1f4;color:#8a93a0;}
-  .hrow.ended .h-house{color:#9aa3ad;text-decoration:line-through;} .hrow.ended .h-dates{color:#aab1ba;}
-  .h-del{flex:none;width:30px;height:30px;border:none;background:#f5f6f9;color:#9098a4;border-radius:8px;font-size:18px;line-height:1;cursor:pointer;}
-  .h-del:active{background:#ffe3e3;color:var(--red);}
-  .hform{margin-top:12px;border-top:1px dashed #e2e6ee;padding-top:12px;display:flex;flex-direction:column;gap:8px;}
-  .hform input{background:#fff;-webkit-appearance:none;box-sizing:border-box;}
-  .hform .h-add{background:var(--navy);color:#fff;border:none;border-radius:9px;padding:11px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;}
+  #errbox{display:none;background:#fdeceb;border:1px solid #f0c4c0;color:#9b2620;border-radius:12px;
+    padding:14px;margin:14px 0;font-size:13.5px;line-height:1.5;}
 </style>
 </head>
 <body>
-<div id="loader"><div class="spin"></div><div>Loading Console…</div></div>
-
+<div id="loader"><div class="spin"></div><div>Loading data…</div></div>
 <div class="wrap">
-  <section id="view-home" class="view-section on">
-    <div class="home-head">
-      <div class="eyebrow">Lake Travis · Station RCA</div>
-      <h1 class="home-title">Carrier Console</h1>
-      <div class="home-sub">Select a utility tool before rolling out.</div>
-    </div>
-    <div class="tiles">
-      <button class="tile" style="--c:var(--navy)" onclick="switchView('routes')">
-        <span class="ic">🗺️</span>
-        <span class="tx"><span class="t-name">Routes</span><span class="t-desc">DPS street lists, stops &amp; maps</span></span>
-        <span class="chev">›</span>
-      </button>
-      <button class="tile" style="--c:var(--amber)" onclick="switchView('hold')">
-        <span class="ic">📌</span>
-        <span class="tx"><span class="t-name">Hold Mail <span id="homeHoldBadge"></span></span><span class="t-desc">Log or view addresses on hold by date</span></span>
-        <span class="chev">›</span>
-      </button>
-      <button class="tile" style="--c:var(--teal)" onclick="switchView('gate')">
-        <span class="ic">🔑</span>
-        <span class="tx"><span class="t-name">Gate Codes</span><span class="t-desc">Search active gate &amp; locker codes</span></span>
-        <span class="chev">›</span>
-      </button>
-      <button class="tile" style="--c:var(--violet)" onclick="switchView('seq')">
-        <span class="ic">📦</span>
-        <span class="tx"><span class="t-name">Route Sequence</span><span class="t-desc">Match parcel sequence # to exact stops</span></span>
-        <span class="chev">›</span>
-      </button>
-    </div>
-  </section>
+  <header>
+    <h1>Lake Travis Carrier</h1>
+    <p>USPS AUS — Offline Ready PWA</p>
+  </header>
 
-  <section id="view-routes" class="view-section">
-    <div class="bar"><button class="back-btn" onclick="switchView('home')">‹ Home</button><h2>Routes</h2></div>
-    <div class="route-nav-bar" style="margin-top:14px;">
-      <button class="rbtn" id="routeBtn"><span id="routeBtnLbl">Select Route</span><span class="caret">▼</span></button>
-      <button class="kbtn" id="inlineCodesBtn">🔑 Codes</button>
-    </div>
-    <div id="errbox"></div>
-    <div id="routeContent">
-      <div class="route-head"><div class="route-sub" id="rsub"></div></div>
-      <div class="station" id="station"></div>
-      <main id="route"></main>
-      <div class="legend"><span class="sw">Bold red</span> = same street delivered across more than one stop.</div>
-    </div>
-  </section>
+  <div class="topbar">
+    <button class="homebtn" id="homeBtn" title="Console">🏠</button>
+    <button class="rbtn" id="routeBtn"><span id="routeBtnLbl">Select Route</span><span class="caret">▼</span></button>
+    <button class="kbtn" id="codesBtn">🔑 Codes</button>
+  </div>
 
-  <section id="view-hold" class="view-section">
-    <div class="bar"><button class="back-btn" onclick="switchView('home')">‹ Home</button><h2>Hold Mail Dashboard</h2></div>
-    <div class="seg" id="holdMode">
-      <button class="on" id="btnHoldRoute" onclick="setHoldViewMode('route')">By Route</button>
-      <button id="btnHoldAll" onclick="setHoldViewMode('all')">All Active</button>
-    </div>
-    <div id="holdAddCard" class="card">
-      <div class="field"><span>Select Route</span><select id="holdRouteSelect" onchange="renderHoldDashboard()"></select></div>
-      <div class="hform" style="border-top:none; padding-top:4px;">
-        <div class="field"><span>House / Address</span><input id="hHouse" type="text" placeholder="e.g. 3500 Rip Ford Dr" autocomplete="off"></div>
-        <div class="row2" style="display:flex; gap:10px;">
-          <div class="field" style="flex:1;"><span>Start</span><input id="hStart" type="date"></div>
-          <div class="field" style="flex:1;"><span>End</span><input id="hEnd" type="date"></div>
+  <div id="errbox"></div>
+
+  <div id="consoleView">
+    <div class="c-grid">
+      <div class="c-card" id="c-active" style="cursor:pointer; border-left:4px solid var(--blue);">
+        <h2>📦 Active Route</h2>
+        <p id="c-active-text">No route selected. Tap "Select Route" above.</p>
+      </div>
+      
+      <div class="c-card">
+        <h2>🔍 Route Sequence Lookup</h2>
+        <p>Enter sequence number to find the exact stop on <b id="c-seq-rt">current route</b>.</p>
+        <div class="seq-input-group">
+          <input type="number" id="seqInput" placeholder="e.g. 150">
+          <button id="seqBtn">Find</button>
         </div>
-        <button class="h-add" type="button" onclick="addDashboardHold()">+ Add Hold Note</button>
+        <div id="seqResult"></div>
       </div>
     </div>
-    <div class="card"><div id="dashboardHoldList"></div></div>
-  </section>
+  </div>
 
-  <section id="view-gate" class="view-section">
-    <div class="bar"><button class="back-btn" onclick="switchView('home')">‹ Home</button><h2>Gate Codes</h2></div>
-    <input id="gateSearch" type="text" placeholder="Search route, location or code..." autocomplete="off" style="margin-top:14px;" oninput="renderGateSearch(this.value)">
-    <div class="card" style="padding:4px 14px;"><div id="globalGateList"></div></div>
-  </section>
-
-  <section id="view-seq" class="view-section">
-    <div class="bar"><button class="back-btn" onclick="switchView('home')">‹ Home</button><h2>Route Sequence Lookup</h2></div>
-    <p style="font-size:13px; color:var(--muted); margin:14px 4px 10px;">Select a route and type the package sequence number to find which stop it belongs to.</p>
-    <div class="field" style="margin-bottom:14px;"><span>Active Route</span><select id="seqRouteSelect" onchange="runSequenceLookup()"></select></div>
-    <div class="seq-lookup-card">
-      <div class="dps-cap" style="padding-left:0;">Sequence Scanner / Lookup</div>
-      <div class="lookup-row">
-        <div class="field" style="flex:0 0 120px;"><span>Sequence #</span><input id="seqLookupInput" type="text" inputmode="numeric" placeholder="e.g. 150" oninput="runSequenceLookup()"></div>
-        <div id="lookupOutput" class="lookup-out">Enter sequence number...</div>
-      </div>
-    </div>
-  </section>
+  <div id="routeView">
+    <div class="route-head"><div class="route-sub" id="rsub"></div></div>
+    <div class="station" id="station"></div>
+    <main id="route"></main>
+    <div id="holdMailContainer"></div>
+    <div class="legend"><span style="color:var(--red);font-weight:800;">Bold red</span> = same street delivered across more than one stop.</div>
+  </div>
 
   <footer>
-    Lake Travis Station Utility • Static PWA Engine • Works Offline 
+    Addresses verified • Maps buttons open in Apple Maps<br>
+    Cloudflare D1 Hybrid Sync Active
   </footer>
 </div>
 
-<div class="backdrop" id="backdrop" onclick="closeMenu()"></div>
+<div class="backdrop" id="backdrop"></div>
 <div class="rmenu" id="rmenu">
-  <input id="rsearch" placeholder="Search route number or name…" autocomplete="off" oninput="buildRouteList(this.value)">
+  <input id="rsearch" placeholder="Search route number or name…" autocomplete="off">
   <div class="rlist" id="rlist"></div>
 </div>
+
+<aside id="gatePanel">
+  <div class="gp-head"><h3>🔑 Gate / Locker Codes</h3><button class="gp-x" id="gateX">×</button></div>
+  <div class="gp-search"><input id="gsearch" placeholder="Search route or location…" autocomplete="off"></div>
+  <div class="gp-list" id="gateList"></div>
+</aside>
 
 <div id="toast"></div>
 
 <script>
 const STATION = {"name": "USPS Lake Travis", "addr": "2110 Ranch Rd 620 S, Lakeway, TX 78734", "lat": 30.3431868, "lng": -97.9686593};
 const DB = { station: STATION, routes: [], gates: {} };
-const LS_LAST = 'lt_last_repo';
-let CURRENT = null;
-let HOLD_VIEW_MODE = 'route';
+const LS_LAST='lt_last_repo';
+const SYNC_Q='lt_sync_q';
+let CURRENT=null;
 
 const MAP_SVG='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
 const COPY_SVG='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
@@ -302,17 +242,53 @@ function esc(s){return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g
 function norm(s){return (s||'').replace(/<[^>]+>/g,'').trim().toLowerCase();}
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
 
-// Core App View Navigator
-function switchView(viewId) {
-  document.querySelectorAll('.view-section').forEach(s => s.classList.remove('on'));
-  document.getElementById('view-' + viewId).classList.add('on');
-  if(viewId === 'hold') { populateHoldRouteSelectors(); renderHoldDashboard(); }
-  if(viewId === 'gate') { document.getElementById('gateSearch').value = ''; renderGateSearch(''); }
-  if(viewId === 'seq') { populateSeqRouteSelector(); runSequenceLookup(); }
-  if(viewId === 'home') { updateHomeHoldBadge(); }
-  window.scrollTo({top:0,behavior:'instant'});
+/* Navigation & UI State */
+function showConsole() {
+  document.getElementById('routeView').style.display = 'none';
+  document.getElementById('consoleView').style.display = 'block';
+  document.getElementById('seqResult').style.display = 'none';
+  document.getElementById('seqInput').value = '';
+  if(CURRENT) {
+    document.getElementById('c-active-text').innerHTML = `Currently tracking <b>Route ${CURRENT}</b>. Tap here to view stops.`;
+    document.getElementById('c-seq-rt').textContent = `Route ${CURRENT}`;
+  }
+}
+function showRoute() {
+  document.getElementById('consoleView').style.display = 'none';
+  document.getElementById('routeView').style.display = 'block';
+}
+document.getElementById('homeBtn').onclick = showConsole;
+document.getElementById('c-active').onclick = () => { if(CURRENT) showRoute(); else openMenu(); };
+
+/* Sequence Lookup Logic */
+document.getElementById('seqBtn').onclick = doSeqLookup;
+document.getElementById('seqInput').onkeypress = (e) => { if(e.key==='Enter') doSeqLookup(); };
+
+function doSeqLookup() {
+  const val = parseInt(document.getElementById('seqInput').value, 10);
+  const resDiv = document.getElementById('seqResult');
+  if(isNaN(val) || !CURRENT) return;
+  
+  const route = DB.routes.find(r=>r.id===CURRENT);
+  if(!route) return;
+
+  const stop = (route.stops||[]).find(s => s.seqStart <= val && s.seqEnd >= val);
+  resDiv.style.display = 'block';
+  resDiv.className = '';
+  
+  if(stop) {
+    resDiv.classList.add('found');
+    let noteHtml = stop.seqNote ? `<div class="seq-note">📝 ${esc(stop.seqNote)}</div>` : '';
+    resDiv.innerHTML = `<div class="seq-stop-no">Stop ${esc(stop.no)}</div>
+                        <div class="seq-addr">${esc(stop.short)}</div>
+                        ${noteHtml}`;
+  } else {
+    resDiv.classList.add('not-found');
+    resDiv.innerHTML = `Sequence <b>${val}</b> not found in Route ${CURRENT} ranges.`;
+  }
 }
 
+/* Route Render Logic */
 function dupStreets(route){
   const m={};
   (route.stops||[]).forEach((s,si)=>{ if(s.kind==='business')return;
@@ -329,7 +305,6 @@ function buttons(pin,full,lat,lng){
     '<a class="btn maps" href="'+esc(mapsUrl(pin,full,lat,lng))+'">'+MAP_SVG+'<span>Maps</span></a>'+
     '<button class="btn copy" type="button" data-addr="'+esc(full||pin)+'">'+COPY_SVG+'<span class="lbl">Copy</span></button></div>';
 }
-
 function stopBlock(s,route,dup){
   const isBiz=s.kind==='business'; const segs=s.segments||[]; let body='';
   if(segs.length){
@@ -346,7 +321,6 @@ function stopBlock(s,route,dup){
   const pin='R'+route.id+' Stop '+s.no+' - '+s.short;
   const note=s.note?'<div class="stop-note">'+s.note+'</div>':'';
   
-  // Universal Route Sequence Badge implementation
   let seqBadge = '';
   if (s.seqStart != null && s.seqEnd != null) {
     let tooltip = s.seqNote ? ` title="${esc(s.seqNote)}"` : '';
@@ -357,7 +331,6 @@ function stopBlock(s,route,dup){
     '<span class="stop-no">STOP '+esc(s.no)+'</span><span class="stop-addr">'+esc(s.short)+'</span>'+
     seqBadge + buttons(pin,s.full,s.lat,s.lng)+'</div>'+body+note+'</section>';
 }
-
 function gateRowsHtml(list){
   let h=''; list.forEach(e=>{ h+='<div class="g-row"><div class="g-loc">'+esc(e.loc)+
     (e.note?'<span class="g-note">'+esc(e.note)+'</span>':'')+'</div><div class="g-code">'+(e.code?esc(e.code):'—')+'</div></div>'; });
@@ -365,226 +338,78 @@ function gateRowsHtml(list){
 }
 function gateCard(id){ const list=DB.gates[id]; if(!list||!list.length) return '';
   return '<div class="gatecard"><div class="gc-head">🔑 Gate / Locker Codes</div>'+gateRowsHtml(list)+'</div>'; }
-function quickref(qr){
-  let cards=''; qr.forEach(g=>{let items='';(g[1]||[]).forEach(it=>{items+='<li><span>'+esc(it[0])+'</span><b>'+esc(it[1])+'</b></li>';});
-    cards+='<div class="qr-stop"><h4>'+esc(g[0])+'</h4><ul>'+items+'</ul></div>';});
-  return '<h2 class="sec">Quick Street Reference</h2><div class="qr">'+cards+'</div>'; }
+
 function renderStation(){const st=DB.station;
   document.getElementById('station').innerHTML='<span class="lbl0">STATION</span>'+
     '<span class="addr">'+esc(st.name)+' • '+esc(st.addr)+'</span>'+buttons(st.name,st.addr,st.lat,st.lng);}
-
-/* ---------- HOLD MAIL STORAGE & SERVICES ---------- */
-function holdKey(id){return 'lt_hold_'+id;}
-function getHolds(id){try{return JSON.parse(localStorage.getItem(holdKey(id))||'[]');}catch(e){return [];}}
-function saveHolds(id,arr){try{localStorage.setItem(holdKey(id),JSON.stringify(arr));}catch(e){}}
-function holdToday(){const d=new Date(),z=n=>(n<10?'0':'')+n;return d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate());}
-function fmtD(s){if(!s)return '—';const p=s.split('-');if(p.length!==3)return s;
-  const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return mo[(+p[1])-1]+' '+(+p[2]);}
-function holdStatus(h){const t=holdToday();
-  if(h.end&&h.end<t)return ['end','Ended'];
-  if(h.start&&h.start>t)return ['up','Upcoming'];
-  return ['on','On hold'];}
-
-// Embedded inline route hold interface builder
-function holdCard(id){
-  return '<div class="holdcard"><div class="hc-head">📌 Hold Mail <span class="cnt" id="holdCnt"></span></div>'+
-    '<div id="holdList"></div>'+
-    '<div class="hform">'+
-      '<input id="holdHouse" type="text" placeholder="House / address (e.g. 3500 Rip Ford Dr)" autocomplete="off">'+
-      '<div class="row2" style="display:flex; gap:8px; margin-top:4px;"><label style="flex:1; font-size:11px; font-weight:700; color:var(--muted)">Start<input id="holdStart" type="date" style="padding:6px; font-size:13px;"></label>'+
-      '<label style="flex:1; font-size:11px; font-weight:700; color:var(--muted)">End<input id="holdEnd" type="date" style="padding:6px; font-size:13px;"></label></div>'+
-      '<button class="h-add" type="button" id="holdAdd" style="margin-top:6px;">+ Add hold</button>'+
-    '</div></div>';
-}
-function renderInlineHolds(id){
-  const list=getHolds(id);
-  const rank=h=>{const s=holdStatus(h)[0];return s==='end'?2:(s==='up'?1:0);};
-  list.sort((a,b)=>rank(a)-rank(b)||(a.end||'').localeCompare(b.end||''));
-  const cnt=document.getElementById('holdCnt');
-  const active=list.filter(h=>holdStatus(h)[0]!=='end').length;
-  if(cnt)cnt.textContent=list.length?(active+' active'):'';
-  const el=document.getElementById('holdList'); if(!el)return;
-  if(!list.length){el.innerHTML='<div class="hold-empty">No holds yet. Add one below.</div>';return;}
-  let h=''; list.forEach(it=>{const st=holdStatus(it);
-    h+='<div class="hrow'+(st[0]==='end'?' ended':'')+'"><div class="h-main">'+
-       '<div class="h-house">'+esc(it.house)+'</div>'+
-       '<div class="h-dates">'+fmtD(it.start)+' → '+fmtD(it.end)+'</div></div>'+
-       '<span class="h-tag tag-'+st[0]+'">'+st[1]+'</span>'+
-       '<button class="h-del" type="button" data-hid="'+esc(it.id)+'" data-rt="'+esc(id)+'" onclick="handleHoldDelete(this)">×</button></div>';
-  });
-  el.innerHTML=h;
-}
-
-// Global Dashboard view logic for Hold Mail
-function populateHoldRouteSelectors(){
-  const sel = document.getElementById('holdRouteSelect'); if(sel.options.length) return;
-  sel.innerHTML = DB.routes.map(r => `<option value="${esc(r.id)}">${esc(r.name || 'Route ' + r.id)}</option>`).join('');
-}
-function setHoldViewMode(mode){
-  HOLD_VIEW_MODE = mode;
-  document.getElementById('btnHoldRoute').classList.toggle('on', mode === 'route');
-  document.getElementById('btnHoldAll').classList.toggle('on', mode === 'all');
-  document.getElementById('holdAddCard').style.display = (mode === 'all') ? 'none' : 'block';
-  renderHoldDashboard();
-}
-function getAllActiveHolds(){
-  let result = [];
-  DB.routes.forEach(r => {
-    getHolds(r.id).forEach(h => {
-      if(holdStatus(h)[0] !== 'end') result.push(Object.assign({routeId: r.id}, h));
-    });
-  });
-  result.sort((a,b) => (a.end || '').localeCompare(b.end || ''));
-  return result;
-}
-function renderHoldDashboard(){
-  const box = document.getElementById('dashboardHoldList'); if(!box) return;
-  if(HOLD_VIEW_MODE === 'all') {
-    const list = getAllActiveHolds();
-    if(!list.length){ box.innerHTML = '<div class="hold-empty" style="text-align:center; padding:14px;">No active holds across any station routes.</div>'; return; }
-    box.innerHTML = list.map(h => `
-      <div class="hrow"><div class="h-main">
-        <div class="h-house"><span style="background:var(--light); padding:2px 6px; border-radius:5px; font-size:11px; margin-right:6px; color:var(--navy); font-weight:800;">R${esc(h.routeId)}</span>${esc(h.house)}</div>
-        <div class="h-dates">${fmtD(h.start)} → ${fmtD(h.end)}</div></div>
-        <span class="h-tag tag-${holdStatus(h)[0]}">${holdStatus(h)[1]}</span>
-        <button class="h-del" type="button" data-hid="${esc(h.id)}" data-rt="${esc(h.routeId)}" onclick="handleHoldDelete(this)">×</button>
-      </div>`).join('');
-    return;
-  }
-  const activeRouteId = document.getElementById('holdRouteSelect').value; if(!activeRouteId) return;
-  const arr = getHolds(activeRouteId);
-  const rank = h => { const s = holdStatus(h)[0]; return s==='end'?2:(s==='up'?1:0); };
-  arr.sort((a,b) => rank(a)-rank(b) || (a.end||'').localeCompare(b.end||''));
-  if(!arr.length){ box.innerHTML = `<div class="hold-empty" style="text-align:center; padding:14px;">No custom holds logged for Route ${activeRouteId}.</div>`; return; }
-  box.innerHTML = arr.map(h => { const st = holdStatus(h); return `
-    <div class="hrow${st[0]==='end'?' ended':''}"><div class="h-main">
-      <div class="h-house">${esc(h.house)}</div>
-      <div class="h-dates">${fmtD(h.start)} → ${fmtD(h.end)}</div></div>
-      <span class="h-tag tag-${st[0]}">${st[1]}</span>
-      <button class="h-del" type="button" data-hid="${esc(h.id)}" data-rt="${esc(activeRouteId)}" onclick="handleHoldDelete(this)">×</button>
-    </div>`; }).join('');
-}
-function addDashboardHold(){
-  const rId = document.getElementById('holdRouteSelect').value;
-  const hEl = document.getElementById('hHouse'), sEl = document.getElementById('hStart'), eEl = document.getElementById('hEnd');
-  const house = hEl.value.trim(), start = sEl.value, end = eEl.value;
-  if(!house){toast('Enter a house / address');return;}
-  if(start&&end&&end<start){toast('End is before start');return;}
-  const list = getHolds(rId);
-  list.push({id:'h'+Date.now().toString(36)+Math.floor(Math.random()*1000),house:house,start:start,end:end});
-  saveHolds(rId,list); hEl.value=''; sEl.value=''; eEl.value=''; renderHoldDashboard(); updateHomeHoldBadge(); toast('Hold entry added');
-}
-function handleHoldDelete(btn){
-  const hid = btn.getAttribute('data-hid'); const rId = btn.getAttribute('data-rt');
-  saveHolds(rId, getHolds(rId).filter(h => h.id !== hid));
-  if(document.getElementById('view-hold').classList.contains('on')) renderHoldDashboard();
-  if(document.getElementById('view-routes').classList.contains('on') && CURRENT === rId) renderInlineHolds(rId);
-  updateHomeHoldBadge();
-}
-function updateHomeHoldBadge(){
-  const badge = document.getElementById('homeHoldBadge'); if(!badge) return;
-  const count = getAllActiveHolds().length;
-  badge.innerHTML = count ? `<span class="badge b-live">${count} Active</span>` : '';
-}
-
-/* ---------- ROUTE SEQUENCE CONSOLE SERVICES ---------- */
-function populateSeqRouteSelector(){
-  const sel = document.getElementById('seqRouteSelect'); if(sel.options.length) return;
-  sel.innerHTML = DB.routes.map(r => `<option value="${esc(r.id)}">${esc(r.name || 'Route ' + r.id)}</option>`).join('');
-  if(CURRENT) sel.value = CURRENT;
-}
-function runSequenceLookup(){
-  const rId = document.getElementById('seqRouteSelect').value; const out = document.getElementById('lookupOutput');
-  const numInput = document.getElementById('seqLookupInput').value.trim();
-  const targetNum = parseInt(numInput, 10);
-  if(!rId) { out.textContent = 'Select an active route first.'; return; }
-  if(!numInput || isNaN(targetNum)) { out.textContent = 'Enter sequence number...'; out.style.color = 'var(--muted)'; return; }
-  
-  const route = DB.routes.find(r => r.id === rId); if(!route) return;
-  let matchStop = null;
-  (route.stops || []).forEach(s => {
-    if(s.seqStart != null && s.seqEnd != null && targetNum >= s.seqStart && targetNum <= s.seqEnd) { matchStop = s; }
-  });
-  
-  if(matchStop) {
-    let noteTxt = matchStop.seqNote ? `<div style="font-size:12px; color:var(--amber); margin-top:4px; font-weight:700;">⚠ Note: ${esc(matchStop.seqNote)}</div>` : '';
-    out.innerHTML = `Seq ${targetNum} → <b style="color:var(--navy); font-size:16px;">STOP ${esc(matchStop.no)}</b><br><span style="color:#111; font-weight:700;">${esc(matchStop.short)}</span>${noteTxt}`;
-    out.style.color = 'var(--ink)';
-  } else {
-    out.textContent = `Sequence ${targetNum} was not found inside any configured stop range for Route ${rId}.`;
-    out.style.color = 'var(--red)';
-  }
-}
-
-/* ---------- GENERAL ROUTE RENDERER ---------- */
+    
 function renderRoute(route){
   const dup=dupStreets(route);
   document.getElementById('rsub').textContent=(route.name||route.id)+' — '+(route.subtitle||'');
   let h=''; (route.stops||[]).forEach(s=>h+=stopBlock(s,route,dup));
-  if(route.quickref)h+=quickref(route.quickref);
   if(route.notes)route.notes.forEach(n=>h+='<div class="note">'+n.html+'</div>');
-  h+=holdCard(route.id);
   h+=gateCard(route.id);
   document.getElementById('route').innerHTML=h;
-  renderInlineHolds(route.id);
+  
+  renderHoldMail(route.id); // Inject Hold Mail UI at the bottom
 }
-function setRouteBtn(route){document.getElementById('routeBtnLbl').textContent=(route.name||route.id).replace('Route ','R');}
+
 function selectRoute(id){
   const route=DB.routes.find(r=>r.id===id)||DB.routes[0]; if(!route)return;
-  CURRENT=route.id; setRouteBtn(route); renderRoute(route);
+  CURRENT=route.id; 
+  document.getElementById('routeBtnLbl').textContent=(route.name||route.id).replace('Route ','R');
+  
   try{localStorage.setItem(LS_LAST,route.id);}catch(e){}
+  
+  renderRoute(route);
+  fetchHolds(route.id); // Trigger background sync for holds
+  showRoute();
   window.scrollTo({top:0,behavior:'instant'});
 }
+
+/* Menu & Gates UI */
 function buildRouteList(filter){
   filter=(filter||'').trim().toLowerCase();
   const rl=document.getElementById('rlist'); let h='';
   DB.routes.forEach(r=>{
     const name=(r.name||r.id), lbl=name.replace('Route ','R');
     if(filter && !(r.id.toLowerCase().includes(filter)||name.toLowerCase().includes(filter))) return;
-    h+='<div class="ritem'+(r.id===CURRENT?' sel':'')+'" data-id="'+esc(r.id)+'"><span>'+esc(lbl)+'</span><span style="font-size:11px; color:var(--muted)">'+esc(r.subtitle||'')+'</span></div>';
+    h+='<div class="ritem'+(r.id===CURRENT?' sel':'')+'" data-id="'+esc(r.id)+'"><span>'+esc(lbl)+'</span></div>';
   });
-  if(!h) h='<div class="ritem" style="color:#8a93a0">No match</div>';
-  rl.innerHTML=h;
+  rl.innerHTML=h||'<div class="ritem" style="color:#8a93a0">No match</div>';
   rl.querySelectorAll('.ritem[data-id]').forEach(it=>it.onclick=()=>{closeMenu();selectRoute(it.dataset.id);});
 }
 function openMenu(){document.getElementById('rmenu').classList.add('show');document.getElementById('backdrop').classList.add('show');
   const s=document.getElementById('rsearch'); s.value='';buildRouteList('');setTimeout(()=>s.focus(),50);}
 function closeMenu(){document.getElementById('rmenu').classList.remove('show');document.getElementById('backdrop').classList.remove('show');}
+document.getElementById('routeBtn').onclick=openMenu;
+document.getElementById('rsearch').oninput=function(){buildRouteList(this.value);};
 
-// Gate Screen services
-function renderGateSearch(filter){
+function buildGate(filter){
   filter=(filter||'').trim().toLowerCase();
   const keys=Object.keys(DB.gates).sort((a,b)=>(+a)-(+b)); let h='';
   keys.forEach(rt=>{ const es=DB.gates[rt].filter(e=> !filter || rt.includes(filter) ||
       (e.loc||'').toLowerCase().includes(filter) || (e.code||'').toLowerCase().includes(filter));
     if(!es.length) return; h+='<div class="g-rt">RT '+esc(rt)+'</div>'+gateRowsHtml(es); });
-  document.getElementById('globalGateList').innerHTML=h||'<div class="g-empty" style="text-align:center; padding:20px; color:var(--muted); font-style:italic;">No code match found</div>';
+  document.getElementById('gateList').innerHTML=h||'<div class="g-empty">No match</div>';
 }
+function openGate(){document.getElementById('gatePanel').classList.add('show');document.getElementById('backdrop').classList.add('show');
+  const s=document.getElementById('gsearch'); s.value='';buildGate('');}
+function closeGate(){document.getElementById('gatePanel').classList.remove('show');document.getElementById('backdrop').classList.remove('show');}
+document.getElementById('codesBtn').onclick=openGate;
+document.getElementById('gateX').onclick=closeGate;
+document.getElementById('gsearch').oninput=function(){buildGate(this.value);};
+document.getElementById('backdrop').onclick=function(){closeMenu();closeGate();};
 
-// Inline trigger bindings
-document.getElementById('routeBtn').onclick=openMenu;
-document.getElementById('inlineCodesBtn').onclick=()=>switchView('gate');
-
-// Dynamic DOM event monitoring
+/* Clipboard Copy */
 document.addEventListener('click',function(e){
-  if(e.target.closest('#holdAdd')){
-    const hEl=document.getElementById('holdHouse'), sEl=document.getElementById('holdStart'), eEl=document.getElementById('holdEnd');
-    const house=hEl.value.trim(), start=sEl.value, end=eEl.value;
-    if(!house){toast('Enter a house / address');return;}
-    if(start&&end&&end<start){toast('End is before start');return;}
-    const list=getHolds(CURRENT);
-    list.push({id:'h'+Date.now().toString(36)+Math.floor(Math.random()*1000),house:house,start:start,end:end});
-    saveHolds(CURRENT,list); hEl.value='';sEl.value='';eEl.value=''; renderInlineHolds(CURRENT); updateHomeHoldBadge(); toast('Hold added');
-    return;
-  }
   const btn=e.target.closest('.btn.copy'); if(!btn)return;
   const text=btn.getAttribute('data-addr'); const lbl=btn.querySelector('.lbl');
-  const show=ok=>{btn.classList.add('copied');if(lbl)lbl.textContent=ok?'Copied ✓':'Select & copy';
-    setTimeout(()=>{btn.classList.remove('copied');if(lbl)lbl.textContent='Copy';},1600);};
+  const show=ok=>{btn.classList.add('copied');lbl.textContent=ok?'Copied ✓':'Select & copy';
+    setTimeout(()=>{btn.classList.remove('copied');lbl.textContent='Copy';},1600);};
   if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(()=>show(true)).catch(()=>fbCopy(text,show));
   else fbCopy(text,show);
 });
-
 function fbCopy(text,done){
   const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');
   ta.style.position='fixed';ta.style.top='-1000px';ta.style.opacity='0';
@@ -592,6 +417,132 @@ function fbCopy(text,done){
   try{document.execCommand('copy');done(true);}catch(e){done(false);}document.body.removeChild(ta);
 }
 
+/* Hybrid Sync Engine: Hold Mail */
+async function fetchHolds(routeId) {
+  if(!navigator.onLine) return; // offline, rely on cache
+  try {
+    const res = await fetch(`/api/holds?routeId=${routeId}`);
+    if(res.ok) {
+      const cloudData = await res.json();
+      localStorage.setItem(`lt_hold_${routeId}`, JSON.stringify(cloudData));
+      if(CURRENT === routeId) renderHoldMail(routeId); // refresh UI silently
+    }
+  } catch(e) { console.log('Hold fetch failed, using local.'); }
+}
+
+async function flushSyncQueue() {
+  if (!navigator.onLine) return;
+  let queue = JSON.parse(localStorage.getItem(SYNC_Q) || '[]');
+  if (!queue.length) return;
+
+  let remaining = [];
+  for (let item of queue) {
+    try {
+      if (item.action === 'POST') {
+        const resp = await fetch('/api/holds', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ routeId: item.routeId, ...item.data })
+        });
+        if (!resp.ok) throw new Error('API Sync Failed');
+      } else if (item.action === 'DELETE') {
+        const resp = await fetch(`/api/holds?id=${item.id}`, { method: 'DELETE' });
+        if (!resp.ok) throw new Error('API Sync Failed');
+      }
+    } catch (err) { remaining.push(item); } // keep failed items
+  }
+  localStorage.setItem(SYNC_Q, JSON.stringify(remaining));
+  if(remaining.length === 0) console.log('Sync complete.');
+}
+window.addEventListener('online', flushSyncQueue);
+
+function saveHold(routeId, house, start, end) {
+  const id = 'h_' + Date.now() + Math.floor(Math.random()*1000);
+  const data = { id, house, start_date: start, end_date: end };
+  
+  // 1. Local Write
+  const key = `lt_hold_${routeId}`;
+  let holds = JSON.parse(localStorage.getItem(key) || '[]');
+  holds.push(data);
+  localStorage.setItem(key, JSON.stringify(holds));
+  
+  // 2. Queue for Cloud
+  let q = JSON.parse(localStorage.getItem(SYNC_Q) || '[]');
+  q.push({ action: 'POST', routeId, data });
+  localStorage.setItem(SYNC_Q, JSON.stringify(q));
+  
+  renderHoldMail(routeId);
+  flushSyncQueue();
+  toast('Hold added (Local & Syncing)');
+}
+
+function deleteHold(routeId, holdId) {
+  // 1. Local Delete
+  const key = `lt_hold_${routeId}`;
+  let holds = JSON.parse(localStorage.getItem(key) || '[]');
+  holds = holds.filter(h => h.id !== holdId);
+  localStorage.setItem(key, JSON.stringify(holds));
+  
+  // 2. Queue for Cloud
+  let q = JSON.parse(localStorage.getItem(SYNC_Q) || '[]');
+  q.push({ action: 'DELETE', routeId, id: holdId });
+  localStorage.setItem(SYNC_Q, JSON.stringify(q));
+
+  renderHoldMail(routeId);
+  flushSyncQueue();
+  toast('Hold removed');
+}
+
+function renderHoldMail(routeId) {
+  const container = document.getElementById('holdMailContainer');
+  if(!container || CURRENT !== routeId) return;
+
+  const holds = JSON.parse(localStorage.getItem(`lt_hold_${routeId}`) || '[]');
+  
+  let listHtml = '';
+  if(holds.length === 0) {
+    listHtml = '<div style="padding:16px; text-align:center; color:#8a93a0; font-size:13px; font-style:italic;">No active holds for this route.</div>';
+  } else {
+    // Sort by start date
+    holds.sort((a,b) => a.start_date.localeCompare(b.start_date)).forEach(h => {
+      listHtml += `<div class="h-row">
+        <div>
+          <div class="h-house">${esc(h.house)}</div>
+          <div class="h-dates">${esc(h.start_date)} to ${esc(h.end_date)}</div>
+        </div>
+        <button class="h-del" onclick="deleteHold('${esc(routeId)}', '${esc(h.id)}')">×</button>
+      </div>`;
+    });
+  }
+
+  container.innerHTML = `
+    <div class="hold-card">
+      <div class="hc-head">
+        <span>📌 Hold Mail Manager</span>
+        <span class="hc-status" id="syncStatus">${navigator.onLine ? '🟢 Online Sync' : '🟡 Offline Mode'}</span>
+      </div>
+      <div class="hc-form" id="holdForm">
+        <input type="text" id="hHouse" placeholder="House / Apt #">
+        <input type="date" id="hStart" placeholder="Start">
+        <input type="date" id="hEnd" placeholder="End">
+        <button type="button" onclick="handleAddHold('${esc(routeId)}')">Add</button>
+      </div>
+      <div id="holdList">${listHtml}</div>
+    </div>
+  `;
+}
+window.handleAddHold = function(routeId) {
+  const house = document.getElementById('hHouse').value.trim();
+  const start = document.getElementById('hStart').value;
+  const end = document.getElementById('hEnd').value;
+  if(!house || !start || !end) return alert('Fill all fields');
+  saveHold(routeId, house, start, end);
+};
+window.addEventListener('offline', () => { 
+  const el = document.getElementById('syncStatus'); 
+  if(el){ el.textContent='🟡 Offline Mode'; el.style.color='#7a5d00'; } 
+});
+
+/* Init */
 async function loadData(){
   const man = await fetch('data/manifest.json').then(r=>{if(!r.ok)throw 0;return r.json();});
   const routes = await Promise.all(man.map(f=> fetch('data/routes/'+f).then(r=>r.ok?r.json():null).catch(()=>null)));
@@ -604,14 +555,23 @@ async function init(){
     await loadData();
     if(!DB.routes.length) throw new Error('No routes found');
     renderStation();
-    let start=DB.routes[0].id; try{const last=localStorage.getItem(LS_LAST); if(last&&DB.routes.find(r=>r.id===last))start=last;}catch(e){}
-    selectRoute(start);
-    updateHomeHoldBadge();
+    
+    let lastRoute = null; 
+    try{ lastRoute = localStorage.getItem(LS_LAST); }catch(e){}
+    if(lastRoute && DB.routes.find(r=>r.id===lastRoute)) {
+      CURRENT = lastRoute;
+      // Initialize state but show console by default
+      document.getElementById('routeBtnLbl').textContent = CURRENT.replace('Route ','R');
+      showConsole();
+    } else {
+      showConsole();
+    }
     document.getElementById('loader').classList.add('hide');
+    flushSyncQueue(); // try sync on boot
   }catch(err){
     document.getElementById('loader').classList.add('hide');
-    const eb = document.getElementById('errbox'); if(eb) { eb.style.display='block';
-    eb.innerHTML='Could not load route data. Open with internet once to allow background sync cache.'; }
+    const eb=document.getElementById('errbox'); eb.style.display='block';
+    eb.innerHTML='Could not load route data. Please check internet connection.';
   }
 }
 
