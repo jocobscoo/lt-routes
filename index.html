@@ -189,6 +189,13 @@
   .seq-edit-group { display: flex; align-items: center; gap: 4px; background: #fff; padding: 4px 6px; border-radius: 6px; margin-left: auto; color: var(--navy); font-size: 11px; font-weight: 800; border: 1.5px dashed var(--grid); }
   .seq-in { width: 50px; border: 1px solid var(--grid); border-radius: 4px; padding: 2px 4px; font-size: 12px; font-weight: 700; text-align: center; color: var(--blue); }
   .seq-in:focus { outline: 2px solid var(--blue); border-color: transparent; }
+  
+/* Edit Mode: Stop Level Controls */
+  .stop-edit-fields { display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #eef2f7; border-bottom: 1.5px solid var(--grid); }
+  .stop-edit-fields input { border: 1.5px solid var(--grid); padding: 8px; border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--navy); }
+  .stop-edit-actions { display: flex; justify-content: space-between; margin-top: 6px; }
+  .btn-add-stop { background: var(--green); color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+  .btn-add-stop:active { transform: scale(0.95); }
 </style>
 </head>
 <body>
@@ -443,6 +450,42 @@ function updateSeqCascade(stopIdx, field, newValStr) {
   renderRoute(route);
 }
 
+function updateStopField(stopIdx, field, val) {
+  const route = DB.routes.find(r => r.id === CURRENT);
+  route.stops[stopIdx][field] = val;
+}
+
+function reindexStops(route) {
+  // Tüm durak numaralarını baştan aşağı 1, 2, 3 diye yeniden sıralar
+  route.stops.forEach((s, i) => { s.no = String(i + 1); });
+}
+
+function insertStopBelow(stopIdx) {
+  const route = DB.routes.find(r => r.id === CURRENT);
+  const newStop = {
+    no: "", // reindex ile otomatik atanacak
+    short: "New Stop",
+    full: "",
+    lat: null,
+    lng: null,
+    segments: [],
+    seqStart: null,
+    seqEnd: null
+  };
+  // Seçilen durağın bir altına boş durağı ekle
+  route.stops.splice(stopIdx + 1, 0, newStop);
+  reindexStops(route);
+  renderRoute(route);
+}
+
+function removeStop(stopIdx) {
+  if(!confirm('Are you sure you want to delete this stop and all its addresses?')) return;
+  const route = DB.routes.find(r => r.id === CURRENT);
+  route.stops.splice(stopIdx, 1);
+  reindexStops(route);
+  renderRoute(route);
+}
+
 // --- GÜNCELLENMİŞ RENDER FONKSİYONLARI ---
 function stopBlock(s, route, dup, stopIdx){
   const isBiz = s.kind === 'business'; 
@@ -532,11 +575,25 @@ function stopBlock(s, route, dup, stopIdx){
       seqBadge = `<span class="seq-badge"${tooltip}>SEQ ${esc(s.seqStart)}–${esc(s.seqEnd)}</span>`;
     }
   }
+  
+  let editStopHeader = '';
+  if (IS_EDITING) {
+    editStopHeader = `
+      <div class="stop-edit-fields">
+        <input type="text" placeholder="Short Address (Display, e.g., 3532 John Simpson Trl)" value="${esc(s.short||'')}" onchange="updateStopField(${stopIdx}, 'short', this.value); renderRoute(DB.routes.find(r=>r.id===CURRENT));">
+        <input type="text" placeholder="Full Address for Maps (e.g., 3532 John Simpson, Austin, TX)" value="${esc(s.full||'')}" onchange="updateStopField(${stopIdx}, 'full', this.value); renderRoute(DB.routes.find(r=>r.id===CURRENT));">
+        <div class="stop-edit-actions">
+          <button class="btn-icon danger" onclick="removeStop(${stopIdx})" title="Delete Stop">🗑️</button>
+          <button class="btn-add-stop" onclick="insertStopBelow(${stopIdx})">+ Add Stop Below</button>
+        </div>
+      </div>
+    `;
+  }
+
 
   return '<section class="stop"><div class="stop-bar">'+
     '<span class="stop-no">STOP '+esc(s.no)+'</span><span class="stop-addr">'+esc(s.short)+'</span>'+
-    seqBadge + buttons(pin, s.full, s.lat, s.lng) + '</div>' + body + note + '</section>';
-}
+    seqBadge + buttons(pin, s.full, s.lat, s.lng) + '</div>' + editStopHeader + body + note + '</section>';
 
 function renderRoute(route){
   const dup = dupStreets(route);
