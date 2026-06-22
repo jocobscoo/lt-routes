@@ -5,6 +5,16 @@
   "stops": [
     {
       "no": "1",
+      "short": "New Stop",
+      "full": "",
+      "lat": null,
+      "lng": null,
+      "segments": [],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "2",
       "short": "6313 Llano Stage Trl",
       "full": "6313 Llano Stage Trl, Austin, TX 78738",
       "lat": 30.3302498,
@@ -31,7 +41,7 @@
       "seqEnd": 76
     },
     {
-      "no": "2",
+      "no": "3",
       "short": "5713 Alamosa Clearing Dr",
       "full": "5713 Alamosa Clearing Dr, Austin, TX 78738",
       "lat": 30.3316008,
@@ -62,7 +72,7 @@
       "seqEnd": 141
     },
     {
-      "no": "3",
+      "no": "4",
       "short": "5915 Alamosa Clearing Dr",
       "full": "5915 Alamosa Clearing Dr, Austin, TX 78738",
       "lat": 30.3294087,
@@ -106,7 +116,7 @@
       "seqNote": "SEQ 142 = Empresa Dr 6309 (CBU 9509), Stop 4 sokağı; DPS sırasında Stop 3 bloğuna giriyor."
     },
     {
-      "no": "4",
+      "no": "5",
       "short": "6800 Empresa Dr",
       "full": "6800 Empresa Dr, Austin, TX 78738",
       "lat": 30.3279657,
@@ -129,7 +139,7 @@
       "seqEnd": 351
     },
     {
-      "no": "5",
+      "no": "6",
       "short": "6009 Antelope Well Ln",
       "full": "6009 Antelope Well Ln, Austin, TX 78738",
       "lat": 30.3234156,
@@ -160,7 +170,7 @@
       "seqEnd": 458
     },
     {
-      "no": "6",
+      "no": "7",
       "short": "6304 Leftwich Cv",
       "full": "6304 Leftwich Cv, Austin, TX 78738",
       "lat": 30.313031,
@@ -179,7 +189,7 @@
       "seqEnd": 551
     },
     {
-      "no": "7",
+      "no": "8",
       "short": "17425 Hattie Trce",
       "full": "17425 Hattie Trce, Austin, TX 78738",
       "lat": 30.317133,
@@ -218,7 +228,7 @@
       "seqEnd": 640
     },
     {
-      "no": "8",
+      "no": "9",
       "short": "5702 Proud Bear Pass",
       "full": "5702 Proud Bear Pass, Bee Cave, TX 78738",
       "lat": 30.3210155,
@@ -242,7 +252,7 @@
       "seqNote": "SEQ 641–642 = W Hwy 71 18001/18017 (vacant); Stop 8 aktif teslimat SEQ 643'ten başlar."
     },
     {
-      "no": "9",
+      "no": "10",
       "short": "13400 Bee Cave Pkwy (Pearl Bee Cave)",
       "full": "13400 Bee Cave Pkwy, Austin, TX 78738",
       "lat": 30.3155608,
