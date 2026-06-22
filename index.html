@@ -163,6 +163,27 @@
   @keyframes sp{to{transform:rotate(360deg);}}
   #errbox{display:none;background:#fdeceb;border:1px solid #f0c4c0;color:#9b2620;border-radius:12px;
     padding:14px;margin:14px 0;font-size:13.5px;line-height:1.5;}
+    
+/* Edit Mode & CBU Groups */
+  .cbu-group { background: #eef2f7; border-left: 3px solid var(--blue); border-radius: 6px; padding: 4px 8px; margin: 4px -8px; }
+  .cbu-lbl { font-size: 10px; font-weight: 800; color: var(--blue); text-transform: uppercase; margin-bottom: 2px; display: block; }
+  
+  .edit-row { display: flex; flex-direction: column; gap: 6px; padding: 10px 0; border-bottom: 1px dashed var(--grid); }
+  .edit-row:last-child { border-bottom: none; }
+  .edit-inputs { display: flex; gap: 6px; align-items: flex-start; flex-wrap: wrap; }
+  .edit-inputs input[type="text"] { flex: 1; min-width: 100px; border: 1px solid var(--grid); border-radius: 6px; padding: 6px 8px; font-size: 14px; }
+  .edit-inputs input.num-in { flex: 0.5; min-width: 70px; }
+  
+  .edit-actions { display: flex; gap: 4px; align-items: center; justify-content: flex-end; width: 100%; margin-top: 4px;}
+  .btn-icon { background: #e7edf5; border: none; color: var(--navy); border-radius: 6px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: 800; cursor: pointer; }
+  .btn-icon:active { transform: scale(0.9); }
+  .btn-icon.danger { background: #fdeceb; color: var(--red); }
+  
+  .cbu-toggle { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #5a6470; width: 100%; margin-top: 4px; }
+  .cbu-input { display: none; width: 100%; border: 1px solid var(--grid); border-radius: 6px; padding: 6px 8px; font-size: 13px; margin-top: 4px; background: #fff; }
+  .cbu-input.show { display: block; }
+  
+  .add-seg-btn { width: 100%; background: #fff; border: 2px dashed var(--grid); color: var(--blue); padding: 8px; border-radius: 8px; font-weight: 800; margin-top: 8px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -305,32 +326,7 @@ function buttons(pin,full,lat,lng){
     '<a class="btn maps" href="'+esc(mapsUrl(pin,full,lat,lng))+'">'+MAP_SVG+'<span>Maps</span></a>'+
     '<button class="btn copy" type="button" data-addr="'+esc(full||pin)+'">'+COPY_SVG+'<span class="lbl">Copy</span></button></div>';
 }
-function stopBlock(s,route,dup){
-  const isBiz=s.kind==='business'; const segs=s.segments||[]; let body='';
-  if(segs.length){
-    if(!isBiz) body+='<div class="dps-cap">Delivery order (DPS)</div>';
-    body+='<div class="slist">';
-    segs.forEach(seg=>{
-      if(seg.muted){body+='<div class="sitem muted">'+esc(seg.street)+'</div>';return;}
-      const isDup=!isBiz && dup.has(norm(seg.street));
-      const nums=seg.nums?('<span class="nums">'+esc(seg.nums)+'</span> '):'';
-      body+='<div class="sitem">'+nums+'<span class="street'+(isDup?' dup':'')+'">'+esc(seg.street)+'</span></div>';
-    });
-    body+='</div>';
-  }
-  const pin='R'+route.id+' Stop '+s.no+' - '+s.short;
-  const note=s.note?'<div class="stop-note">'+s.note+'</div>':'';
-  
-  let seqBadge = '';
-  if (s.seqStart != null && s.seqEnd != null) {
-    let tooltip = s.seqNote ? ` title="${esc(s.seqNote)}"` : '';
-    seqBadge = `<span class="seq-badge"${tooltip}>SEQ ${esc(s.seqStart)}–${esc(s.seqEnd)}</span>`;
-  }
 
-  return '<section class="stop"><div class="stop-bar">'+
-    '<span class="stop-no">STOP '+esc(s.no)+'</span><span class="stop-addr">'+esc(s.short)+'</span>'+
-    seqBadge + buttons(pin,s.full,s.lat,s.lng)+'</div>'+body+note+'</section>';
-}
 function gateRowsHtml(list){
   let h=''; list.forEach(e=>{ h+='<div class="g-row"><div class="g-loc">'+esc(e.loc)+
     (e.note?'<span class="g-note">'+esc(e.note)+'</span>':'')+'</div><div class="g-code">'+(e.code?esc(e.code):'—')+'</div></div>'; });
@@ -343,15 +339,155 @@ function renderStation(){const st=DB.station;
   document.getElementById('station').innerHTML='<span class="lbl0">STATION</span>'+
     '<span class="addr">'+esc(st.name)+' • '+esc(st.addr)+'</span>'+buttons(st.name,st.addr,st.lat,st.lng);}
     
-function renderRoute(route){
-  const dup=dupStreets(route);
-  document.getElementById('rsub').textContent=(route.name||route.id)+' — '+(route.subtitle||'');
-  let h=''; (route.stops||[]).forEach(s=>h+=stopBlock(s,route,dup));
-  if(route.notes)route.notes.forEach(n=>h+='<div class="note">'+n.html+'</div>');
-  h+=gateCard(route.id);
-  document.getElementById('route').innerHTML=h;
+
+let IS_EDITING = false;
+
+// --- DÜZENLEME (EDIT) YARDIMCI FONKSİYONLARI ---
+function toggleEditMode() {
+  IS_EDITING = !IS_EDITING;
+  const route = DB.routes.find(r => r.id === CURRENT);
+  renderRoute(route);
+}
+
+function updateSegment(stopIdx, segIdx, field, value) {
+  const route = DB.routes.find(r => r.id === CURRENT);
+  route.stops[stopIdx].segments[segIdx][field] = value;
+}
+
+function moveSegment(stopIdx, segIdx, dir) {
+  const route = DB.routes.find(r => r.id === CURRENT);
+  const segs = route.stops[stopIdx].segments;
+  if (segIdx + dir < 0 || segIdx + dir >= segs.length) return;
   
-  renderHoldMail(route.id); // Inject Hold Mail UI at the bottom
+  const temp = segs[segIdx];
+  segs[segIdx] = segs[segIdx + dir];
+  segs[segIdx + dir] = temp;
+  renderRoute(route);
+}
+
+function addSegment(stopIdx) {
+  const route = DB.routes.find(r => r.id === CURRENT);
+  if (!route.stops[stopIdx].segments) route.stops[stopIdx].segments = [];
+  route.stops[stopIdx].segments.push({ nums: "", street: "", cbu: "" });
+  renderRoute(route);
+}
+
+function removeSegment(stopIdx, segIdx) {
+  const route = DB.routes.find(r => r.id === CURRENT);
+  route.stops[stopIdx].segments.splice(segIdx, 1);
+  renderRoute(route);
+}
+
+function toggleCbuInput(stopIdx, segIdx, checkbox) {
+  const input = document.getElementById(`cbu-in-${stopIdx}-${segIdx}`);
+  if (checkbox.checked) {
+    input.classList.add('show');
+  } else {
+    input.classList.remove('show');
+    input.value = '';
+    updateSegment(stopIdx, segIdx, 'cbu', '');
+  }
+}
+
+// --- GÜNCELLENMİŞ RENDER FONKSİYONLARI ---
+function stopBlock(s, route, dup, stopIdx){
+  const isBiz = s.kind === 'business'; 
+  const segs = s.segments || []; 
+  let body = '';
+  
+  if (segs.length || IS_EDITING) {
+    if (!isBiz && !IS_EDITING) body += '<div class="dps-cap">Delivery order (DPS)</div>';
+    body += '<div class="slist">';
+    
+    if (IS_EDITING) {
+      // EDIT MODE RENDER
+      segs.forEach((seg, segIdx) => {
+        const hasCbu = !!seg.cbu;
+        body += `
+          <div class="edit-row">
+            <div class="edit-inputs">
+              <input type="text" class="num-in" placeholder="No (e.g. 100 or 10-20)" value="${esc(seg.nums||'')}" onchange="updateSegment(${stopIdx}, ${segIdx}, 'nums', this.value)">
+              <input type="text" placeholder="Street Name" value="${esc(seg.street||'')}" onchange="updateSegment(${stopIdx}, ${segIdx}, 'street', this.value)">
+            </div>
+            <label class="cbu-toggle">
+              <input type="checkbox" ${hasCbu ? 'checked' : ''} onchange="toggleCbuInput(${stopIdx}, ${segIdx}, this)">
+              Group in CBU
+            </label>
+            <input type="text" id="cbu-in-${stopIdx}-${segIdx}" class="cbu-input ${hasCbu ? 'show' : ''}" placeholder="CBU No / Name" value="${esc(seg.cbu||'')}" onchange="updateSegment(${stopIdx}, ${segIdx}, 'cbu', this.value)">
+            
+            <div class="edit-actions">
+              <button class="btn-icon" onclick="moveSegment(${stopIdx}, ${segIdx}, -1)">▲</button>
+              <button class="btn-icon" onclick="moveSegment(${stopIdx}, ${segIdx}, 1)">▼</button>
+              <button class="btn-icon danger" onclick="removeSegment(${stopIdx}, ${segIdx})">×</button>
+            </div>
+          </div>
+        `;
+      });
+      body += `<button class="add-seg-btn" onclick="addSegment(${stopIdx})">+ Add Address / Range</button>`;
+    } else {
+      // NORMAL (VIEW) MODE RENDER - CBU Grouping Logic
+      let currentCbu = null;
+      let inCbuGroup = false;
+
+      segs.forEach((seg) => {
+        if (seg.muted) {
+          if (inCbuGroup) { body += '</div>'; inCbuGroup = false; currentCbu = null; }
+          body += '<div class="sitem muted">' + esc(seg.street) + '</div>';
+          return;
+        }
+
+        // Handle CBU Grouping Box
+        if (seg.cbu) {
+          if (seg.cbu !== currentCbu) {
+            if (inCbuGroup) body += '</div>'; // Close previous group
+            body += `<div class="cbu-group"><span class="cbu-lbl">CBU: ${esc(seg.cbu)}</span>`;
+            inCbuGroup = true;
+            currentCbu = seg.cbu;
+          }
+        } else {
+          if (inCbuGroup) { body += '</div>'; inCbuGroup = false; currentCbu = null; }
+        }
+
+        const isDup = !isBiz && dup.has(norm(seg.street));
+        const nums = seg.nums ? ('<span class="nums">' + esc(seg.nums) + '</span> ') : '';
+        body += '<div class="sitem">' + nums + '<span class="street' + (isDup ? ' dup' : '') + '">' + esc(seg.street) + '</span></div>';
+      });
+      
+      if (inCbuGroup) body += '</div>'; // Close final group if open
+    }
+    body += '</div>';
+  }
+  
+  const pin = 'R' + route.id + ' Stop ' + s.no + ' - ' + s.short;
+  const note = s.note ? '<div class="stop-note">' + s.note + '</div>' : '';
+  
+  let seqBadge = '';
+  if (s.seqStart != null && s.seqEnd != null) {
+    let tooltip = s.seqNote ? ` title="${esc(s.seqNote)}"` : '';
+    seqBadge = `<span class="seq-badge"${tooltip}>SEQ ${esc(s.seqStart)}–${esc(s.seqEnd)}</span>`;
+  }
+
+  return '<section class="stop"><div class="stop-bar">'+
+    '<span class="stop-no">STOP '+esc(s.no)+'</span><span class="stop-addr">'+esc(s.short)+'</span>'+
+    seqBadge + buttons(pin, s.full, s.lat, s.lng) + '</div>' + body + note + '</section>';
+}
+
+function renderRoute(route){
+  const dup = dupStreets(route);
+  
+  // Rota başlığına Edit Butonu ekliyoruz
+  const editBtnHtml = `<button class="btn" style="background:${IS_EDITING ? 'var(--green)' : '#e7edf5'}; color:${IS_EDITING ? '#fff' : 'var(--navy)'};" onclick="toggleEditMode()">${IS_EDITING ? '💾 Done Editing' : '✏️ Edit Route'}</button>`;
+  
+  document.getElementById('rsub').innerHTML = esc(route.name||route.id) + ' — ' + esc(route.subtitle||'') + ' <span style="margin-left:12px;">' + editBtnHtml + '</span>';
+  
+  let h = ''; 
+  (route.stops||[]).forEach((s, i) => h += stopBlock(s, route, dup, i));
+  
+  if (route.notes && !IS_EDITING) route.notes.forEach(n => h += '<div class="note">' + n.html + '</div>');
+  if (!IS_EDITING) h += gateCard(route.id);
+  
+  document.getElementById('route').innerHTML = h;
+  renderHoldMail(route.id); 
 }
 
 function selectRoute(id){
