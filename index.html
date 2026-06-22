@@ -196,6 +196,11 @@
   .stop-edit-actions { display: flex; justify-content: space-between; margin-top: 6px; }
   .btn-add-stop { background: var(--green); color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; }
   .btn-add-stop:active { transform: scale(0.95); }
+  
+/* Edit Mode: Number Range Split Inputs */
+  .num-range-group { display: flex; align-items: center; gap: 4px; flex: 0.5; min-width: 130px; }
+  .num-range-group input.num-in { flex: 1; min-width: 45px; padding: 6px 8px; text-align: center; font-weight: 700; color: var(--blue); }
+  .num-sep { color: #8a93a0; font-weight: 800; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -364,6 +369,31 @@ function toggleEditMode() {
 function updateSegment(stopIdx, segIdx, field, value) {
   const route = DB.routes.find(r => r.id === CURRENT);
   route.stops[stopIdx].segments[segIdx][field] = value;
+}
+
+function updateSegmentNums(stopIdx, segIdx, pos, value) {
+  const route = DB.routes.find(r => r.id === CURRENT);
+  const seg = route.stops[stopIdx].segments[segIdx];
+  
+  // Mevcut numarayı al ve tire/çizgi işaretlerinden böl
+  let parts = (seg.nums || '').split(/[-–—]/).map(s => s.trim());
+  let n1 = parts[0] || '';
+  let n2 = parts.length > 1 ? parts[1] : '';
+
+  // Hangi kutu değiştiyse (1=Min, 2=Max) onu güncelle
+  if (pos === 1) n1 = value.trim();
+  if (pos === 2) n2 = value.trim();
+
+  // Kutuları tekrar birleştir
+  if (n1 && n2) {
+    seg.nums = `${n1}-${n2}`;
+  } else if (n1) {
+    seg.nums = n1;
+  } else if (n2) {
+    seg.nums = n2;
+  } else {
+    seg.nums = '';
+  }
 }
 
 function moveSegment(stopIdx, segIdx, dir) {
@@ -552,10 +582,23 @@ function stopBlock(s, route, dup, stopIdx){
       // EDIT MODE RENDER
       segs.forEach((seg, segIdx) => {
         const hasCbu = !!seg.cbu;
+
+        // Numaraları iki ayrı input için böl (Start ve End)
+        let n1 = '', n2 = '';
+        if (seg.nums) {
+          let pts = seg.nums.split(/[-–—]/).map(str => str.trim());
+          n1 = pts[0] || ''; 
+          n2 = pts.length > 1 ? pts[1] : '';
+        }
+
         body += `
           <div class="edit-row">
             <div class="edit-inputs">
-              <input type="text" class="num-in" placeholder="No (e.g. 100 or 10-20)" value="${esc(seg.nums||'')}" onchange="updateSegment(${stopIdx}, ${segIdx}, 'nums', this.value)">
+              <div class="num-range-group">
+                <input type="text" class="num-in" placeholder="Start" value="${esc(n1)}" onchange="updateSegmentNums(${stopIdx}, ${segIdx}, 1, this.value)">
+                <span class="num-sep">-</span>
+                <input type="text" class="num-in" placeholder="End" value="${esc(n2)}" onchange="updateSegmentNums(${stopIdx}, ${segIdx}, 2, this.value)">
+              </div>
               <input type="text" placeholder="Street Name" value="${esc(seg.street||'')}" onchange="updateSegment(${stopIdx}, ${segIdx}, 'street', this.value)">
             </div>
             <label class="cbu-toggle">
@@ -610,6 +653,7 @@ function stopBlock(s, route, dup, stopIdx){
   const pin = 'R' + route.id + ' Stop ' + s.no + ' - ' + s.short;
   const note = s.note ? '<div class="stop-note">' + s.note + '</div>' : '';
   
+  // Sequence Cascade (Min-Max) Badge
   let seqBadge = '';
   if (IS_EDITING) {
     const sStart = s.seqStart != null ? s.seqStart : '';
@@ -628,6 +672,7 @@ function stopBlock(s, route, dup, stopIdx){
     }
   }
   
+  // Edit Stop Addresses & Add/Delete buttons
   let editStopHeader = '';
   if (IS_EDITING) {
     editStopHeader = `
@@ -644,7 +689,6 @@ function stopBlock(s, route, dup, stopIdx){
       </div>
     `;
   }
-
 
   return '<section class="stop"><div class="stop-bar">'+
     '<span class="stop-no">STOP '+esc(s.no)+'</span><span class="stop-addr">'+esc(s.short)+'</span>'+
