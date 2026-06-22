@@ -5,13 +5,24 @@
   "stops": [
     {
       "no": "1",
-      "short": "New Stop",
-      "full": "",
+      "short": "W State Highway 71",
+      "full": "18225 W State Highway 71, Austin, TX 78738",
       "lat": null,
       "lng": null,
-      "segments": [],
-      "seqStart": null,
-      "seqEnd": null
+      "segments": [
+        {
+          "nums": "18225-18125",
+          "street": "W Highway 71",
+          "cbu": ""
+        },
+        {
+          "nums": "600-100",
+          "street": "18101 W Highway 71 ",
+          "cbu": ""
+        }
+      ],
+      "seqStart": 1,
+      "seqEnd": 17
     },
     {
       "no": "2",
@@ -37,8 +48,8 @@
           "street": "Llano Stage Trl"
         }
       ],
-      "seqStart": 16,
-      "seqEnd": 76
+      "seqStart": 18,
+      "seqEnd": 78
     },
     {
       "no": "3",
@@ -68,8 +79,8 @@
           "street": "Maitland Dr"
         }
       ],
-      "seqStart": 77,
-      "seqEnd": 141
+      "seqStart": 79,
+      "seqEnd": 143
     },
     {
       "no": "4",
@@ -111,8 +122,8 @@
           "street": "Alamosa Clearing Dr"
         }
       ],
-      "seqStart": 142,
-      "seqEnd": 269,
+      "seqStart": 144,
+      "seqEnd": 271,
       "seqNote": "SEQ 142 = Empresa Dr 6309 (CBU 9509), Stop 4 sokağı; DPS sırasında Stop 3 bloğuna giriyor."
     },
     {
@@ -135,8 +146,8 @@
           "street": "James Power Ct"
         }
       ],
-      "seqStart": 270,
-      "seqEnd": 351
+      "seqStart": 272,
+      "seqEnd": 353
     },
     {
       "no": "6",
@@ -166,8 +177,8 @@
           "street": "Fadden Rd"
         }
       ],
-      "seqStart": 352,
-      "seqEnd": 458
+      "seqStart": 354,
+      "seqEnd": 460
     },
     {
       "no": "7",
@@ -185,8 +196,8 @@
           "street": "Hattie Trce"
         }
       ],
-      "seqStart": 459,
-      "seqEnd": 551
+      "seqStart": 461,
+      "seqEnd": 553
     },
     {
       "no": "8",
@@ -224,8 +235,8 @@
           "street": "Wavell Pl"
         }
       ],
-      "seqStart": 552,
-      "seqEnd": 640
+      "seqStart": 554,
+      "seqEnd": 642
     },
     {
       "no": "9",
@@ -247,8 +258,8 @@
           "street": "Mobeetie Loop"
         }
       ],
-      "seqStart": 641,
-      "seqEnd": 762,
+      "seqStart": 643,
+      "seqEnd": 764,
       "seqNote": "SEQ 641–642 = W Hwy 71 18001/18017 (vacant); Stop 8 aktif teslimat SEQ 643'ten başlar."
     },
     {
@@ -269,8 +280,8 @@
         }
       ],
       "note": "⚠ All parcels go to the <b>parcel room</b>. No access through the property gate (5181+).",
-      "seqStart": 763,
-      "seqEnd": 1100
+      "seqStart": 765,
+      "seqEnd": 1102
     }
   ],
   "notes": [
