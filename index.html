@@ -478,6 +478,40 @@ function insertStopBelow(stopIdx) {
   renderRoute(route);
 }
 
+async function saveRouteToGitHub(routeId) {
+  const route = DB.routes.find(r => r.id === routeId);
+  if (!route) return alert('Route data not found');
+
+  const saveBtn = document.getElementById('cloudSaveBtn');
+  const oldText = saveBtn.textContent;
+  saveBtn.disabled = true;
+  saveBtn.textContent = '⏳ Saving...';
+
+  try {
+    const response = await fetch('/api/save-route', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        routeId: routeId,
+        routeData: route
+      })
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(errText || 'Failed to save');
+    }
+
+    toast('🚀 Saved to GitHub! Cloudflare deployment triggered.');
+    IS_EDITING = false;
+    renderRoute(route);
+  } catch (err) {
+    alert('Error saving route: ' + err.message);
+    saveBtn.disabled = false;
+    saveBtn.textContent = oldText;
+  }
+}
+
 function insertStopAbove(stopIdx) {
   const route = DB.routes.find(r => r.id === CURRENT);
   const newStop = {
@@ -620,8 +654,13 @@ function stopBlock(s, route, dup, stopIdx){
 function renderRoute(route){
   const dup = dupStreets(route);
   
-  // Rota başlığına Edit Butonu ekliyoruz
-  const editBtnHtml = `<button class="btn" style="background:${IS_EDITING ? 'var(--green)' : '#e7edf5'}; color:${IS_EDITING ? '#fff' : 'var(--navy)'};" onclick="toggleEditMode()">${IS_EDITING ? '💾 Done Editing' : '✏️ Edit Route'}</button>`;
+  // Edit ve Save butonlarını dinamik olarak kurguluyoruz
+  let editBtnHtml = `<button class="btn" style="background:${IS_EDITING ? 'var(--green)' : '#e7edf5'}; color:${IS_EDITING ? '#fff' : 'var(--navy)'};" onclick="toggleEditMode()">${IS_EDITING ? '💾 Done Editing' : '✏️ Edit Route'}</button>`;
+  
+  // Eğer edit modu aktifse yanına bir de buluta kaydetme butonu ekliyoruz
+  if (IS_EDITING) {
+    editBtnHtml += `<button class="btn" id="cloudSaveBtn" style="background:var(--apple); color:#fff; margin-left:8px;" onclick="saveRouteToGitHub('${esc(route.id)}')">🚀 Save Route</button>`;
+  }
   
   document.getElementById('rsub').innerHTML = esc(route.name||route.id) + ' — ' + esc(route.subtitle||'') + ' <span style="margin-left:12px;">' + editBtnHtml + '</span>';
   
