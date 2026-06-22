@@ -648,6 +648,55 @@ function selectRoute(id){
   window.scrollTo({top:0,behavior:'instant'});
 }
 
+function createNewRoute() {
+  const newId = prompt("Enter new route number (e.g., 99):");
+  if (!newId || newId.trim() === "") return;
+  
+  const cleanId = newId.trim();
+  if (DB.routes.find(r => r.id === cleanId)) {
+    alert("Route " + cleanId + " already exists!");
+    return;
+  }
+
+  // Boş ve taze rota şablonu
+  const blankRoute = {
+    id: cleanId,
+    name: "Route " + cleanId,
+    subtitle: "New Custom Route",
+    stops: [{
+      no: "1",
+      short: "New Stop",
+      full: "",
+      lat: null,
+      lng: null,
+      segments: [],
+      seqStart: null,
+      seqEnd: null
+    }]
+  };
+
+  // Rotayı hafızaya ekle ve menüyü kapat
+  DB.routes.push(blankRoute);
+  
+  // Numaraya göre listeyi tekrar sırala
+  DB.routes.sort((a, b) => {
+    const na = parseInt(a.id, 10), nb = parseInt(b.id, 10);
+    if (!isNaN(na) && !isNaN(nb) && na !== nb) return na - nb;
+    return a.id.localeCompare(b.id);
+  });
+  
+  closeMenu();
+  
+  // Rotayı seçili hale getir ve direkt Edit modunda aç
+  CURRENT = cleanId;
+  document.getElementById('routeBtnLbl').textContent = "R" + cleanId;
+  IS_EDITING = true; 
+  
+  renderRoute(blankRoute);
+  showRoute();
+  window.scrollTo({top: 0, behavior: 'instant'});
+}
+
 /* Menu & Gates UI */
 function buildRouteList(filter){
   filter=(filter||'').trim().toLowerCase();
@@ -657,7 +706,9 @@ function buildRouteList(filter){
     if(filter && !(r.id.toLowerCase().includes(filter)||name.toLowerCase().includes(filter))) return;
     h+='<div class="ritem'+(r.id===CURRENT?' sel':'')+'" data-id="'+esc(r.id)+'"><span>'+esc(lbl)+'</span></div>';
   });
-  rl.innerHTML=h||'<div class="ritem" style="color:#8a93a0">No match</div>';
+  // Listeyi bas, en altına da her zaman 'Yeni Rota' butonunu ekle
+  rl.innerHTML = h || '<div class="ritem" style="color:#8a93a0">No match</div>';
+  rl.innerHTML += '<div class="ritem add" onclick="createNewRoute()" style="border-top:1px dashed var(--grid); margin-top:6px; color:var(--blue); font-weight:800; justify-content:center;"><span>+ Create New Route</span></div>';
   rl.querySelectorAll('.ritem[data-id]').forEach(it=>it.onclick=()=>{closeMenu();selectRoute(it.dataset.id);});
 }
 function openMenu(){document.getElementById('rmenu').classList.add('show');document.getElementById('backdrop').classList.add('show');
