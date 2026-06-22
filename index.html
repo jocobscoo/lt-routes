@@ -594,6 +594,7 @@ function stopBlock(s, route, dup, stopIdx){
   return '<section class="stop"><div class="stop-bar">'+
     '<span class="stop-no">STOP '+esc(s.no)+'</span><span class="stop-addr">'+esc(s.short)+'</span>'+
     seqBadge + buttons(pin, s.full, s.lat, s.lng) + '</div>' + editStopHeader + body + note + '</section>';
+}
 
 function renderRoute(route){
   const dup = dupStreets(route);
