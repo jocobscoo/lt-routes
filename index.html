@@ -184,6 +184,11 @@
   .cbu-input.show { display: block; }
   
   .add-seg-btn { width: 100%; background: #fff; border: 2px dashed var(--grid); color: var(--blue); padding: 8px; border-radius: 8px; font-weight: 800; margin-top: 8px; cursor: pointer; }
+  
+/* Edit Mode: Sequence Inputs */
+  .seq-edit-group { display: flex; align-items: center; gap: 4px; background: #fff; padding: 4px 6px; border-radius: 6px; margin-left: auto; color: var(--navy); font-size: 11px; font-weight: 800; border: 1.5px dashed var(--grid); }
+  .seq-in { width: 50px; border: 1px solid var(--grid); border-radius: 4px; padding: 2px 4px; font-size: 12px; font-weight: 700; text-align: center; color: var(--blue); }
+  .seq-in:focus { outline: 2px solid var(--blue); border-color: transparent; }
 </style>
 </head>
 <body>
@@ -389,6 +394,55 @@ function toggleCbuInput(stopIdx, segIdx, checkbox) {
   }
 }
 
+function updateSeqCascade(stopIdx, field, newValStr) {
+  const newVal = parseInt(newValStr, 10);
+  if (isNaN(newVal)) return;
+  
+  const route = DB.routes.find(r => r.id === CURRENT);
+  const stops = route.stops;
+  const targetStop = stops[stopIdx];
+  
+  const oldStart = targetStop.seqStart;
+  const oldEnd = targetStop.seqEnd;
+  
+  if (field === 'start') {
+    if (oldStart == null) {
+      targetStop.seqStart = newVal;
+      if (targetStop.seqEnd == null) targetStop.seqEnd = newVal;
+    } else {
+      const delta = newVal - oldStart;
+      targetStop.seqStart += delta;
+      if (oldEnd != null) targetStop.seqEnd += delta;
+      
+      // Cascade Forward (Sonraki tüm durakları kaydır)
+      for (let i = stopIdx + 1; i < stops.length; i++) {
+        if (stops[i].seqStart != null) stops[i].seqStart += delta;
+        if (stops[i].seqEnd != null) stops[i].seqEnd += delta;
+      }
+      
+      // Cascade Backward (Önceki durağın bitişini bağla)
+      if (stopIdx > 0 && stops[stopIdx - 1].seqEnd != null) {
+        stops[stopIdx - 1].seqEnd = targetStop.seqStart - 1;
+      }
+    }
+  } else if (field === 'end') {
+    if (oldEnd == null) {
+      targetStop.seqEnd = newVal;
+      if (targetStop.seqStart == null) targetStop.seqStart = newVal;
+    } else {
+      const delta = newVal - oldEnd;
+      targetStop.seqEnd = newVal; 
+      
+      // Cascade Forward (Bu durak uzadı/kısaldı, sonrakileri it/çek)
+      for (let i = stopIdx + 1; i < stops.length; i++) {
+        if (stops[i].seqStart != null) stops[i].seqStart += delta;
+        if (stops[i].seqEnd != null) stops[i].seqEnd += delta;
+      }
+    }
+  }
+  renderRoute(route);
+}
+
 // --- GÜNCELLENMİŞ RENDER FONKSİYONLARI ---
 function stopBlock(s, route, dup, stopIdx){
   const isBiz = s.kind === 'business'; 
@@ -462,9 +516,21 @@ function stopBlock(s, route, dup, stopIdx){
   const note = s.note ? '<div class="stop-note">' + s.note + '</div>' : '';
   
   let seqBadge = '';
-  if (s.seqStart != null && s.seqEnd != null) {
-    let tooltip = s.seqNote ? ` title="${esc(s.seqNote)}"` : '';
-    seqBadge = `<span class="seq-badge"${tooltip}>SEQ ${esc(s.seqStart)}–${esc(s.seqEnd)}</span>`;
+  if (IS_EDITING) {
+    const sStart = s.seqStart != null ? s.seqStart : '';
+    const sEnd = s.seqEnd != null ? s.seqEnd : '';
+    seqBadge = `
+      <div class="seq-edit-group">
+        SEQ 
+        <input type="number" class="seq-in" value="${sStart}" placeholder="Min" onchange="updateSeqCascade(${stopIdx}, 'start', this.value)">
+        – 
+        <input type="number" class="seq-in" value="${sEnd}" placeholder="Max" onchange="updateSeqCascade(${stopIdx}, 'end', this.value)">
+      </div>`;
+  } else {
+    if (s.seqStart != null && s.seqEnd != null) {
+      let tooltip = s.seqNote ? ` title="${esc(s.seqNote)}"` : '';
+      seqBadge = `<span class="seq-badge"${tooltip}>SEQ ${esc(s.seqStart)}–${esc(s.seqEnd)}</span>`;
+    }
   }
 
   return '<section class="stop"><div class="stop-bar">'+
