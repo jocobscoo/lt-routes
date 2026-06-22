@@ -478,6 +478,24 @@ function insertStopBelow(stopIdx) {
   renderRoute(route);
 }
 
+function insertStopAbove(stopIdx) {
+  const route = DB.routes.find(r => r.id === CURRENT);
+  const newStop = {
+    no: "", 
+    short: "New Stop",
+    full: "",
+    lat: null,
+    lng: null,
+    segments: [],
+    seqStart: null,
+    seqEnd: null
+  };
+  // Seçilen durağın tam üstüne (aynı index'e) ekler, diğerleri aşağı kayar
+  route.stops.splice(stopIdx, 0, newStop);
+  reindexStops(route);
+  renderRoute(route);
+}
+
 function removeStop(stopIdx) {
   if(!confirm('Are you sure you want to delete this stop and all its addresses?')) return;
   const route = DB.routes.find(r => r.id === CURRENT);
@@ -584,7 +602,10 @@ function stopBlock(s, route, dup, stopIdx){
         <input type="text" placeholder="Full Address for Maps (e.g., 3532 John Simpson, Austin, TX)" value="${esc(s.full||'')}" onchange="updateStopField(${stopIdx}, 'full', this.value); renderRoute(DB.routes.find(r=>r.id===CURRENT));">
         <div class="stop-edit-actions">
           <button class="btn-icon danger" onclick="removeStop(${stopIdx})" title="Delete Stop">🗑️</button>
-          <button class="btn-add-stop" onclick="insertStopBelow(${stopIdx})">+ Add Stop Below</button>
+          <div style="display:flex; gap:6px;">
+            <button class="btn-add-stop" onclick="insertStopAbove(${stopIdx})">↑ Add Stop Up</button>
+            <button class="btn-add-stop" onclick="insertStopBelow(${stopIdx})">↓ Add Stop Down</button>
+          </div>
         </div>
       </div>
     `;
