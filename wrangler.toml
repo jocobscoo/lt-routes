@@ -1,0 +1,7 @@
+name = "lt-routes"
+pages_build_output_dir = "./"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lt-data"
+database_id = "d83745a3-a272-4108-92b0-53b5cbaaadbb"
