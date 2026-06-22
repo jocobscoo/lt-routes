@@ -251,11 +251,16 @@
         {
           "street": "Apartment complex – single bulk stop",
           "muted": true
+        },
+        {
+          "nums": "",
+          "street": "",
+          "cbu": ""
         }
       ],
       "note": "⚠ All parcels go to the <b>parcel room</b>. No access through the property gate (5181+).",
-      "seqStart": 1,
-      "seqEnd": 15
+      "seqStart": 763,
+      "seqEnd": 1100
     }
   ],
   "notes": [
