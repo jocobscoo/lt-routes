@@ -466,6 +466,88 @@ function toggleCbuInput(stopIdx, segIdx, checkbox) {
   }
 }
 
+function handleCSVUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const routeId = prompt("Enter the new Route Number for this CSV (e.g., 99):");
+  if (!routeId || routeId.trim() === "") {
+    event.target.value = ''; // İptal edilirse inputu sıfırla
+    return;
+  }
+
+  const cleanId = routeId.trim();
+  if (DB.routes.find(r => r.id === cleanId)) {
+    alert("Route " + cleanId + " already exists!");
+    event.target.value = '';
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const text = e.target.result;
+    
+    // Satırları ayır ve boş satırları at
+    const rows = text.split('\n').map(r => r.trim()).filter(r => r.length > 0);
+    
+    // Yeni ve boş bir rota şablonu oluştur
+    const newRoute = {
+      id: cleanId,
+      name: "Route " + cleanId,
+      subtitle: "Imported from CSV",
+      stops: []
+    };
+
+    // 1. satırı (başlıklar) atlayıp verileri okumaya başla
+    // Not: Bu döngü, senin CSV'nin yapısına göre şekillenecek!
+    for (let i = 1; i < rows.length; i++) {
+      // Satırdaki verileri virgüllerden böl (basit ayrıştırıcı)
+      // Tırnak içindeki virgülleri korumak için Regex kullanıyoruz
+      const cols = rows[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
+      const cleanCols = cols.map(c => c.replace(/^"|"$/g, '').trim());
+
+      // SÜTUN EŞLEŞTİRMESİ (Mapping)
+      // Şimdilik varsayılan bir eşleştirme yapıyoruz. 
+      // cols[0] = Ev numarası, cols[1] = Sokak adı olsun diye varsayıyoruz.
+      const houseNum = cleanCols[0] || '';
+      const streetName = cleanCols[1] || `Address ${i}`;
+      
+      newRoute.stops.push({
+        no: String(i),
+        short: streetName,
+        full: `${houseNum} ${streetName}, Austin, TX`,
+        lat: null, 
+        lng: null,
+        segments: [{
+          nums: houseNum,
+          street: streetName,
+          cbu: "",
+          muted: false
+        }],
+        seqStart: null, 
+        seqEnd: null
+      });
+    }
+
+    // Rotayı sisteme kaydet ve Edit modunda aç
+    DB.routes.push(newRoute);
+    closeMenu();
+    
+    CURRENT = cleanId;
+    document.getElementById('routeBtnLbl').textContent = "R" + cleanId;
+    IS_EDITING = true; 
+    
+    renderRoute(newRoute);
+    showRoute();
+    window.scrollTo({top: 0, behavior: 'instant'});
+    
+    event.target.value = ''; // Inputu sonraki yüklemeler için temizle
+  };
+  
+  // CSV dosyasını metin olarak oku
+  reader.readAsText(file);
+}
+
 function updateSeqCascade(stopIdx, field, newValStr) {
   const newVal = parseInt(newValStr, 10);
   if (isNaN(newVal)) return;
@@ -824,11 +906,24 @@ function buildRouteList(filter){
     if(filter && !(r.id.toLowerCase().includes(filter)||name.toLowerCase().includes(filter))) return;
     h+='<div class="ritem'+(r.id===CURRENT?' sel':'')+'" data-id="'+esc(r.id)+'"><span>'+esc(lbl)+'</span></div>';
   });
-  // Listeyi bas, en altına da her zaman 'Yeni Rota' butonunu ekle
+
+  // 1. Önce filtrelenmiş rotaları listeye basıyoruz
   rl.innerHTML = h || '<div class="ritem" style="color:#8a93a0">No match</div>';
-  rl.innerHTML += '<div class="ritem add" onclick="createNewRoute()" style="border-top:1px dashed var(--grid); margin-top:6px; color:var(--blue); font-weight:800; justify-content:center;"><span>+ Create New Route</span></div>';
+  
+  // 2. Ardından listenin en altına hem "Create New Route" hem de "Import CSV Route" butonlarını ekliyoruz
+  rl.innerHTML += `
+    <div class="ritem add" onclick="createNewRoute()" style="border-top:1px dashed var(--grid); margin-top:6px; color:var(--blue); font-weight:800; justify-content:center;">
+      <span>+ Create New Route</span>
+    </div>
+    <div class="ritem add" onclick="document.getElementById('csvUpload').click()" style="border-top:1px dashed var(--grid); color:var(--green); font-weight:800; justify-content:center;">
+      <span>📥 Import CSV Route</span>
+    </div>
+  `;
+  
+  // 3. Listedeki rotalara tıklama özelliğini bağlıyoruz
   rl.querySelectorAll('.ritem[data-id]').forEach(it=>it.onclick=()=>{closeMenu();selectRoute(it.dataset.id);});
 }
+
 function openMenu(){document.getElementById('rmenu').classList.add('show');document.getElementById('backdrop').classList.add('show');
   const s=document.getElementById('rsearch'); s.value='';buildRouteList('');setTimeout(()=>s.focus(),50);}
 function closeMenu(){document.getElementById('rmenu').classList.remove('show');document.getElementById('backdrop').classList.remove('show');}
