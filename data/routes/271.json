@@ -13,32 +13,32 @@
         {
           "nums": "102-117",
           "street": "KILDRUMMY LN",
-          "cbu": "CBU 1"
+          "cbu": "1"
         },
         {
           "nums": "118-133",
           "street": "KILDRUMMY LN",
-          "cbu": "CBU 2"
+          "cbu": "2"
         },
         {
           "nums": "102-104",
           "street": "DUFFY LN",
-          "cbu": "CBU 2"
+          "cbu": "2"
         },
         {
           "nums": "202-316",
           "street": "DUFFY LN",
-          "cbu": "CBU 3"
+          "cbu": "3"
         },
         {
           "nums": "318-408",
           "street": "DUFFY LN",
-          "cbu": "CBU 4"
+          "cbu": "4"
         },
         {
           "nums": "101 – 105",
           "street": "FRASER COVE",
-          "cbu": "CBU 4"
+          "cbu": "4"
         }
       ],
       "seqStart": 1,
