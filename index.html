@@ -301,6 +301,7 @@
 
 <div id="toast"></div>
 
+<input type="file" id="csvUpload" accept=".csv" style="display:none" onchange="handleCSVUpload(event)">
 <script>
 const STATION = {"name": "USPS Lake Travis", "addr": "2110 Ranch Rd 620 S, Lakeway, TX 78734", "lat": 30.3431868, "lng": -97.9686593};
 const DB = { station: STATION, routes: [], gates: {} };
