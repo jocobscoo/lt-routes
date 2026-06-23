@@ -1,0 +1,17 @@
+{
+  "id": "000",
+  "name": "Route 000",
+  "subtitle": "New Custom Route",
+  "stops": [
+    {
+      "no": "1",
+      "short": "New Stop",
+      "full": "",
+      "lat": null,
+      "lng": null,
+      "segments": [],
+      "seqStart": null,
+      "seqEnd": null
+    }
+  ]
+}
