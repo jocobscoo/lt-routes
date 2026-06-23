@@ -660,6 +660,42 @@ async function saveRouteToGitHub(routeId) {
   }
 }
 
+async function deleteRouteAction(routeId) {
+  // Kazara silmelere karşı çift güvenlik onayı
+  if (!confirm(`Are you absolutely sure you want to permanently delete Route ${routeId}? This will remove it from the cloud and all devices.`)) return;
+  
+  const btn = document.getElementById('cloudDelBtn');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Deleting...'; }
+
+  try {
+    const response = await fetch('/api/delete-route', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ routeId: routeId })
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(errText || 'Failed to delete');
+    }
+
+    // Tarayıcının hafızasından da sil
+    DB.routes = DB.routes.filter(r => r.id !== routeId);
+    toast('🗑️ Route deleted! Cloudflare deployment triggered.');
+    
+    // Uygulamayı boş ekrana döndür
+    IS_EDITING = false;
+    CURRENT = null;
+    document.getElementById('route').innerHTML = '<div style="padding:40px 20px; text-align:center; color:#8a93a0; font-weight:600;">Route deleted.<br>Please select another route from the menu.</div>';
+    document.getElementById('rsub').innerHTML = '';
+    document.getElementById('routeBtnLbl').textContent = "Select Route";
+    
+  } catch (err) {
+    alert('Error deleting route: ' + err.message);
+    if (btn) { btn.disabled = false; btn.textContent = '🗑️ Delete'; }
+  }
+}
+
 function insertStopAbove(stopIdx) {
   const route = DB.routes.find(r => r.id === CURRENT);
   const newStop = {
@@ -822,6 +858,7 @@ function renderRoute(route){
   // Eğer edit modu aktifse yanına bir de buluta kaydetme butonu ekliyoruz
   if (IS_EDITING) {
     editBtnHtml += `<button class="btn" id="cloudSaveBtn" style="background:var(--apple); color:#fff; margin-left:8px;" onclick="saveRouteToGitHub('${esc(route.id)}')">🚀 Save Route</button>`;
+    editBtnHtml += `<button class="btn" id="cloudDelBtn" style="background:#ff3b30; color:#fff; margin-left:8px;" onclick="deleteRouteAction('${esc(route.id)}')">🗑️ Delete</button>`;
   }
   
   document.getElementById('rsub').innerHTML = esc(route.name||route.id) + ' — ' + esc(route.subtitle||'') + ' <span style="margin-left:12px;">' + editBtnHtml + '</span>';
