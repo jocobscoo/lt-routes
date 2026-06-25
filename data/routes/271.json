@@ -139,6 +139,12 @@
   ],
   "holds": [
     {
+      "id": "h_1782395417406",
+      "house": "104 WESTER ROSS LN",
+      "start_date": "2026-06-09",
+      "end_date": "2026-07-09"
+    },
+    {
       "id": "h_1782395341659",
       "house": "27 TROON DR",
       "start_date": "2026-06-12",
