@@ -139,6 +139,12 @@
   ],
   "holds": [
     {
+      "id": "h_1782395341659",
+      "house": "27 TROON DR",
+      "start_date": "2026-06-12",
+      "end_date": "2026-07-11"
+    },
+    {
       "id": "h_1782354360155",
       "house": "1 – 43 MUIRFIELD GREENS LN",
       "start_date": "2026-06-22",
