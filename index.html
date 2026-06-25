@@ -21,20 +21,25 @@
   header h1{font-size:24px;letter-spacing:.4px;color:var(--navy);margin:0;font-weight:800;}
   header p{margin:2px 0 8px;color:#5a6470;font-size:13px;}
 
-  .topbar{position:sticky;top:0;z-index:30;background:#f1f4f8;display:flex;gap:8px;align-items:center;
-    padding:8px 0;margin:0 -14px;padding-left:14px;padding-right:14px;
+  /* Topbar Redesign */
+  .topbar{position:sticky;top:0;z-index:30;background:#f1f4f8;display:flex;gap:6px;align-items:center;
+    justify-content:space-between;padding:8px 0;margin:0 -14px;padding-left:14px;padding-right:14px;
     box-shadow:0 4px 10px -8px rgba(20,40,70,.4);}
-  .homebtn{flex:0 0 auto;display:flex;align-items:center;justify-content:center;
-    border:1.5px solid var(--grid);background:#fff;color:var(--navy);border-radius:10px;
-    padding:11px 14px;font-size:18px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
   .rbtn{flex:1;display:flex;align-items:center;justify-content:space-between;gap:8px;
     border:1.5px solid var(--grid);background:#fff;color:var(--navy);border-radius:10px;
-    padding:11px 14px;font-size:15px;font-weight:800;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+    padding:11px 12px;font-size:15px;font-weight:800;cursor:pointer;-webkit-tap-highlight-color:transparent; max-width: 150px;}
   .rbtn .caret{color:#8a93a0;font-size:12px;}
+  
+  .seq-top {display:flex; gap:4px; flex:1; justify-content:center; align-items:center;}
+  .seq-top input {width:100%; max-width:80px; border:1.5px solid var(--grid); border-radius:10px; padding:10px 8px; font-weight:700; text-align:center; font-size:14px;}
+  .seq-top button {background:var(--navy); color:#fff; border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:800;}
+  
   .kbtn{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;border:none;border-radius:10px;
     background:var(--navy);color:#fff;padding:11px 14px;font-size:14px;font-weight:800;cursor:pointer;
     -webkit-tap-highlight-color:transparent;}
-  .homebtn:active,.kbtn:active,.rbtn:active{transform:scale(.98);}
+  .kbtn:active,.rbtn:active,.seq-top button:active{transform:scale(.98);}
+
+  #seqResultTop {display:none; margin: 12px 0; padding: 12px 14px; background: #e6f4ea; border: 1px solid #cce8d6; border-radius: 10px; color: #1e4620; font-size: 14.5px; line-height:1.4; box-shadow:0 4px 12px rgba(0,0,0,0.05);}
 
   .backdrop{position:fixed;inset:0;background:rgba(15,25,40,.45);z-index:40;opacity:0;
     pointer-events:none;transition:opacity .2s ease;}
@@ -53,25 +58,7 @@
   .ritem:active{background:var(--light);}
   .ritem.sel{background:var(--navy);color:#fff;}
 
-  /* Console Dashboard */
-  #consoleView { display: none; margin-top: 16px; }
-  .c-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-  .c-card { background: #fff; border: 1px solid var(--grid); border-radius: 12px; padding: 16px; box-shadow: 0 2px 6px rgba(20,40,70,.05); }
-  .c-card h2 { margin: 0 0 12px; font-size: 16px; color: var(--navy); display: flex; align-items: center; gap: 8px; }
-  .c-card p { margin: 0; font-size: 14px; color: #5a6470; line-height: 1.5; }
-  
-  .seq-input-group { display: flex; gap: 8px; margin-top: 12px; }
-  .seq-input-group input { flex: 1; border: 1.5px solid var(--grid); border-radius: 8px; padding: 10px 12px; font-size: 16px; font-weight:700; width: 100%; }
-  .seq-input-group button { background: var(--navy); color: #fff; border: none; border-radius: 8px; padding: 0 16px; font-weight: 800; cursor: pointer; }
-  #seqResult { margin-top: 12px; padding: 12px; border-radius: 8px; background: var(--light); display: none; }
-  #seqResult.found { background: #e6f4ea; border: 1px solid #cce8d6; color: #1e4620; }
-  #seqResult.not-found { background: #fdeceb; border: 1px solid #f0c4c0; color: #9b2620; }
-  .seq-stop-no { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
-  .seq-addr { font-size: 18px; font-weight: 800; margin-top: 4px; }
-  .seq-note { font-size: 12px; margin-top: 6px; font-style: italic; }
-
   /* Route View */
-  #routeView { display: none; }
   .route-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 2px 10px;flex-wrap:wrap;}
   .route-sub{color:#5a6470;font-size:13px;font-weight:600;}
 
@@ -80,25 +67,11 @@
   .station .lbl0{font-weight:700;font-size:11px;letter-spacing:.5px;background:rgba(255,255,255,.16);padding:4px 8px;border-radius:6px;}
   .station .addr{flex:1;min-width:150px;font-weight:600;font-size:13.5px;}
 
-  .stop{background:#fff;border:1px solid var(--grid);border-radius:12px;overflow:hidden;margin-bottom:15px;box-shadow:0 1px 3px rgba(20,40,70,.06);}
+  .stop{background:#fff;border:1px solid var(--grid);border-radius:12px;overflow:hidden;margin-bottom:15px;box-shadow:0 1px 3px rgba(20,40,70,.06); transition: box-shadow 0.3s ease;}
   .stop-bar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:10px;padding:11px 12px;flex-wrap:wrap;}
   .stop-no{background:var(--blue);font-weight:800;padding:5px 11px;border-radius:7px;font-size:14px;}
   .stop-addr{font-weight:700;font-size:15.5px;flex:1;min-width:130px;}
-  .seq-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 36px;                  /* Maps ve Copy butonlarıyla birebir aynı yükseklik */
-  padding: 0 12px;               /* Sağdan ve soldan butonlarla dengeli boşluk */
-  background-color: #e7edf5;     /* Mevcut açık gri/mavi arka plan rengi */
-  color: var(--navy);            /* Lacivert yazı rengi */
-  font-weight: 700;
-  font-size: 14px;               /* Butonların yazı boyutuyla tamamen eşit */
-  border-radius: 6px;            /* Butonların köşe oval çizgisi ile uyumlu */
-  border: 1px solid #ced7e3;     /* Kutuyu netleştiren ince bir çerçeve */
-  vertical-align: middle;
-  margin-right: 8px;             /* Sağındaki butonla olan mesafe */
-}
+  .seq-badge { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 12px; background-color: #e7edf5; color: var(--navy); font-weight: 700; font-size: 14px; border-radius: 6px; border: 1px solid #ced7e3; vertical-align: middle; margin-right: 8px; }
   .actions{display:flex;gap:8px;}
   .btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:9px;padding:9px 13px;font-size:13px;
     font-weight:700;cursor:pointer;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .08s ease,background .15s ease;}
@@ -130,6 +103,7 @@
   .h-house { font-weight: 700; font-size: 15px; color: var(--navy); }
   .h-dates { font-size: 12px; color: #5a6470; margin-top: 2px; }
   .h-del { background: none; border: none; color: var(--red); font-size: 18px; cursor: pointer; padding: 4px; line-height:1;}
+  .hold-warning { display: inline-flex; align-items: center; background: #ffebee; color: #d32f2f; font-size: 13px; font-weight: 800; padding: 4px 10px; border-radius: 6px; border: 1px solid #ffcdd2; margin-top: 8px; margin-left: 12px; margin-bottom: 4px; width: fit-content; }
 
   /* per-route gate card */
   .gatecard{background:#fff;border:1px solid var(--grid);border-left:4px solid var(--goldb);border-radius:12px;
@@ -159,6 +133,12 @@
     padding:10px 2px 4px;border-bottom:1px solid var(--grid);margin-top:6px;}
   .g-empty{color:#8a93a0;text-align:center;padding:24px;font-style:italic;}
 
+  /* Gate Edit Cards */
+  .gate-edit-card { background:#fff; border:1px solid var(--grid); border-radius:8px; padding:10px; margin-bottom:10px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .ge-row { display:flex; gap:6px; margin-bottom:6px; }
+  .ge-row:last-child { margin-bottom:0; }
+  .ge-row input { flex:1; border:1px solid var(--grid); border-radius:6px; padding:6px 8px; font-size:13px; width:100%; }
+
   footer{margin-top:24px;color:#7a828c;font-size:12px;font-style:italic;text-align:center;line-height:1.5;}
   #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;
     padding:11px 18px;border-radius:999px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all .25s ease;z-index:60;box-shadow:0 6px 20px rgba(20,40,70,.3);}
@@ -166,6 +146,7 @@
 
   @media (max-width:430px){
     .stop-addr{flex-basis:100%;order:2;} .seq-badge{margin-left:0; order:3; margin-top:2px;} .actions{order:4;width:100%;} .btn{flex:1;justify-content:center;}
+    .kbtn {font-size: 0;} .kbtn::after {content: " 🔑"; font-size:14px;}
   }
 
   #loader{position:fixed;inset:0;background:#f1f4f8;z-index:80;display:flex;flex-direction:column;
@@ -177,7 +158,7 @@
   #errbox{display:none;background:#fdeceb;border:1px solid #f0c4c0;color:#9b2620;border-radius:12px;
     padding:14px;margin:14px 0;font-size:13.5px;line-height:1.5;}
     
-/* Edit Mode & CBU Groups */
+  /* Edit Mode & CBU Groups */
   .cbu-group { background: #eef2f7; border-left: 3px solid var(--blue); border-radius: 6px; padding: 4px 8px; margin: 4px -8px; }
   .cbu-lbl { font-size: 10px; font-weight: 800; color: var(--blue); text-transform: uppercase; margin-bottom: 2px; display: block; }
   
@@ -198,41 +179,19 @@
   
   .add-seg-btn { width: 100%; background: #fff; border: 2px dashed var(--grid); color: var(--blue); padding: 8px; border-radius: 8px; font-weight: 800; margin-top: 8px; cursor: pointer; }
   
-/* Edit Mode: Sequence Inputs */
-  .seq-edit-group {
-  display: inline-flex;
-  align-items: center;
-  height: 36px;
-  padding: 0 8px;
-  background: #fff;
-  border: 1px solid #ced7e3;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-right: 8px;
-}
-
-  .seq-edit-group input.seq-in {
-  width: 45px;
-  height: 26px;                  /* Kutu içine tam oturan yükseklik */
-  border: 1px solid #e1e8f0;
-  border-radius: 4px;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 700;
-  margin: 0 4px;
-}  .seq-in { width: 50px; border: 1px solid var(--grid); border-radius: 4px; padding: 2px 4px; font-size: 12px; font-weight: 700; text-align: center; color: var(--blue); }
+  /* Edit Mode: Sequence Inputs */
+  .seq-edit-group { display: inline-flex; align-items: center; height: 36px; padding: 0 8px; background: #fff; border: 1px solid #ced7e3; border-radius: 6px; font-size: 14px; font-weight: 700; color: var(--navy); margin-right: 8px; }
+  .seq-edit-group input.seq-in { width: 45px; height: 26px; border: 1px solid #e1e8f0; border-radius: 4px; text-align: center; font-size: 13px; font-weight: 700; margin: 0 4px; color: var(--blue);}
   .seq-in:focus { outline: 2px solid var(--blue); border-color: transparent; }
   
-/* Edit Mode: Stop Level Controls */
+  /* Edit Mode: Stop Level Controls */
   .stop-edit-fields { display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #eef2f7; border-bottom: 1.5px solid var(--grid); }
   .stop-edit-fields input { border: 1.5px solid var(--grid); padding: 8px; border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--navy); }
   .stop-edit-actions { display: flex; justify-content: space-between; margin-top: 6px; }
   .btn-add-stop { background: var(--green); color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 4px; }
   .btn-add-stop:active { transform: scale(0.95); }
   
-/* Edit Mode: Number Range Split Inputs */
+  /* Edit Mode: Number Range Split Inputs */
   .num-range-group { display: flex; align-items: center; gap: 4px; flex: 0.5; min-width: 130px; }
   .num-range-group input.num-in { flex: 1; min-width: 45px; padding: 6px 8px; text-align: center; font-weight: 700; color: var(--blue); }
   .num-sep { color: #8a93a0; font-weight: 800; font-size: 14px; }
@@ -247,31 +206,16 @@
   </header>
 
   <div class="topbar">
-    <button class="homebtn" id="homeBtn" title="Console">🏠</button>
     <button class="rbtn" id="routeBtn"><span id="routeBtnLbl">Select Route</span><span class="caret">▼</span></button>
+    <div class="seq-top">
+      <input type="number" id="seqInputTop" placeholder="Seq #">
+      <button id="seqBtnTop">🔍</button>
+    </div>
     <button class="kbtn" id="codesBtn">🔑 Codes</button>
   </div>
 
   <div id="errbox"></div>
-
-  <div id="consoleView">
-    <div class="c-grid">
-      <div class="c-card" id="c-active" style="cursor:pointer; border-left:4px solid var(--blue);">
-        <h2>📦 Active Route</h2>
-        <p id="c-active-text">No route selected. Tap "Select Route" above.</p>
-      </div>
-      
-      <div class="c-card">
-        <h2>🔍 Route Sequence Lookup</h2>
-        <p>Enter sequence number to find the exact stop on <b id="c-seq-rt">current route</b>.</p>
-        <div class="seq-input-group">
-          <input type="number" id="seqInput" placeholder="e.g. 150">
-          <button id="seqBtn">Find</button>
-        </div>
-        <div id="seqResult"></div>
-      </div>
-    </div>
-  </div>
+  <div id="seqResultTop"></div>
 
   <div id="routeView">
     <div class="route-head"><div class="route-sub" id="rsub"></div></div>
@@ -294,7 +238,13 @@
 </div>
 
 <aside id="gatePanel">
-  <div class="gp-head"><h3>🔑 Gate / Locker Codes</h3><button class="gp-x" id="gateX">×</button></div>
+  <div class="gp-head">
+    <h3>🔑 Gate Codes</h3>
+    <div style="display:flex; gap:8px;">
+      <button id="gateEditBtn" style="background:rgba(255,255,255,.15); border:none; color:#fff; padding:6px 12px; border-radius:6px; font-size:13px; font-weight:700; cursor:pointer;" onclick="toggleGateEdit()">✏️ Edit</button>
+      <button class="gp-x" id="gateX">×</button>
+    </div>
+  </div>
   <div class="gp-search"><input id="gsearch" placeholder="Search route or location…" autocomplete="off"></div>
   <div class="gp-list" id="gateList"></div>
 </aside>
@@ -306,7 +256,6 @@
 const STATION = {"name": "USPS Lake Travis", "addr": "2110 Ranch Rd 620 S, Lakeway, TX 78734", "lat": 30.3431868, "lng": -97.9686593};
 const DB = { station: STATION, routes: [], gates: {} };
 const LS_LAST='lt_last_repo';
-const SYNC_Q='lt_sync_q';
 let CURRENT=null;
 
 const MAP_SVG='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
@@ -316,50 +265,38 @@ function esc(s){return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g
 function norm(s){return (s||'').replace(/<[^>]+>/g,'').trim().toLowerCase();}
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
 
-/* Navigation & UI State */
-function showConsole() {
-  document.getElementById('routeView').style.display = 'none';
-  document.getElementById('consoleView').style.display = 'block';
-  document.getElementById('seqResult').style.display = 'none';
-  document.getElementById('seqInput').value = '';
-  if(CURRENT) {
-    document.getElementById('c-active-text').innerHTML = `Currently tracking <b>Route ${CURRENT}</b>. Tap here to view stops.`;
-    document.getElementById('c-seq-rt').textContent = `Route ${CURRENT}`;
-  }
-}
-function showRoute() {
-  document.getElementById('consoleView').style.display = 'none';
-  document.getElementById('routeView').style.display = 'block';
-}
-document.getElementById('homeBtn').onclick = showConsole;
-document.getElementById('c-active').onclick = () => { if(CURRENT) showRoute(); else openMenu(); };
-
-/* Sequence Lookup Logic */
-document.getElementById('seqBtn').onclick = doSeqLookup;
-document.getElementById('seqInput').onkeypress = (e) => { if(e.key==='Enter') doSeqLookup(); };
+/* Sequence Lookup Logic (Top Bar) */
+document.getElementById('seqBtnTop').onclick = doSeqLookup;
+document.getElementById('seqInputTop').onkeypress = (e) => { if(e.key==='Enter') doSeqLookup(); };
 
 function doSeqLookup() {
-  const val = parseInt(document.getElementById('seqInput').value, 10);
-  const resDiv = document.getElementById('seqResult');
+  const val = parseInt(document.getElementById('seqInputTop').value, 10);
+  const resDiv = document.getElementById('seqResultTop');
   if(isNaN(val) || !CURRENT) return;
-  
   const route = DB.routes.find(r=>r.id===CURRENT);
   if(!route) return;
 
   const stop = (route.stops||[]).find(s => s.seqStart <= val && s.seqEnd >= val);
   resDiv.style.display = 'block';
-  resDiv.className = '';
   
   if(stop) {
-    resDiv.classList.add('found');
-    let noteHtml = stop.seqNote ? `<div class="seq-note">📝 ${esc(stop.seqNote)}</div>` : '';
-    resDiv.innerHTML = `<div class="seq-stop-no">Stop ${esc(stop.no)}</div>
-                        <div class="seq-addr">${esc(stop.short)}</div>
-                        ${noteHtml}`;
+    resDiv.style.background = '#e6f4ea'; resDiv.style.borderColor = '#cce8d6'; resDiv.style.color = '#1e4620';
+    resDiv.innerHTML = `✅ <b>Stop ${esc(stop.no)}:</b> ${esc(stop.short)} <div style="font-size:12px; margin-top:4px;">${stop.seqNote ? esc(stop.seqNote) : ''}</div>`;
+    
+    // Otomatik olarak o durağa kaydır ve parlat
+    const stopEls = document.querySelectorAll('.stop');
+    const targetEl = stopEls[parseInt(stop.no)-1];
+    if(targetEl) {
+      const y = targetEl.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({top: y, behavior: 'smooth'});
+      targetEl.style.boxShadow = '0 0 0 4px var(--green)';
+      setTimeout(() => targetEl.style.boxShadow = '0 1px 3px rgba(20,40,70,.06)', 2000);
+    }
   } else {
-    resDiv.classList.add('not-found');
-    resDiv.innerHTML = `Sequence <b>${val}</b> not found in Route ${CURRENT} ranges.`;
+    resDiv.style.background = '#fdeceb'; resDiv.style.borderColor = '#f0c4c0'; resDiv.style.color = '#9b2620';
+    resDiv.innerHTML = `❌ Sequence <b>${val}</b> not found on Route ${CURRENT}.`;
   }
+  setTimeout(() => { resDiv.style.display = 'none'; }, 6000);
 }
 
 /* Route Render Logic */
@@ -392,7 +329,6 @@ function renderStation(){const st=DB.station;
   document.getElementById('station').innerHTML='<span class="lbl0">STATION</span>'+
     '<span class="addr">'+esc(st.name)+' • '+esc(st.addr)+'</span>'+buttons(st.name,st.addr,st.lat,st.lng);}
     
-
 let IS_EDITING = false;
 
 // --- DÜZENLEME (EDIT) YARDIMCI FONKSİYONLARI ---
@@ -410,33 +346,23 @@ function updateSegment(stopIdx, segIdx, field, value) {
 function updateSegmentNums(stopIdx, segIdx, pos, value) {
   const route = DB.routes.find(r => r.id === CURRENT);
   const seg = route.stops[stopIdx].segments[segIdx];
-  
-  // Mevcut numarayı al ve tire/çizgi işaretlerinden böl
   let parts = (seg.nums || '').split(/[-–—]/).map(s => s.trim());
   let n1 = parts[0] || '';
   let n2 = parts.length > 1 ? parts[1] : '';
 
-  // Hangi kutu değiştiyse (1=Min, 2=Max) onu güncelle
   if (pos === 1) n1 = value.trim();
   if (pos === 2) n2 = value.trim();
 
-  // Kutuları tekrar birleştir
-  if (n1 && n2) {
-    seg.nums = `${n1}-${n2}`;
-  } else if (n1) {
-    seg.nums = n1;
-  } else if (n2) {
-    seg.nums = n2;
-  } else {
-    seg.nums = '';
-  }
+  if (n1 && n2) seg.nums = `${n1}-${n2}`;
+  else if (n1) seg.nums = n1;
+  else if (n2) seg.nums = n2;
+  else seg.nums = '';
 }
 
 function moveSegment(stopIdx, segIdx, dir) {
   const route = DB.routes.find(r => r.id === CURRENT);
   const segs = route.stops[stopIdx].segments;
   if (segIdx + dir < 0 || segIdx + dir >= segs.length) return;
-  
   const temp = segs[segIdx];
   segs[segIdx] = segs[segIdx + dir];
   segs[segIdx + dir] = temp;
@@ -467,135 +393,21 @@ function toggleCbuInput(stopIdx, segIdx, checkbox) {
   }
 }
 
-function handleCSVUpload(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-
-  const routeId = prompt("Enter the new Route Number for this CSV (e.g., 99):");
-  if (!routeId || routeId.trim() === "") {
-    event.target.value = ''; // İptal edilirse inputu sıfırla
-    return;
-  }
-
-  const cleanId = routeId.trim();
-  if (DB.routes.find(r => r.id === cleanId)) {
-    alert("Route " + cleanId + " already exists!");
-    event.target.value = '';
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const text = e.target.result;
-    
-    // Satırları ayır ve boş satırları at
-    const rows = text.split('\n').map(r => r.trim()).filter(r => r.length > 0);
-    
-    // Yeni ve boş bir rota şablonu oluştur
-    const newRoute = {
-      id: cleanId,
-      name: "Route " + cleanId,
-      subtitle: "Imported from CSV",
-      stops: []
-    };
-
-    // 1. satırı (başlıklar) atlayıp verileri okumaya başla
-    // Not: Bu döngü, senin CSV'nin yapısına göre şekillenecek!
-    for (let i = 1; i < rows.length; i++) {
-      // Satırdaki verileri virgüllerden böl (basit ayrıştırıcı)
-      // Tırnak içindeki virgülleri korumak için Regex kullanıyoruz
-      const cols = rows[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
-      const cleanCols = cols.map(c => c.replace(/^"|"$/g, '').trim());
-
-      // SÜTUN EŞLEŞTİRMESİ (Mapping)
-      // Şimdilik varsayılan bir eşleştirme yapıyoruz. 
-      // cols[0] = Ev numarası, cols[1] = Sokak adı olsun diye varsayıyoruz.
-      const houseNum = cleanCols[0] || '';
-      const streetName = cleanCols[1] || `Address ${i}`;
-      
-      newRoute.stops.push({
-        no: String(i),
-        short: streetName,
-        full: `${houseNum} ${streetName}, Austin, TX`,
-        lat: null, 
-        lng: null,
-        segments: [{
-          nums: houseNum,
-          street: streetName,
-          cbu: "",
-          muted: false
-        }],
-        seqStart: null, 
-        seqEnd: null
-      });
-    }
-
-    // Rotayı sisteme kaydet ve Edit modunda aç
-    DB.routes.push(newRoute);
-    closeMenu();
-    
-    CURRENT = cleanId;
-    document.getElementById('routeBtnLbl').textContent = "R" + cleanId;
-    IS_EDITING = true; 
-    
-    renderRoute(newRoute);
-    showRoute();
-    window.scrollTo({top: 0, behavior: 'instant'});
-    
-    event.target.value = ''; // Inputu sonraki yüklemeler için temizle
-  };
-  
-  // CSV dosyasını metin olarak oku
-  reader.readAsText(file);
-}
-
-function updateSeqCascade(stopIdx, field, newValStr) {
+// YENİ: Zincirleme bozulmaları önleyen bağımsız Sequence Motoru
+function updateSeqRange(stopIdx, field, newValStr) {
   const newVal = parseInt(newValStr, 10);
-  if (isNaN(newVal)) return;
-  
   const route = DB.routes.find(r => r.id === CURRENT);
-  const stops = route.stops;
-  const targetStop = stops[stopIdx];
+  const targetStop = route.stops[stopIdx];
   
-  const oldStart = targetStop.seqStart;
-  const oldEnd = targetStop.seqEnd;
-  
-  if (field === 'start') {
-    if (oldStart == null) {
-      targetStop.seqStart = newVal;
-      if (targetStop.seqEnd == null) targetStop.seqEnd = newVal;
-    } else {
-      const delta = newVal - oldStart;
-      targetStop.seqStart += delta;
-      if (oldEnd != null) targetStop.seqEnd += delta;
-      
-      // Cascade Forward (Sonraki tüm durakları kaydır)
-      for (let i = stopIdx + 1; i < stops.length; i++) {
-        if (stops[i].seqStart != null) stops[i].seqStart += delta;
-        if (stops[i].seqEnd != null) stops[i].seqEnd += delta;
-      }
-      
-      // Cascade Backward (Önceki durağın bitişini bağla)
-      if (stopIdx > 0 && stops[stopIdx - 1].seqEnd != null) {
-        stops[stopIdx - 1].seqEnd = targetStop.seqStart - 1;
-      }
-    }
-  } else if (field === 'end') {
-    if (oldEnd == null) {
-      targetStop.seqEnd = newVal;
-      if (targetStop.seqStart == null) targetStop.seqStart = newVal;
-    } else {
-      const delta = newVal - oldEnd;
-      targetStop.seqEnd = newVal; 
-      
-      // Cascade Forward (Bu durak uzadı/kısaldı, sonrakileri it/çek)
-      for (let i = stopIdx + 1; i < stops.length; i++) {
-        if (stops[i].seqStart != null) stops[i].seqStart += delta;
-        if (stops[i].seqEnd != null) stops[i].seqEnd += delta;
-      }
-    }
+  if (isNaN(newVal)) {
+    if (field === 'start') targetStop.seqStart = null;
+    if (field === 'end') targetStop.seqEnd = null;
+  } else {
+    if (field === 'start') targetStop.seqStart = newVal;
+    if (field === 'end') targetStop.seqEnd = newVal;
   }
-  renderRoute(route);
+  // Not: Fokusun kaybolmaması için burada renderRoute() ÇAĞRILMIYOR.
+  // Değer arka planda güvenle kaydedilir.
 }
 
 function updateStopField(stopIdx, field, val) {
@@ -604,24 +416,25 @@ function updateStopField(stopIdx, field, val) {
 }
 
 function reindexStops(route) {
-  // Tüm durak numaralarını baştan aşağı 1, 2, 3 diye yeniden sıralar
   route.stops.forEach((s, i) => { s.no = String(i + 1); });
 }
 
 function insertStopBelow(stopIdx) {
   const route = DB.routes.find(r => r.id === CURRENT);
-  const newStop = {
-    no: "", // reindex ile otomatik atanacak
-    short: "New Stop",
-    full: "",
-    lat: null,
-    lng: null,
-    segments: [],
-    seqStart: null,
-    seqEnd: null
-  };
-  // Seçilen durağın bir altına boş durağı ekle
-  route.stops.splice(stopIdx + 1, 0, newStop);
+  route.stops.splice(stopIdx + 1, 0, { no: "", short: "New Stop", full: "", lat: null, lng: null, segments: [], seqStart: null, seqEnd: null });
+  reindexStops(route);
+  renderRoute(route);
+}
+function insertStopAbove(stopIdx) {
+  const route = DB.routes.find(r => r.id === CURRENT);
+  route.stops.splice(stopIdx, 0, { no: "", short: "New Stop", full: "", lat: null, lng: null, segments: [], seqStart: null, seqEnd: null });
+  reindexStops(route);
+  renderRoute(route);
+}
+function removeStop(stopIdx) {
+  if(!confirm('Are you sure you want to delete this stop and all its addresses?')) return;
+  const route = DB.routes.find(r => r.id === CURRENT);
+  route.stops.splice(stopIdx, 1);
   reindexStops(route);
   renderRoute(route);
 }
@@ -639,16 +452,9 @@ async function saveRouteToGitHub(routeId) {
     const response = await fetch('/api/save-route', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        routeId: routeId,
-        routeData: route
-      })
+      body: JSON.stringify({ routeId: routeId, routeData: route })
     });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      throw new Error(errText || 'Failed to save');
-    }
+    if (!response.ok) throw new Error(await response.text() || 'Failed to save');
 
     toast('🚀 Saved to GitHub! Cloudflare deployment triggered.');
     IS_EDITING = false;
@@ -661,68 +467,63 @@ async function saveRouteToGitHub(routeId) {
 }
 
 async function deleteRouteAction(routeId) {
-  // Kazara silmelere karşı çift güvenlik onayı
   if (!confirm(`Are you absolutely sure you want to permanently delete Route ${routeId}? This will remove it from the cloud and all devices.`)) return;
-  
   const btn = document.getElementById('cloudDelBtn');
   if (btn) { btn.disabled = true; btn.textContent = '⏳ Deleting...'; }
-
   try {
     const response = await fetch('/api/delete-route', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ routeId: routeId })
     });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      throw new Error(errText || 'Failed to delete');
-    }
-
-    // Tarayıcının hafızasından da sil
+    if (!response.ok) throw new Error(await response.text() || 'Failed to delete');
+    
     DB.routes = DB.routes.filter(r => r.id !== routeId);
     toast('🗑️ Route deleted! Cloudflare deployment triggered.');
-    
-    // Uygulamayı boş ekrana döndür
-    IS_EDITING = false;
-    CURRENT = null;
+    IS_EDITING = false; CURRENT = null;
     document.getElementById('route').innerHTML = '<div style="padding:40px 20px; text-align:center; color:#8a93a0; font-weight:600;">Route deleted.<br>Please select another route from the menu.</div>';
     document.getElementById('rsub').innerHTML = '';
     document.getElementById('routeBtnLbl').textContent = "Select Route";
-    
   } catch (err) {
     alert('Error deleting route: ' + err.message);
     if (btn) { btn.disabled = false; btn.textContent = '🗑️ Delete'; }
   }
 }
 
-function insertStopAbove(stopIdx) {
-  const route = DB.routes.find(r => r.id === CURRENT);
-  const newStop = {
-    no: "", 
-    short: "New Stop",
-    full: "",
-    lat: null,
-    lng: null,
-    segments: [],
-    seqStart: null,
-    seqEnd: null
+function handleCSVUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const routeId = prompt("Enter the new Route Number for this CSV (e.g., 99):");
+  if (!routeId || routeId.trim() === "") { event.target.value = ''; return; }
+  const cleanId = routeId.trim();
+  if (DB.routes.find(r => r.id === cleanId)) { alert("Route " + cleanId + " already exists!"); event.target.value = ''; return; }
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const text = e.target.result;
+    const rows = text.split('\n').map(r => r.trim()).filter(r => r.length > 0);
+    const newRoute = { id: cleanId, name: "Route " + cleanId, subtitle: "Imported from CSV", stops: [] };
+
+    for (let i = 1; i < rows.length; i++) {
+      const cols = rows[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
+      const cleanCols = cols.map(c => c.replace(/^"|"$/g, '').trim());
+      const houseNum = cleanCols[0] || '';
+      const streetName = cleanCols[1] || `Address ${i}`;
+      
+      newRoute.stops.push({
+        no: String(i), short: streetName, full: `${houseNum} ${streetName}, Austin, TX`, lat: null, lng: null,
+        segments: [{ nums: houseNum, street: streetName, cbu: "", muted: false }], seqStart: null, seqEnd: null
+      });
+    }
+    DB.routes.push(newRoute); closeMenu();
+    CURRENT = cleanId; document.getElementById('routeBtnLbl').textContent = "R" + cleanId;
+    IS_EDITING = true; renderRoute(newRoute); window.scrollTo({top: 0, behavior: 'instant'});
+    event.target.value = '';
   };
-  // Seçilen durağın tam üstüne (aynı index'e) ekler, diğerleri aşağı kayar
-  route.stops.splice(stopIdx, 0, newStop);
-  reindexStops(route);
-  renderRoute(route);
+  reader.readAsText(file);
 }
 
-function removeStop(stopIdx) {
-  if(!confirm('Are you sure you want to delete this stop and all its addresses?')) return;
-  const route = DB.routes.find(r => r.id === CURRENT);
-  route.stops.splice(stopIdx, 1);
-  reindexStops(route);
-  renderRoute(route);
-}
-
-// --- GÜNCELLENMİŞ RENDER FONKSİYONLARI ---
+// --- RENDER FUNCTION ---
 function stopBlock(s, route, dup, stopIdx){
   const isBiz = s.kind === 'business'; 
   const segs = s.segments || []; 
@@ -733,18 +534,13 @@ function stopBlock(s, route, dup, stopIdx){
     body += '<div class="slist">';
     
     if (IS_EDITING) {
-      // EDIT MODE RENDER
       segs.forEach((seg, segIdx) => {
         const hasCbu = !!seg.cbu;
-
-        // Numaraları iki ayrı input için böl (Start ve End)
         let n1 = '', n2 = '';
         if (seg.nums) {
           let pts = seg.nums.split(/[-–—]/).map(str => str.trim());
-          n1 = pts[0] || ''; 
-          n2 = pts.length > 1 ? pts[1] : '';
+          n1 = pts[0] || ''; n2 = pts.length > 1 ? pts[1] : '';
         }
-
         body += `
           <div class="edit-row">
             <div class="edit-inputs">
@@ -755,12 +551,8 @@ function stopBlock(s, route, dup, stopIdx){
               </div>
               <input type="text" placeholder="Street Name" value="${esc(seg.street||'')}" onchange="updateSegment(${stopIdx}, ${segIdx}, 'street', this.value)">
             </div>
-            <label class="cbu-toggle">
-              <input type="checkbox" ${hasCbu ? 'checked' : ''} onchange="toggleCbuInput(${stopIdx}, ${segIdx}, this)">
-              Group in CBU
-            </label>
+            <label class="cbu-toggle"><input type="checkbox" ${hasCbu ? 'checked' : ''} onchange="toggleCbuInput(${stopIdx}, ${segIdx}, this)"> Group in CBU</label>
             <input type="text" id="cbu-in-${stopIdx}-${segIdx}" class="cbu-input ${hasCbu ? 'show' : ''}" placeholder="CBU No / Name" value="${esc(seg.cbu||'')}" onchange="updateSegment(${stopIdx}, ${segIdx}, 'cbu', this.value)">
-            
             <div class="edit-actions">
               <button class="btn-icon" onclick="moveSegment(${stopIdx}, ${segIdx}, -1)">▲</button>
               <button class="btn-icon" onclick="moveSegment(${stopIdx}, ${segIdx}, 1)">▼</button>
@@ -771,35 +563,26 @@ function stopBlock(s, route, dup, stopIdx){
       });
       body += `<button class="add-seg-btn" onclick="addSegment(${stopIdx})">+ Add Address / Range</button>`;
     } else {
-      // NORMAL (VIEW) MODE RENDER - CBU Grouping Logic
-      let currentCbu = null;
-      let inCbuGroup = false;
-
+      let currentCbu = null; let inCbuGroup = false;
       segs.forEach((seg) => {
         if (seg.muted) {
           if (inCbuGroup) { body += '</div>'; inCbuGroup = false; currentCbu = null; }
-          body += '<div class="sitem muted">' + esc(seg.street) + '</div>';
-          return;
+          body += '<div class="sitem muted">' + esc(seg.street) + '</div>'; return;
         }
-
-        // Handle CBU Grouping Box
         if (seg.cbu) {
           if (seg.cbu !== currentCbu) {
-            if (inCbuGroup) body += '</div>'; // Close previous group
+            if (inCbuGroup) body += '</div>';
             body += `<div class="cbu-group"><span class="cbu-lbl">CBU: ${esc(seg.cbu)}</span>`;
-            inCbuGroup = true;
-            currentCbu = seg.cbu;
+            inCbuGroup = true; currentCbu = seg.cbu;
           }
         } else {
           if (inCbuGroup) { body += '</div>'; inCbuGroup = false; currentCbu = null; }
         }
-
         const isDup = !isBiz && dup.has(norm(seg.street));
         const nums = seg.nums ? ('<span class="nums">' + esc(seg.nums) + '</span> ') : '';
         body += '<div class="sitem">' + nums + '<span class="street' + (isDup ? ' dup' : '') + '">' + esc(seg.street) + '</span></div>';
       });
-      
-      if (inCbuGroup) body += '</div>'; // Close final group if open
+      if (inCbuGroup) body += '</div>';
     }
     body += '</div>';
   }
@@ -807,7 +590,6 @@ function stopBlock(s, route, dup, stopIdx){
   const pin = 'R' + route.id + ' Stop ' + s.no + ' - ' + s.short;
   const note = s.note ? '<div class="stop-note">' + s.note + '</div>' : '';
   
-  // Sequence Cascade (Min-Max) Badge
   let seqBadge = '';
   if (IS_EDITING) {
     const sStart = s.seqStart != null ? s.seqStart : '';
@@ -815,9 +597,9 @@ function stopBlock(s, route, dup, stopIdx){
     seqBadge = `
       <div class="seq-edit-group">
         SEQ 
-        <input type="number" class="seq-in" value="${sStart}" placeholder="Min" onchange="updateSeqCascade(${stopIdx}, 'start', this.value)">
+        <input type="number" class="seq-in" value="${sStart}" placeholder="Min" onchange="updateSeqRange(${stopIdx}, 'start', this.value)">
         – 
-        <input type="number" class="seq-in" value="${sEnd}" placeholder="Max" onchange="updateSeqCascade(${stopIdx}, 'end', this.value)">
+        <input type="number" class="seq-in" value="${sEnd}" placeholder="Max" onchange="updateSeqRange(${stopIdx}, 'end', this.value)">
       </div>`;
   } else {
     if (s.seqStart != null && s.seqEnd != null) {
@@ -826,13 +608,12 @@ function stopBlock(s, route, dup, stopIdx){
     }
   }
   
-  // Edit Stop Addresses & Add/Delete buttons
   let editStopHeader = '';
   if (IS_EDITING) {
     editStopHeader = `
       <div class="stop-edit-fields">
-        <input type="text" placeholder="Short Address (Display, e.g., 3532 John Simpson Trl)" value="${esc(s.short||'')}" onchange="updateStopField(${stopIdx}, 'short', this.value); renderRoute(DB.routes.find(r=>r.id===CURRENT));">
-        <input type="text" placeholder="Full Address for Maps (e.g., 3532 John Simpson, Austin, TX)" value="${esc(s.full||'')}" onchange="updateStopField(${stopIdx}, 'full', this.value); renderRoute(DB.routes.find(r=>r.id===CURRENT));">
+        <input type="text" placeholder="Short Address (Display)" value="${esc(s.short||'')}" onchange="updateStopField(${stopIdx}, 'short', this.value); renderRoute(DB.routes.find(r=>r.id===CURRENT));">
+        <input type="text" placeholder="Full Address for Maps" value="${esc(s.full||'')}" onchange="updateStopField(${stopIdx}, 'full', this.value); renderRoute(DB.routes.find(r=>r.id===CURRENT));">
         <div class="stop-edit-actions">
           <button class="btn-icon danger" onclick="removeStop(${stopIdx})" title="Delete Stop">🗑️</button>
           <div style="display:flex; gap:6px;">
@@ -844,18 +625,25 @@ function stopBlock(s, route, dup, stopIdx){
     `;
   }
 
-  return '<section class="stop"><div class="stop-bar">'+
+  let holdWarningHtml = '';
+  if (route.holds && route.holds.length > 0) {
+    route.holds.forEach(h => {
+      const matchFound = segs.some(seg => seg.nums && seg.nums.includes(h.house)) || (s.short && s.short.includes(h.house));
+      if (matchFound) {
+        holdWarningHtml += `<div class="hold-warning">🛑 HOLD MAIL: ${formatHoldDate(h.start_date)} to ${formatHoldDate(h.end_date)}</div>`;
+      }
+    });
+  }
+
+  return '<section class="stop" id="stop_'+s.no+'"><div class="stop-bar">'+
     '<span class="stop-no">STOP '+esc(s.no)+'</span><span class="stop-addr">'+esc(s.short)+'</span>'+
-    seqBadge + buttons(pin, s.full, s.lat, s.lng) + '</div>' + editStopHeader + body + note + '</section>';
+    seqBadge + buttons(pin, s.full, s.lat, s.lng) + '</div>' + holdWarningHtml + editStopHeader + body + note + '</section>';
 }
 
 function renderRoute(route){
   const dup = dupStreets(route);
-  
-  // Edit ve Save butonlarını dinamik olarak kurguluyoruz
   let editBtnHtml = `<button class="btn" style="background:${IS_EDITING ? 'var(--green)' : '#e7edf5'}; color:${IS_EDITING ? '#fff' : 'var(--navy)'};" onclick="toggleEditMode()">${IS_EDITING ? '💾 Done Editing' : '✏️ Edit Route'}</button>`;
   
-  // Eğer edit modu aktifse yanına bir de buluta kaydetme butonu ekliyoruz
   if (IS_EDITING) {
     editBtnHtml += `<button class="btn" id="cloudSaveBtn" style="background:var(--apple); color:#fff; margin-left:8px;" onclick="saveRouteToGitHub('${esc(route.id)}')">🚀 Save Route</button>`;
     editBtnHtml += `<button class="btn" id="cloudDelBtn" style="background:#ff3b30; color:#fff; margin-left:8px;" onclick="deleteRouteAction('${esc(route.id)}')">🗑️ Delete</button>`;
@@ -877,65 +665,32 @@ function selectRoute(id){
   const route=DB.routes.find(r=>r.id===id)||DB.routes[0]; if(!route)return;
   CURRENT=route.id; 
   document.getElementById('routeBtnLbl').textContent=(route.name||route.id).replace('Route ','R');
-  
   try{localStorage.setItem(LS_LAST,route.id);}catch(e){}
-  
   renderRoute(route);
-  fetchHolds(route.id); // Trigger background sync for holds
-  showRoute();
   window.scrollTo({top:0,behavior:'instant'});
 }
 
 function createNewRoute() {
   const newId = prompt("Enter new route number (e.g., 99):");
   if (!newId || newId.trim() === "") return;
-  
   const cleanId = newId.trim();
-  if (DB.routes.find(r => r.id === cleanId)) {
-    alert("Route " + cleanId + " already exists!");
-    return;
-  }
+  if (DB.routes.find(r => r.id === cleanId)) { alert("Route " + cleanId + " already exists!"); return; }
 
-  // Boş ve taze rota şablonu
-  const blankRoute = {
-    id: cleanId,
-    name: "Route " + cleanId,
-    subtitle: "New Custom Route",
-    stops: [{
-      no: "1",
-      short: "New Stop",
-      full: "",
-      lat: null,
-      lng: null,
-      segments: [],
-      seqStart: null,
-      seqEnd: null
-    }]
+  const blankRoute = { id: cleanId, name: "Route " + cleanId, subtitle: "New Custom Route", stops: [{
+      no: "1", short: "New Stop", full: "", lat: null, lng: null, segments: [], seqStart: null, seqEnd: null }]
   };
-
-  // Rotayı hafızaya ekle ve menüyü kapat
   DB.routes.push(blankRoute);
-  
-  // Numaraya göre listeyi tekrar sırala
   DB.routes.sort((a, b) => {
     const na = parseInt(a.id, 10), nb = parseInt(b.id, 10);
     if (!isNaN(na) && !isNaN(nb) && na !== nb) return na - nb;
     return a.id.localeCompare(b.id);
   });
-  
   closeMenu();
-  
-  // Rotayı seçili hale getir ve direkt Edit modunda aç
-  CURRENT = cleanId;
-  document.getElementById('routeBtnLbl').textContent = "R" + cleanId;
-  IS_EDITING = true; 
-  
-  renderRoute(blankRoute);
-  showRoute();
-  window.scrollTo({top: 0, behavior: 'instant'});
+  CURRENT = cleanId; document.getElementById('routeBtnLbl').textContent = "R" + cleanId;
+  IS_EDITING = true; renderRoute(blankRoute); window.scrollTo({top: 0, behavior: 'instant'});
 }
 
-/* Menu & Gates UI */
+/* Menu UI */
 function buildRouteList(filter){
   filter=(filter||'').trim().toLowerCase();
   const rl=document.getElementById('rlist'); let h='';
@@ -944,37 +699,97 @@ function buildRouteList(filter){
     if(filter && !(r.id.toLowerCase().includes(filter)||name.toLowerCase().includes(filter))) return;
     h+='<div class="ritem'+(r.id===CURRENT?' sel':'')+'" data-id="'+esc(r.id)+'"><span>'+esc(lbl)+'</span></div>';
   });
-
-  // 1. Önce filtrelenmiş rotaları listeye basıyoruz
   rl.innerHTML = h || '<div class="ritem" style="color:#8a93a0">No match</div>';
-  
-  // 2. Ardından listenin en altına hem "Create New Route" hem de "Import CSV Route" butonlarını ekliyoruz
   rl.innerHTML += `
-    <div class="ritem add" onclick="createNewRoute()" style="border-top:1px dashed var(--grid); margin-top:6px; color:var(--blue); font-weight:800; justify-content:center;">
-      <span>+ Create New Route</span>
-    </div>
-    <div class="ritem add" onclick="document.getElementById('csvUpload').click()" style="border-top:1px dashed var(--grid); color:var(--green); font-weight:800; justify-content:center;">
-      <span>📥 Import CSV Route</span>
-    </div>
+    <div class="ritem add" onclick="createNewRoute()" style="border-top:1px dashed var(--grid); margin-top:6px; color:var(--blue); font-weight:800; justify-content:center;"><span>+ Create New Route</span></div>
+    <div class="ritem add" onclick="document.getElementById('csvUpload').click()" style="border-top:1px dashed var(--grid); color:var(--green); font-weight:800; justify-content:center;"><span>📥 Import CSV Route</span></div>
   `;
-  
-  // 3. Listedeki rotalara tıklama özelliğini bağlıyoruz
   rl.querySelectorAll('.ritem[data-id]').forEach(it=>it.onclick=()=>{closeMenu();selectRoute(it.dataset.id);});
 }
-
 function openMenu(){document.getElementById('rmenu').classList.add('show');document.getElementById('backdrop').classList.add('show');
   const s=document.getElementById('rsearch'); s.value='';buildRouteList('');setTimeout(()=>s.focus(),50);}
 function closeMenu(){document.getElementById('rmenu').classList.remove('show');document.getElementById('backdrop').classList.remove('show');}
 document.getElementById('routeBtn').onclick=openMenu;
 document.getElementById('rsearch').oninput=function(){buildRouteList(this.value);};
 
+/* Gate / Locker Sync & Editor Engine */
+let IS_GATE_EDITING = false;
+let flatGates = [];
+
+function toggleGateEdit() {
+  IS_GATE_EDITING = !IS_GATE_EDITING;
+  const btn = document.getElementById('gateEditBtn');
+  if (IS_GATE_EDITING) {
+    btn.innerHTML = '💾 Save Codes';
+    btn.style.background = 'var(--green)';
+    flatGates = [];
+    Object.keys(DB.gates).forEach(rt => {
+      DB.gates[rt].forEach(g => {
+        flatGates.push({rt, loc: g.loc||'', code: g.code||'', note: g.note||''});
+      });
+    });
+    buildGate('');
+  } else {
+    saveGatesToGitHub();
+  }
+}
+
+async function saveGatesToGitHub() {
+  const newGates = {};
+  flatGates.forEach(g => {
+    const rt = (g.rt || 'ALL').trim();
+    if (!newGates[rt]) newGates[rt] = [];
+    newGates[rt].push({loc: g.loc.trim(), code: g.code.trim(), note: g.note.trim()});
+  });
+  DB.gates = newGates;
+  buildGate(document.getElementById('gsearch').value);
+  
+  const btn = document.getElementById('gateEditBtn');
+  const oldText = btn.innerHTML;
+  btn.innerHTML = '⏳ Saving...';
+  try {
+    const res = await fetch('/api/save-gates', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ gatesData: DB.gates })
+    });
+    if(!res.ok) throw new Error('Failed to push');
+    toast('🔑 Codes saved to cloud successfully!');
+  } catch(e) {
+    alert('Saved locally, but failed to sync to cloud: ' + e.message);
+  }
+  btn.innerHTML = '✏️ Edit';
+  btn.style.background = 'rgba(255,255,255,.15)';
+}
+
 function buildGate(filter){
   filter=(filter||'').trim().toLowerCase();
-  const keys=Object.keys(DB.gates).sort((a,b)=>(+a)-(+b)); let h='';
-  keys.forEach(rt=>{ const es=DB.gates[rt].filter(e=> !filter || rt.includes(filter) ||
-      (e.loc||'').toLowerCase().includes(filter) || (e.code||'').toLowerCase().includes(filter));
-    if(!es.length) return; h+='<div class="g-rt">RT '+esc(rt)+'</div>'+gateRowsHtml(es); });
-  document.getElementById('gateList').innerHTML=h||'<div class="g-empty">No match</div>';
+  if (IS_GATE_EDITING) {
+    let h = '';
+    flatGates.forEach((g, i) => {
+      h += `<div class="gate-edit-card">
+        <div class="ge-row">
+          <input placeholder="Route / Tag (e.g. 270)" value="${esc(g.rt)}" onchange="flatGates[${i}].rt=this.value">
+          <button class="btn-icon danger" onclick="flatGates.splice(${i},1); buildGate('');">×</button>
+        </div>
+        <div class="ge-row">
+          <input placeholder="Location" value="${esc(g.loc)}" onchange="flatGates[${i}].loc=this.value">
+          <input placeholder="Code" value="${esc(g.code)}" onchange="flatGates[${i}].code=this.value">
+        </div>
+        <div class="ge-row">
+          <input placeholder="Note (Optional)" value="${esc(g.note)}" onchange="flatGates[${i}].note=this.value">
+        </div>
+      </div>`;
+    });
+    h += `<button class="add-seg-btn" style="margin-top:12px;" onclick="flatGates.push({rt:'',loc:'',code:'',note:''}); buildGate('');">+ Add New Code</button>`;
+    document.getElementById('gateList').innerHTML = h;
+  } else {
+    const keys=Object.keys(DB.gates).sort((a,b)=>(+a)-(+b)); let h='';
+    keys.forEach(rt=>{ const es=DB.gates[rt].filter(e=> !filter || rt.includes(filter) ||
+        (e.loc||'').toLowerCase().includes(filter) || (e.code||'').toLowerCase().includes(filter));
+      if(!es.length) return; h+='<div class="g-rt">RT '+esc(rt)+'</div>'+gateRowsHtml(es); });
+    document.getElementById('gateList').innerHTML=h||'<div class="g-empty">No match</div>';
+  }
 }
 function openGate(){document.getElementById('gatePanel').classList.add('show');document.getElementById('backdrop').classList.add('show');
   const s=document.getElementById('gsearch'); s.value='';buildGate('');}
@@ -1000,111 +815,46 @@ function fbCopy(text,done){
   try{document.execCommand('copy');done(true);}catch(e){done(false);}document.body.removeChild(ta);
 }
 
-/* Hybrid Sync Engine: Hold Mail */
-async function fetchHolds(routeId) {
-  if(!navigator.onLine) return; // offline, rely on cache
-  try {
-    const res = await fetch(`/api/holds?routeId=${routeId}`);
-    if(res.ok) {
-      const cloudData = await res.json();
-      localStorage.setItem(`lt_hold_${routeId}`, JSON.stringify(cloudData));
-      if(CURRENT === routeId) renderHoldMail(routeId); // refresh UI silently
-    }
-  } catch(e) { console.log('Hold fetch failed, using local.'); }
+/* Hold Mail Engine */
+function formatHoldDate(isoDate) {
+  if (!isoDate) return '';
+  const parts = isoDate.split('-');
+  if (parts.length !== 3) return isoDate;
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  return `${months[parseInt(parts[1],10)-1]} ${parseInt(parts[2],10)} ${parts[0]}`;
 }
-
-async function flushSyncQueue() {
-  if (!navigator.onLine) return;
-  let queue = JSON.parse(localStorage.getItem(SYNC_Q) || '[]');
-  if (!queue.length) return;
-
-  let remaining = [];
-  for (let item of queue) {
-    try {
-      if (item.action === 'POST') {
-        const resp = await fetch('/api/holds', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ routeId: item.routeId, ...item.data })
-        });
-        if (!resp.ok) throw new Error('API Sync Failed');
-      } else if (item.action === 'DELETE') {
-        const resp = await fetch(`/api/holds?id=${item.id}`, { method: 'DELETE' });
-        if (!resp.ok) throw new Error('API Sync Failed');
-      }
-    } catch (err) { remaining.push(item); } // keep failed items
-  }
-  localStorage.setItem(SYNC_Q, JSON.stringify(remaining));
-  if(remaining.length === 0) console.log('Sync complete.');
-}
-window.addEventListener('online', flushSyncQueue);
-
 function saveHold(routeId, house, start, end) {
-  const id = 'h_' + Date.now() + Math.floor(Math.random()*1000);
-  const data = { id, house, start_date: start, end_date: end };
-  
-  // 1. Local Write
-  const key = `lt_hold_${routeId}`;
-  let holds = JSON.parse(localStorage.getItem(key) || '[]');
-  holds.push(data);
-  localStorage.setItem(key, JSON.stringify(holds));
-  
-  // 2. Queue for Cloud
-  let q = JSON.parse(localStorage.getItem(SYNC_Q) || '[]');
-  q.push({ action: 'POST', routeId, data });
-  localStorage.setItem(SYNC_Q, JSON.stringify(q));
-  
-  renderHoldMail(routeId);
-  flushSyncQueue();
-  toast('Hold added (Local & Syncing)');
+  const route = DB.routes.find(r => r.id === routeId); if(!route) return;
+  if(!route.holds) route.holds = [];
+  route.holds.push({ id: 'h_' + Date.now(), house, start_date: start, end_date: end });
+  toast('Hold added! Click "🚀 Save Route" to push to Cloud.');
+  if (!IS_EDITING) IS_EDITING = true; renderRoute(route);
 }
-
 function deleteHold(routeId, holdId) {
-  // 1. Local Delete
-  const key = `lt_hold_${routeId}`;
-  let holds = JSON.parse(localStorage.getItem(key) || '[]');
-  holds = holds.filter(h => h.id !== holdId);
-  localStorage.setItem(key, JSON.stringify(holds));
-  
-  // 2. Queue for Cloud
-  let q = JSON.parse(localStorage.getItem(SYNC_Q) || '[]');
-  q.push({ action: 'DELETE', routeId, id: holdId });
-  localStorage.setItem(SYNC_Q, JSON.stringify(q));
-
-  renderHoldMail(routeId);
-  flushSyncQueue();
-  toast('Hold removed');
+  if(!confirm("Are you sure you want to remove this hold?")) return;
+  const route = DB.routes.find(r => r.id === routeId); if(!route || !route.holds) return;
+  route.holds = route.holds.filter(h => h.id !== holdId);
+  toast('Hold removed! Click "🚀 Save Route" to push to Cloud.');
+  if (!IS_EDITING) IS_EDITING = true; renderRoute(route);
 }
-
 function renderHoldMail(routeId) {
   const container = document.getElementById('holdMailContainer');
   if(!container || CURRENT !== routeId) return;
-
-  const holds = JSON.parse(localStorage.getItem(`lt_hold_${routeId}`) || '[]');
-  
+  const route = DB.routes.find(r => r.id === routeId);
+  const holds = route.holds || [];
   let listHtml = '';
   if(holds.length === 0) {
     listHtml = '<div style="padding:16px; text-align:center; color:#8a93a0; font-size:13px; font-style:italic;">No active holds for this route.</div>';
   } else {
-    // Sort by start date
     holds.sort((a,b) => a.start_date.localeCompare(b.start_date)).forEach(h => {
-      listHtml += `<div class="h-row">
-        <div>
-          <div class="h-house">${esc(h.house)}</div>
-          <div class="h-dates">${esc(h.start_date)} to ${esc(h.end_date)}</div>
-        </div>
-        <button class="h-del" onclick="deleteHold('${esc(routeId)}', '${esc(h.id)}')">×</button>
-      </div>`;
+      listHtml += `<div class="h-row"><div><div class="h-house">${esc(h.house)}</div><div class="h-dates">${formatHoldDate(h.start_date)} to ${formatHoldDate(h.end_date)}</div></div><button class="h-del" onclick="deleteHold('${esc(routeId)}', '${esc(h.id)}')">×</button></div>`;
     });
   }
-
   container.innerHTML = `
     <div class="hold-card">
-      <div class="hc-head">
-        <span>📌 Hold Mail Manager</span>
-        <span class="hc-status" id="syncStatus">${navigator.onLine ? '🟢 Online Sync' : '🟡 Offline Mode'}</span>
-      </div>
+      <div class="hc-head"><span>📌 Hold Mail Manager</span><span class="hc-status" style="color:var(--navy); border-color:var(--grid);">JSON Synced</span></div>
       <div class="hc-form" id="holdForm">
-        <input type="text" id="hHouse" placeholder="House / Apt #">
+        <input type="text" id="hHouse" placeholder="House # (e.g. 3532)">
         <input type="date" id="hStart" placeholder="Start">
         <input type="date" id="hEnd" placeholder="End">
         <button type="button" onclick="handleAddHold('${esc(routeId)}')">Add</button>
@@ -1114,16 +864,10 @@ function renderHoldMail(routeId) {
   `;
 }
 window.handleAddHold = function(routeId) {
-  const house = document.getElementById('hHouse').value.trim();
-  const start = document.getElementById('hStart').value;
-  const end = document.getElementById('hEnd').value;
+  const house = document.getElementById('hHouse').value.trim(), start = document.getElementById('hStart').value, end = document.getElementById('hEnd').value;
   if(!house || !start || !end) return alert('Fill all fields');
   saveHold(routeId, house, start, end);
 };
-window.addEventListener('offline', () => { 
-  const el = document.getElementById('syncStatus'); 
-  if(el){ el.textContent='🟡 Offline Mode'; el.style.color='#7a5d00'; } 
-});
 
 /* Init */
 async function loadData(){
@@ -1141,16 +885,13 @@ async function init(){
     
     let lastRoute = null; 
     try{ lastRoute = localStorage.getItem(LS_LAST); }catch(e){}
+    
     if(lastRoute && DB.routes.find(r=>r.id===lastRoute)) {
-      CURRENT = lastRoute;
-      // Initialize state but show console by default
-      document.getElementById('routeBtnLbl').textContent = CURRENT.replace('Route ','R');
-      showConsole();
+      selectRoute(lastRoute);
     } else {
-      showConsole();
+      openMenu();
     }
     document.getElementById('loader').classList.add('hide');
-    flushSyncQueue(); // try sync on boot
   }catch(err){
     document.getElementById('loader').classList.add('hide');
     const eb=document.getElementById('errbox'); eb.style.display='block';
