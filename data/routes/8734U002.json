@@ -1,0 +1,1027 @@
+{
+  "id": "8734U002",
+  "name": "Route 8734U002",
+  "subtitle": "Imported from CSV",
+  "stops": [
+    {
+      "no": "1",
+      "short": "RANCH ROAD 620 N",
+      "full": "2903A RANCH ROAD 620 N, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "2903A",
+          "street": "RANCH ROAD 620 N",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "2",
+      "short": "BLANCHARD DR",
+      "full": "15101 BLANCHARD DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "15101",
+          "street": "BLANCHARD DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "3",
+      "short": "BLANCHARD DR",
+      "full": "15009 BLANCHARD DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "15009",
+          "street": "BLANCHARD DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "4",
+      "short": "BLANCHARD DR",
+      "full": "15005 BLANCHARD DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "15005",
+          "street": "BLANCHARD DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "5",
+      "short": "MOUNTAIN VIEW AVE",
+      "full": "3600 MOUNTAIN VIEW AVE, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3600",
+          "street": "MOUNTAIN VIEW AVE",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "6",
+      "short": "LAGO VISTA DR",
+      "full": "3800 LAGO VISTA DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3800",
+          "street": "LAGO VISTA DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "7",
+      "short": "CLOUDY RIDGE RD",
+      "full": "4101 CLOUDY RIDGE RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4101",
+          "street": "CLOUDY RIDGE RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "8",
+      "short": "CLOUDY RIDGE RD",
+      "full": "3904 CLOUDY RIDGE RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3904",
+          "street": "CLOUDY RIDGE RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "9",
+      "short": "WINDY HARBOR DR",
+      "full": "3300 WINDY HARBOR DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3300",
+          "street": "WINDY HARBOR DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "10",
+      "short": "WINDY HARBOR DR",
+      "full": "3401 WINDY HARBOR DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3401",
+          "street": "WINDY HARBOR DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "11",
+      "short": "CANYON BLUFF CT",
+      "full": "14716 CANYON BLUFF CT, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "14716",
+          "street": "CANYON BLUFF CT",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "12",
+      "short": "COPPER RIDGE LN",
+      "full": "14813 COPPER RIDGE LN, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "14813",
+          "street": "COPPER RIDGE LN",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "13",
+      "short": "COPPER RIDGE LN",
+      "full": "14812 COPPER RIDGE LN, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "14812",
+          "street": "COPPER RIDGE LN",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "14",
+      "short": "COPPER RIDGE LN",
+      "full": "14716 COPPER RIDGE LN, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "14716",
+          "street": "COPPER RIDGE LN",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "15",
+      "short": "SCENIC OVERLOOK TRL",
+      "full": "3808 SCENIC OVERLOOK TRL, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3808",
+          "street": "SCENIC OVERLOOK TRL",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "16",
+      "short": "BLUE JAY LN",
+      "full": "3316 BLUE JAY LN, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3316",
+          "street": "BLUE JAY LN",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "17",
+      "short": "BLUE JAY LN",
+      "full": "3409 BLUE JAY LN, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3409",
+          "street": "BLUE JAY LN",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "18",
+      "short": "FRITZ HUGHES PARK RD UNIT B",
+      "full": "3105 FRITZ HUGHES PARK RD UNIT B, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3105",
+          "street": "FRITZ HUGHES PARK RD UNIT B",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "19",
+      "short": "FRITZ HUGHES PARK RD",
+      "full": "3117 FRITZ HUGHES PARK RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3117",
+          "street": "FRITZ HUGHES PARK RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "20",
+      "short": "MONTVIEW DR",
+      "full": "13406 MONTVIEW DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "13406",
+          "street": "MONTVIEW DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "21",
+      "short": "MANSFIELD VIEW CT",
+      "full": "5122 MANSFIELD VIEW CT, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5122",
+          "street": "MANSFIELD VIEW CT",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "22",
+      "short": "PARK DR",
+      "full": "12880 PARK DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "12880",
+          "street": "PARK DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "23",
+      "short": "PARK DR",
+      "full": "12900 PARK DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "12900",
+          "street": "PARK DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "24",
+      "short": "AGARITA RD",
+      "full": "14423 AGARITA RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "14423",
+          "street": "AGARITA RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "25",
+      "short": "AGARITA RD APT B",
+      "full": "14419 AGARITA RD APT B, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "14419",
+          "street": "AGARITA RD APT B",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "26",
+      "short": "AGARITA CV # B # B",
+      "full": "4701 AGARITA CV # B # B, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4701",
+          "street": "AGARITA CV # B # B",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "27",
+      "short": "AGARITA CV",
+      "full": "4700 AGARITA CV, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4700",
+          "street": "AGARITA CV",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "28",
+      "short": "COMMANDERS POINT DR",
+      "full": "4408 COMMANDERS POINT DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4408",
+          "street": "COMMANDERS POINT DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "29",
+      "short": "CULEBRA CIR",
+      "full": "3900 CULEBRA CIR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "3900",
+          "street": "CULEBRA CIR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "30",
+      "short": "LAGO VIENTO",
+      "full": "4415 LAGO VIENTO, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4415",
+          "street": "LAGO VIENTO",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "31",
+      "short": "LAGO VIENTO",
+      "full": "4539 LAGO VIENTO, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4539",
+          "street": "LAGO VIENTO",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "32",
+      "short": "LAGO VIENTO",
+      "full": "4532 LAGO VIENTO, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4532",
+          "street": "LAGO VIENTO",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "33",
+      "short": "RUM RUNNER RD",
+      "full": "4305 RUM RUNNER RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4305",
+          "street": "RUM RUNNER RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "34",
+      "short": "POTEAU CIR",
+      "full": "4503 POTEAU CIR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4503",
+          "street": "POTEAU CIR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "35",
+      "short": "MCINTYRE CIR",
+      "full": "5019 MCINTYRE CIR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5019",
+          "street": "MCINTYRE CIR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "36",
+      "short": "HUDSON BEND RD STE 200",
+      "full": "4509 HUDSON BEND RD STE 200, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4509",
+          "street": "HUDSON BEND RD STE 200",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "37",
+      "short": "LANDS END ST",
+      "full": "5601 LANDS END ST, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5601",
+          "street": "LANDS END ST",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "38",
+      "short": "ARROYO RD",
+      "full": "5609 ARROYO RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5609",
+          "street": "ARROYO RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "39",
+      "short": "LONGHORN LNDG",
+      "full": "5506 LONGHORN LNDG, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5506",
+          "street": "LONGHORN LNDG",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "40",
+      "short": "BEACON DR",
+      "full": "5502 BEACON DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5502",
+          "street": "BEACON DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "41",
+      "short": "BEACON DR",
+      "full": "5601 BEACON DR, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5601",
+          "street": "BEACON DR",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "42",
+      "short": "BEACON DR APT G",
+      "full": "5402 BEACON DR APT G, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5402",
+          "street": "BEACON DR APT G",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "43",
+      "short": "POOL CANYON CV",
+      "full": "5619 POOL CANYON CV, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5619",
+          "street": "POOL CANYON CV",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "44",
+      "short": "HUDSON BEND RD",
+      "full": "5606 HUDSON BEND RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5606",
+          "street": "HUDSON BEND RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "45",
+      "short": "HUDSON BEND RD",
+      "full": "5601 HUDSON BEND RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5601",
+          "street": "HUDSON BEND RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "46",
+      "short": "HUDSON BEND RD",
+      "full": "5705 HUDSON BEND RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5705",
+          "street": "HUDSON BEND RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "47",
+      "short": "HUDSON BEND RD",
+      "full": "5909 HUDSON BEND RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5909",
+          "street": "HUDSON BEND RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "48",
+      "short": "MEDIAN RD",
+      "full": "5705 MEDIAN RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5705",
+          "street": "MEDIAN RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "49",
+      "short": "LAGUNA CLIFF LN",
+      "full": "5304 LAGUNA CLIFF LN, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5304",
+          "street": "LAGUNA CLIFF LN",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "50",
+      "short": "TRAIL OF THE WOODS",
+      "full": "17050 TRAIL OF THE WOODS, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "17050",
+          "street": "TRAIL OF THE WOODS",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "51",
+      "short": "W BEACH RD",
+      "full": "17313 W BEACH RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "17313",
+          "street": "W BEACH RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "52",
+      "short": "HI LINE RD UNIT 1404",
+      "full": "5921 HI LINE RD UNIT 1404, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5921",
+          "street": "HI LINE RD UNIT 1404",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "53",
+      "short": "TRAVIS WOODS CV",
+      "full": "6000 TRAVIS WOODS CV, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "6000",
+          "street": "TRAVIS WOODS CV",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "54",
+      "short": "FOREST WAY",
+      "full": "16672 FOREST WAY, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "16672",
+          "street": "FOREST WAY",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "55",
+      "short": "ROCKY RIDGE RD",
+      "full": "16704 ROCKY RIDGE RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "16704",
+          "street": "ROCKY RIDGE RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "56",
+      "short": "DOSS RD",
+      "full": "5014 DOSS RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "5014",
+          "street": "DOSS RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "57",
+      "short": "DOSS RD APT B",
+      "full": "4811 DOSS RD APT B, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4811",
+          "street": "DOSS RD APT B",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "58",
+      "short": "DOSS RD",
+      "full": "4534 DOSS RD, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4534",
+          "street": "DOSS RD",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "59",
+      "short": "ECK LN",
+      "full": "4235 ECK LN, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "4235",
+          "street": "ECK LN",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    },
+    {
+      "no": "60",
+      "short": "RANCH ROAD 620 N UNIT 130",
+      "full": "2918 RANCH ROAD 620 N UNIT 130, Austin, TX",
+      "lat": null,
+      "lng": null,
+      "segments": [
+        {
+          "nums": "2918",
+          "street": "RANCH ROAD 620 N UNIT 130",
+          "cbu": "",
+          "muted": false
+        }
+      ],
+      "seqStart": null,
+      "seqEnd": null
+    }
+  ]
+}
