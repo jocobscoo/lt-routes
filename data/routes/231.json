@@ -1,376 +1,378 @@
 {
- "id": "231",
- "name": "Route 231",
- "subtitle": "Route Sheet",
- "stops": [
-  {
-   "no": "B1",
-   "short": "101 Medical Pkwy",
-   "full": "101 Medical Pkwy, Lakeway, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.33285,
-   "lng": -97.97003,
-   "note": "🏢 CBU is located to the left of the rear exit door.",
-   "seqStart": 2,
-   "seqEnd": 7
-  },
-  {
-   "no": "B2",
-   "short": "301 Medical Pkwy",
-   "full": "301 Medical Pkwy, Lakeway, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.3314786,
-   "lng": -97.9696323,
-   "note": "🏢 Hand deliver all mail and packages to the front desk.",
-   "seqStart": 1,
-   "seqEnd": 1
-  },
-  {
-   "no": "B3",
-   "short": "100 Medical Pkwy",
-   "full": "100 Medical Pkwy, Lakeway, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.332838,
-   "lng": -97.972370,
-   "note": "🏢 Lakeway Regional Medical Center — Deliver mail and packages to the 'Receiving' area behind the building.",
-   "seqStart": 8,
-   "seqEnd": 8
-  },
-  {
-   "no": "B4",
-   "short": "200 Medical Pkwy",
-   "full": "200 Medical Pkwy, Lakeway, TX 78738",
-   "kind": "business",
-   "segments": [
+  "id": "231",
+  "name": "Route 231",
+  "subtitle": "Route Sheet",
+  "stops": [
     {
-     "nums": "110 – 2112",
-     "street": "Suites"
+      "no": "B1",
+      "short": "101 Medical Pkwy",
+      "full": "101 Medical Pkwy, Lakeway, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.33285,
+      "lng": -97.97003,
+      "note": "🏢 CBU is located to the left of the rear exit door.",
+      "seqStart": 2,
+      "seqEnd": 7
+    },
+    {
+      "no": "B2",
+      "short": "301 Medical Pkwy",
+      "full": "301 Medical Pkwy, Lakeway, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.3314786,
+      "lng": -97.9696323,
+      "note": "🏢 Hand deliver all mail and packages to the front desk.",
+      "seqStart": 1,
+      "seqEnd": 1
+    },
+    {
+      "no": "B3",
+      "short": "100 Medical Pkwy",
+      "full": "100 Medical Pkwy, Lakeway, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.332838,
+      "lng": -97.97237,
+      "note": "🏢 Lakeway Regional Medical Center — Deliver mail and packages to the 'Receiving' area behind the building.",
+      "seqStart": 8,
+      "seqEnd": 8
+    },
+    {
+      "no": "B4",
+      "short": "200 Medical Pkwy",
+      "full": "200 Medical Pkwy, Lakeway, TX 78738",
+      "kind": "business",
+      "segments": [
+        {
+          "nums": "110 – 2112",
+          "street": "Suites"
+        }
+      ],
+      "lat": 30.3320914,
+      "lng": -97.9713843,
+      "note": "🏢 CBU is located to the right of the front desk.",
+      "seqStart": 9,
+      "seqEnd": 25
+    },
+    {
+      "no": "B5",
+      "short": "300 Medical Pkwy",
+      "full": "300 Medical Pkwy, Lakeway, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.3308708,
+      "lng": -97.9709317,
+      "note": "🏢 The Harbor at Lakeway — handoff.",
+      "seqStart": 26,
+      "seqEnd": 26
+    },
+    {
+      "no": "B6",
+      "short": "302 Medical Pkwy",
+      "full": "302 Medical Pkwy, Lakeway, TX 78738",
+      "kind": "business",
+      "segments": [
+        {
+          "nums": "100 – 172",
+          "street": "Suites"
+        },
+        {
+          "nums": "200 – 252",
+          "street": "Suites"
+        },
+        {
+          "nums": "252 – 272",
+          "street": "Suites"
+        },
+        {
+          "nums": "300 – 372",
+          "street": "Suites"
+        }
+      ],
+      "lat": 30.3300352,
+      "lng": -97.9716683,
+      "note": "🏢 CBU is located next to the elevator; includes a parcel locker.",
+      "seqStart": 27,
+      "seqEnd": 170
+    },
+    {
+      "no": "B7",
+      "short": "312 Medical Pkwy",
+      "full": "312 Medical Pkwy, Lakeway, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.33015,
+      "lng": -97.96962,
+      "note": "🏢 CBU is located behind the building.",
+      "seqStart": 171,
+      "seqEnd": 171
+    },
+    {
+      "no": "B8",
+      "short": "322 Medical Pkwy",
+      "full": "322 Medical Pkwy, Lakeway, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.329999,
+      "lng": -97.968364,
+      "note": "🏢 Curbside delivery.",
+      "seqStart": 172,
+      "seqEnd": 172
+    },
+    {
+      "no": "B9",
+      "short": "440 Medical Pkwy",
+      "full": "440 Medical Pkwy, Lakeway, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.3303852,
+      "lng": -97.9677429,
+      "note": "🏢 Lake Travis Thrift Shop — curbside delivery.",
+      "seqStart": 173,
+      "seqEnd": 173
+    },
+    {
+      "no": "B10",
+      "short": "15110 W Hwy 71",
+      "full": "15110 State Hwy 71, Bee Cave, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.3165926,
+      "lng": -97.9780206,
+      "note": "🏢 Bee Cave Storage — business delivery.",
+      "seqStart": 174,
+      "seqEnd": 174
+    },
+    {
+      "no": "B11",
+      "short": "15314–15500 W Hwy 71",
+      "full": "15314-15500 W Highway 71, Bee Cave, TX",
+      "kind": "business",
+      "segments": [],
+      "note": "🏢 Veterinarian — business delivery.",
+      "seqStart": 175,
+      "seqEnd": 193
+    },
+    {
+      "no": "B12",
+      "short": "15506 W Hwy 71",
+      "full": "15506 State Hwy 71, Bee Cave, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.3190791,
+      "lng": -97.9872691,
+      "note": "🏢 Business delivery.",
+      "seqStart": 194,
+      "seqEnd": 194
+    },
+    {
+      "no": "B13",
+      "short": "15506 W Hwy 71 (Wild Kitchen)",
+      "full": "15506 State Hwy 71 C, Bee Cave, TX 78738",
+      "kind": "business",
+      "segments": [],
+      "lat": 30.3188151,
+      "lng": -97.9863377,
+      "note": "🏢 Wild Kitchen & Bar — business delivery.",
+      "seqStart": 195,
+      "seqEnd": 196
+    },
+    {
+      "no": "1",
+      "short": "1004 Crestone Stream Dr",
+      "full": "1004 Crestone Stream Dr, Austin, TX 78738",
+      "lat": 30.3281626,
+      "lng": -98.0006211,
+      "segments": [
+        {
+          "nums": "501 – 1004",
+          "street": "Sweetgrass"
+        },
+        {
+          "nums": "2501 – 2609",
+          "street": "Serene Hills"
+        },
+        {
+          "nums": "604 – 612",
+          "street": "Kenspur"
+        },
+        {
+          "nums": "901 – 909",
+          "street": "Medicine Fork Dr"
+        },
+        {
+          "nums": "501 – 502",
+          "street": "Chesteron Stream"
+        },
+        {
+          "nums": "504 – 1112",
+          "street": "Crestone Stream Dr"
+        },
+        {
+          "nums": "601 – 622",
+          "street": "Serene Estates Dr"
+        }
+      ],
+      "seqStart": 199,
+      "seqEnd": 311
+    },
+    {
+      "no": "2",
+      "short": "624 Anfield Cir",
+      "full": "624 Anfield Cir, Austin, TX 78738",
+      "lat": 30.3451045,
+      "lng": -98.0179458,
+      "segments": [
+        {
+          "nums": "101 – 110",
+          "street": "Borgo Allegri Cv"
+        },
+        {
+          "nums": "101 – 204",
+          "street": "Everton Cv"
+        },
+        {
+          "nums": "233 – 426",
+          "street": "Anfield Cir"
+        },
+        {
+          "nums": "200 – 210",
+          "street": "San Donato Cv"
+        },
+        {
+          "nums": "191 – 213",
+          "street": "San Donato Dr"
+        },
+        {
+          "nums": "100 – 104",
+          "street": "Coniglia Cv"
+        }
+      ],
+      "seqStart": 312,
+      "seqEnd": 420
+    },
+    {
+      "no": "3",
+      "short": "408 Baldovino Skyway",
+      "full": "408 Baldovino Skyway, Lakeway, TX 78738",
+      "lat": 30.3459904,
+      "lng": -98.015843,
+      "segments": [
+        {
+          "nums": "102 – 410",
+          "street": "Baldovino Skyway"
+        },
+        {
+          "nums": "301 – 312",
+          "street": "Summer Wilson Cv"
+        },
+        {
+          "nums": "101 – 109",
+          "street": "Ansley Cv"
+        },
+        {
+          "nums": "101 – 109",
+          "street": "Highland Village Cv"
+        },
+        {
+          "nums": "102 – 206",
+          "street": "Highland Village Dr"
+        },
+        {
+          "nums": "201",
+          "street": "Vista Village"
+        },
+        {
+          "nums": "203 – 221",
+          "street": "Vista Village Cv"
+        }
+      ],
+      "seqStart": 421,
+      "seqEnd": 516
+    },
+    {
+      "no": "4",
+      "short": "507 Grapeleaf Dr",
+      "full": "507 Grapeleaf Dr, Lakeway, TX 78738",
+      "lat": 30.348216,
+      "lng": -98.009952,
+      "segments": [
+        {
+          "nums": "101 – 209",
+          "street": "Austin Heights Dr"
+        },
+        {
+          "nums": "100 – 402",
+          "street": "Grapeleaf Dr"
+        },
+        {
+          "nums": "100 – 112",
+          "street": "Pennybacker Ln"
+        }
+      ],
+      "seqStart": 517,
+      "seqEnd": 554
+    },
+    {
+      "no": "5",
+      "short": "323 Forza Viola Way",
+      "full": "323 Forza Viola Way, Austin, TX 78738",
+      "lat": 30.3474298,
+      "lng": -98.0185481,
+      "segments": [
+        {
+          "nums": "105 – 314",
+          "street": "Forza Viola Way"
+        },
+        {
+          "nums": "206 – 220",
+          "street": "Lindale Cv"
+        },
+        {
+          "nums": "202 – 210",
+          "street": "San Siro Cv"
+        },
+        {
+          "nums": "101 – 205",
+          "street": "Cuore Bianco Cv"
+        },
+        {
+          "nums": "201 – 214",
+          "street": "Maialina Cv"
+        }
+      ],
+      "seqStart": 555,
+      "seqEnd": 623
+    },
+    {
+      "no": "6",
+      "short": "205 Fairdale Cv",
+      "full": "205 Fairdale Cove, The Hills, TX 78738",
+      "lat": 30.3461039,
+      "lng": -98.0250465,
+      "segments": [
+        {
+          "nums": "202 – 210",
+          "street": "Fairdale Cv"
+        },
+        {
+          "nums": "202 – 229",
+          "street": "Abbeville Walk"
+        },
+        {
+          "nums": "102 – 110",
+          "street": "Enano Cv"
+        },
+        {
+          "nums": "205 – 212",
+          "street": "Mercer Falls Rd"
+        }
+      ],
+      "seqStart": 624,
+      "seqEnd": 672
     }
-   ],
-   "lat": 30.3320914,
-   "lng": -97.9713843,
-   "note": "🏢 CBU is located to the right of the front desk.",
-   "seqStart": 9,
-   "seqEnd": 25
-  },
-  {
-   "no": "B5",
-   "short": "300 Medical Pkwy",
-   "full": "300 Medical Pkwy, Lakeway, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.3308708,
-   "lng": -97.9709317,
-   "note": "🏢 The Harbor at Lakeway — handoff.",
-   "seqStart": 26,
-   "seqEnd": 26
-  },
-  {
-   "no": "B6",
-   "short": "302 Medical Pkwy",
-   "full": "302 Medical Pkwy, Lakeway, TX 78738",
-   "kind": "business",
-   "segments": [
-    {
-     "nums": "100 – 172",
-     "street": "Suites"
-    },
-    {
-     "nums": "200 – 252",
-     "street": "Suites"
-    },
-    {
-     "nums": "252 – 272",
-     "street": "Suites"
-    },
-    {
-     "nums": "300 – 372",
-     "street": "Suites"
-    }
-   ],
-   "lat": 30.3300352,
-   "lng": -97.9716683,
-   "note": "🏢 CBU is located next to the elevator; includes a parcel locker.",
-   "seqStart": 27,
-   "seqEnd": 170
-  },
-  {
-   "no": "B7",
-   "short": "312 Medical Pkwy",
-   "full": "312 Medical Pkwy, Lakeway, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.33015,
-   "lng": -97.96962,
-   "note": "🏢 CBU is located behind the building."
-  },
-  {
-   "no": "B8",
-   "short": "322 Medical Pkwy",
-   "full": "322 Medical Pkwy, Lakeway, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.329999,
-   "lng": -97.968364,
-   "note": "🏢 Curbside delivery.",
-   "seqStart": 171,
-   "seqEnd": 172
-  },
-  {
-   "no": "B9",
-   "short": "440 Medical Pkwy",
-   "full": "440 Medical Pkwy, Lakeway, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.3303852,
-   "lng": -97.9677429,
-   "note": "🏢 Lake Travis Thrift Shop — curbside delivery.",
-   "seqStart": 173,
-   "seqEnd": 173
-  },
-  {
-   "no": "B10",
-   "short": "15110 W Hwy 71",
-   "full": "15110 State Hwy 71, Bee Cave, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.3165926,
-   "lng": -97.9780206,
-   "note": "🏢 Bee Cave Storage — business delivery.",
-   "seqStart": 174,
-   "seqEnd": 174
-  },
-  {
-   "no": "B11",
-   "short": "15314–15500 W Hwy 71",
-   "full": "15314-15500 W Highway 71, Bee Cave, TX",
-   "kind": "business",
-   "segments": [],
-   "note": "🏢 Veterinarian — business delivery.",
-   "seqStart": 175,
-   "seqEnd": 193
-  },
-  {
-   "no": "B12",
-   "short": "15506 W Hwy 71",
-   "full": "15506 State Hwy 71, Bee Cave, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.3190791,
-   "lng": -97.9872691,
-   "note": "🏢 Business delivery.",
-   "seqStart": 194,
-   "seqEnd": 194
-  },
-  {
-   "no": "B13",
-   "short": "15506 W Hwy 71 (Wild Kitchen)",
-   "full": "15506 State Hwy 71 C, Bee Cave, TX 78738",
-   "kind": "business",
-   "segments": [],
-   "lat": 30.3188151,
-   "lng": -97.9863377,
-   "note": "🏢 Wild Kitchen & Bar — business delivery.",
-   "seqStart": 195,
-   "seqEnd": 196
-  },
-  {
-   "no": "1",
-   "short": "1004 Crestone Stream Dr",
-   "full": "1004 Crestone Stream Dr, Austin, TX 78738",
-   "lat": 30.3281626,
-   "lng": -98.0006211,
-   "segments": [
-    {
-     "nums": "501 – 1004",
-     "street": "Sweetgrass"
-    },
-    {
-     "nums": "2501 – 2609",
-     "street": "Serene Hills"
-    },
-    {
-     "nums": "604 – 612",
-     "street": "Kenspur"
-    },
-    {
-     "nums": "901 – 909",
-     "street": "Medicine Fork Dr"
-    },
-    {
-     "nums": "501 – 502",
-     "street": "Chesteron Stream"
-    },
-    {
-     "nums": "504 – 1112",
-     "street": "Crestone Stream Dr"
-    },
-    {
-     "nums": "601 – 622",
-     "street": "Serene Estates Dr"
-    }
-   ],
-   "seqStart": 199,
-   "seqEnd": 311
-  },
-  {
-   "no": "2",
-   "short": "624 Anfield Cir",
-   "full": "624 Anfield Cir, Austin, TX 78738",
-   "lat": 30.3451045,
-   "lng": -98.0179458,
-   "segments": [
-    {
-     "nums": "101 – 110",
-     "street": "Borgo Allegri Cv"
-    },
-    {
-     "nums": "101 – 204",
-     "street": "Everton Cv"
-    },
-    {
-     "nums": "233 – 426",
-     "street": "Anfield Cir"
-    },
-    {
-     "nums": "200 – 210",
-     "street": "San Donato Cv"
-    },
-    {
-     "nums": "191 – 213",
-     "street": "San Donato Dr"
-    },
-    {
-     "nums": "100 – 104",
-     "street": "Coniglia Cv"
-    }
-   ],
-   "seqStart": 312,
-   "seqEnd": 420
-  },
-  {
-   "no": "3",
-   "short": "408 Baldovino Skyway",
-   "full": "408 Baldovino Skyway, Lakeway, TX 78738",
-   "lat": 30.3459904,
-   "lng": -98.015843,
-   "segments": [
-    {
-     "nums": "102 – 410",
-     "street": "Baldovino Skyway"
-    },
-    {
-     "nums": "301 – 312",
-     "street": "Summer Wilson Cv"
-    },
-    {
-     "nums": "101 – 109",
-     "street": "Ansley Cv"
-    },
-    {
-     "nums": "101 – 109",
-     "street": "Highland Village Cv"
-    },
-    {
-     "nums": "102 – 206",
-     "street": "Highland Village Dr"
-    },
-    {
-     "nums": "201",
-     "street": "Vista Village"
-    },
-    {
-     "nums": "203 – 221",
-     "street": "Vista Village Cv"
-    }
-   ],
-   "seqStart": 421,
-   "seqEnd": 516
-  },
-  {
-   "no": "4",
-   "short": "507 Grapeleaf Dr",
-   "full": "507 Grapeleaf Dr, Lakeway, TX 78738",
-   "lat": 30.348216,
-   "lng": -98.009952,
-   "segments": [
-    {
-     "nums": "101 – 209",
-     "street": "Austin Heights Dr"
-    },
-    {
-     "nums": "100 – 402",
-     "street": "Grapeleaf Dr"
-    },
-    {
-     "nums": "100 – 112",
-     "street": "Pennybacker Ln"
-    }
-   ],
-   "seqStart": 517,
-   "seqEnd": 554
-  },
-  {
-   "no": "5",
-   "short": "323 Forza Viola Way",
-   "full": "323 Forza Viola Way, Austin, TX 78738",
-   "lat": 30.3474298,
-   "lng": -98.0185481,
-   "segments": [
-    {
-     "nums": "105 – 314",
-     "street": "Forza Viola Way"
-    },
-    {
-     "nums": "206 – 220",
-     "street": "Lindale Cv"
-    },
-    {
-     "nums": "202 – 210",
-     "street": "San Siro Cv"
-    },
-    {
-     "nums": "101 – 205",
-     "street": "Cuore Bianco Cv"
-    },
-    {
-     "nums": "201 – 214",
-     "street": "Maialina Cv"
-    }
-   ],
-   "seqStart": 555,
-   "seqEnd": 623
-  },
-  {
-   "no": "6",
-   "short": "205 Fairdale Cv",
-   "full": "205 Fairdale Cove, The Hills, TX 78738",
-   "lat": 30.3461039,
-   "lng": -98.0250465,
-   "segments": [
-    {
-     "nums": "202 – 210",
-     "street": "Fairdale Cv"
-    },
-    {
-     "nums": "202 – 229",
-     "street": "Abbeville Walk"
-    },
-    {
-     "nums": "102 – 110",
-     "street": "Enano Cv"
-    },
-    {
-     "nums": "205 – 212",
-     "street": "Mercer Falls Rd"
-    }
-   ],
-   "seqStart": 624,
-   "seqEnd": 672
-  }
- ],
- "notes": []
+  ],
+  "notes": []
 }
