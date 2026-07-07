@@ -9,9 +9,11 @@
    "full": "101 Medical Pkwy, Lakeway, TX 78738",
    "kind": "business",
    "segments": [],
-   "lat": 30.3328487,
-   "lng": -97.9702697,
-   "note": "🏢 CBU past restroom."
+   "lat": 30.33285,
+   "lng": -97.97003,
+   "note": "🏢 CBU is located to the left of the rear exit door.",
+   "seqStart": 2,
+   "seqEnd": 7
   },
   {
    "no": "B2",
@@ -21,7 +23,9 @@
    "segments": [],
    "lat": 30.3314786,
    "lng": -97.9696323,
-   "note": "🏢 Medical — curbside delivery."
+   "note": "🏢 Hand deliver all mail and packages to the front desk.",
+   "seqStart": 1,
+   "seqEnd": 1
   },
   {
    "no": "B3",
@@ -29,9 +33,11 @@
    "full": "100 Medical Pkwy, Lakeway, TX 78738",
    "kind": "business",
    "segments": [],
-   "lat": 30.3330585,
-   "lng": -97.9714807,
-   "note": "🏢 Lakeway Regional Medical Center — handoff at near desk."
+   "lat": 30.332838,
+   "lng": -97.972370,
+   "note": "🏢 Lakeway Regional Medical Center — Deliver mail and packages to the 'Receiving' area behind the building.",
+   "seqStart": 8,
+   "seqEnd": 8
   },
   {
    "no": "B4",
@@ -46,7 +52,9 @@
    ],
    "lat": 30.3320914,
    "lng": -97.9713843,
-   "note": "🏢 CBU behind desk."
+   "note": "🏢 CBU is located to the right of the front desk.",
+   "seqStart": 9,
+   "seqEnd": 25
   },
   {
    "no": "B5",
@@ -56,7 +64,9 @@
    "segments": [],
    "lat": 30.3308708,
    "lng": -97.9709317,
-   "note": "🏢 The Harbor at Lakeway — handoff."
+   "note": "🏢 The Harbor at Lakeway — handoff.",
+   "seqStart": 26,
+   "seqEnd": 26
   },
   {
    "no": "B6",
@@ -83,7 +93,9 @@
    ],
    "lat": 30.3300352,
    "lng": -97.9716683,
-   "note": "🏢 Suite groups."
+   "note": "🏢 CBU is located next to the elevator; includes a parcel locker.",
+   "seqStart": 27,
+   "seqEnd": 170
   },
   {
    "no": "B7",
@@ -91,9 +103,9 @@
    "full": "312 Medical Pkwy, Lakeway, TX 78738",
    "kind": "business",
    "segments": [],
-   "lat": 30.3297677,
-   "lng": -97.969881,
-   "note": "🏢 A + B — CBU behind building."
+   "lat": 30.33015,
+   "lng": -97.96962,
+   "note": "🏢 CBU is located behind the building."
   },
   {
    "no": "B8",
@@ -103,7 +115,9 @@
    "segments": [],
    "lat": 30.329999,
    "lng": -97.968364,
-   "note": "🏢 Curbside delivery."
+   "note": "🏢 Curbside delivery.",
+   "seqStart": 171,
+   "seqEnd": 172
   },
   {
    "no": "B9",
@@ -113,7 +127,9 @@
    "segments": [],
    "lat": 30.3303852,
    "lng": -97.9677429,
-   "note": "🏢 Lake Travis Thrift Shop — curbside delivery."
+   "note": "🏢 Lake Travis Thrift Shop — curbside delivery.",
+   "seqStart": 173,
+   "seqEnd": 173
   },
   {
    "no": "B10",
@@ -123,7 +139,9 @@
    "segments": [],
    "lat": 30.3165926,
    "lng": -97.9780206,
-   "note": "🏢 Bee Cave Storage — business delivery."
+   "note": "🏢 Bee Cave Storage — business delivery.",
+   "seqStart": 174,
+   "seqEnd": 174
   },
   {
    "no": "B11",
@@ -131,7 +149,9 @@
    "full": "15314-15500 W Highway 71, Bee Cave, TX",
    "kind": "business",
    "segments": [],
-   "note": "🏢 Veterinarian — business delivery."
+   "note": "🏢 Veterinarian — business delivery.",
+   "seqStart": 175,
+   "seqEnd": 193
   },
   {
    "no": "B12",
@@ -141,7 +161,9 @@
    "segments": [],
    "lat": 30.3190791,
    "lng": -97.9872691,
-   "note": "🏢 Business delivery."
+   "note": "🏢 Business delivery.",
+   "seqStart": 194,
+   "seqEnd": 194
   },
   {
    "no": "B13",
@@ -151,7 +173,9 @@
    "segments": [],
    "lat": 30.3188151,
    "lng": -97.9863377,
-   "note": "🏢 Wild Kitchen & Bar — business delivery."
+   "note": "🏢 Wild Kitchen & Bar — business delivery.",
+   "seqStart": 195,
+   "seqEnd": 196
   },
   {
    "no": "1",
@@ -188,7 +212,9 @@
      "nums": "601 – 622",
      "street": "Serene Estates Dr"
     }
-   ]
+   ],
+   "seqStart": 199,
+   "seqEnd": 311
   },
   {
    "no": "2",
@@ -221,7 +247,9 @@
      "nums": "100 – 104",
      "street": "Coniglia Cv"
     }
-   ]
+   ],
+   "seqStart": 312,
+   "seqEnd": 420
   },
   {
    "no": "3",
@@ -258,7 +286,9 @@
      "nums": "203 – 221",
      "street": "Vista Village Cv"
     }
-   ]
+   ],
+   "seqStart": 421,
+   "seqEnd": 516
   },
   {
    "no": "4",
@@ -279,7 +309,9 @@
      "nums": "100 – 112",
      "street": "Pennybacker Ln"
     }
-   ]
+   ],
+   "seqStart": 517,
+   "seqEnd": 554
   },
   {
    "no": "5",
@@ -308,7 +340,9 @@
      "nums": "201 – 214",
      "street": "Maialina Cv"
     }
-   ]
+   ],
+   "seqStart": 555,
+   "seqEnd": 623
   },
   {
    "no": "6",
@@ -333,7 +367,9 @@
      "nums": "205 – 212",
      "street": "Mercer Falls Rd"
     }
-   ]
+   ],
+   "seqStart": 624,
+   "seqEnd": 672
   }
  ],
  "notes": []
