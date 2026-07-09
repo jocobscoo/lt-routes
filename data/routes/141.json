@@ -61,6 +61,11 @@
         {
           "nums": "1 – 29",
           "street": "Borello Dr"
+        },
+        {
+          "nums": "402-410",
+          "street": "JACK NICKLAUS DR",
+          "cbu": ""
         }
       ],
       "seqStart": 1,
@@ -73,11 +78,6 @@
       "lat": 30.3319543,
       "lng": -97.9882872,
       "segments": [
-        {
-          "nums": "402-410",
-          "street": "JACK NICKLAUS DR",
-          "cbu": ""
-        },
         {
           "nums": "104-212",
           "street": "Lodestone Cv"
