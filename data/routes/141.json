@@ -1,156 +1,169 @@
 {
- "id": "141",
- "name": "Route 141",
- "subtitle": "Route Sheet",
- "stops": [
-  {
-   "no": "1",
-   "short": "25 San Giovani Ct",
-   "full": "25 San Giovani Ct, Austin, TX 78738",
-   "lat": 30.3384944,
-   "lng": -97.9840305,
-   "segments": [
+  "id": "141",
+  "name": "Route 141",
+  "subtitle": "Route Sheet",
+  "stops": [
     {
-     "nums": "10 – 29",
-     "street": "San Giovani Ct"
+      "no": "1",
+      "short": "25 San Giovani Ct",
+      "full": "25 San Giovani Ct, Austin, TX 78738",
+      "lat": 30.3384944,
+      "lng": -97.9840305,
+      "segments": [
+        {
+          "nums": "10 – 29",
+          "street": "San Giovani Ct"
+        },
+        {
+          "nums": "100 – 410",
+          "street": "Jack Nicklaus Dr"
+        },
+        {
+          "nums": "14 – 44",
+          "street": "San Savio Ct"
+        },
+        {
+          "nums": "103 – 227",
+          "street": "Neville Wood Ct"
+        },
+        {
+          "nums": "101 – 107",
+          "street": "Porto Cima Ct"
+        },
+        {
+          "nums": "103 – 309",
+          "street": "Desert Mountain Ct"
+        },
+        {
+          "nums": "101 – 106",
+          "street": "Desert Highlands Ct"
+        },
+        {
+          "nums": "203 – 209",
+          "street": "Cabo Del Sol Cv"
+        },
+        {
+          "nums": "102 – 109",
+          "street": "Cabo Del Sol Ct"
+        },
+        {
+          "nums": "104 – 108",
+          "street": "Shore Oaks Ct"
+        },
+        {
+          "nums": "102 – 613",
+          "street": "Golden Bear Dr"
+        },
+        {
+          "nums": "3911",
+          "street": "Tonkawa Trl E"
+        },
+        {
+          "nums": "1 – 29",
+          "street": "Borello Dr"
+        }
+      ],
+      "seqStart": 1,
+      "seqEnd": 272
     },
     {
-     "nums": "100 – 410",
-     "street": "Jack Nicklaus Dr"
+      "no": "2",
+      "short": "104 Lodestone Cv",
+      "full": "104 Lodestone Cv, Lakeway, TX 78738",
+      "lat": 30.3319543,
+      "lng": -97.9882872,
+      "segments": [
+        {
+          "nums": "402-410",
+          "street": "JACK NICKLAUS DR",
+          "cbu": ""
+        },
+        {
+          "nums": "104-212",
+          "street": "Lodestone Cv"
+        },
+        {
+          "nums": "202 – 319",
+          "street": "Lodestone Ln"
+        },
+        {
+          "nums": "201 – 210",
+          "street": "Slate Rock Ter"
+        }
+      ],
+      "seqStart": 273,
+      "seqEnd": 331
     },
     {
-     "nums": "14 – 44",
-     "street": "San Savio Ct"
+      "no": "3",
+      "short": "103 Varco Dr",
+      "full": "103 Varco Dr, Austin, TX 78738",
+      "lat": 30.3348536,
+      "lng": -97.9563983,
+      "segments": [
+        {
+          "nums": "101 – 226",
+          "street": "Varco Dr"
+        },
+        {
+          "nums": "103 – 207",
+          "street": "Sebastians Run"
+        },
+        {
+          "nums": "108 – 411",
+          "street": "Aria Dr"
+        },
+        {
+          "nums": "102",
+          "street": "Whitley Dr"
+        }
+      ],
+      "seqStart": 332,
+      "seqEnd": 411
     },
     {
-     "nums": "103 – 227",
-     "street": "Neville Wood Ct"
-    },
-    {
-     "nums": "101 – 107",
-     "street": "Porto Cima Ct"
-    },
-    {
-     "nums": "103 – 309",
-     "street": "Desert Mountain Ct"
-    },
-    {
-     "nums": "101 – 106",
-     "street": "Desert Highlands Ct"
-    },
-    {
-     "nums": "203 – 209",
-     "street": "Cabo Del Sol Cv"
-    },
-    {
-     "nums": "102 – 109",
-     "street": "Cabo Del Sol Ct"
-    },
-    {
-     "nums": "104 – 108",
-     "street": "Shore Oaks Ct"
-    },
-    {
-     "nums": "102 – 613",
-     "street": "Golden Bear Dr"
-    },
-    {
-     "nums": "3911",
-     "street": "Tonkawa Trl E"
-    },
-    {
-     "nums": "1 – 29",
-     "street": "Borello Dr"
+      "no": "4",
+      "short": "101 Hensley Cir",
+      "full": "101 Hensley Cir, Austin, TX 78738",
+      "lat": 30.3343255,
+      "lng": -97.9589005,
+      "segments": [
+        {
+          "nums": "101 – 110",
+          "street": "Hensley Cir"
+        },
+        {
+          "nums": "103 – 309",
+          "street": "Hensley Dr"
+        },
+        {
+          "nums": "103 – 130",
+          "street": "Whitley Dr"
+        },
+        {
+          "nums": "135 – 143",
+          "street": "Lakota Cv"
+        },
+        {
+          "nums": "102 – 152",
+          "street": "Lakota Pass"
+        },
+        {
+          "nums": "110 – 118",
+          "street": "Burgess Cv"
+        },
+        {
+          "nums": "102 – 134",
+          "street": "Burgess Ln"
+        },
+        {
+          "nums": "101 – 233",
+          "street": "Vailco Ln"
+        }
+      ],
+      "seqStart": 412,
+      "seqEnd": 626
     }
-   ]
-  },
-  {
-   "no": "2",
-   "short": "104 Lodestone Cv",
-   "full": "104 Lodestone Cv, Lakeway, TX 78738",
-   "lat": 30.3319543,
-   "lng": -97.9882872,
-   "segments": [
-    {
-     "nums": "101 – 212",
-     "street": "Lodestone Cv"
-    },
-    {
-     "nums": "202 – 319",
-     "street": "Lodestone Ln"
-    },
-    {
-     "nums": "201 – 210",
-     "street": "Slate Rock Ter"
-    }
-   ]
-  },
-  {
-   "no": "3",
-   "short": "103 Varco Dr",
-   "full": "103 Varco Dr, Austin, TX 78738",
-   "lat": 30.3348536,
-   "lng": -97.9563983,
-   "segments": [
-    {
-     "nums": "101 – 226",
-     "street": "Varco Dr"
-    },
-    {
-     "nums": "103 – 207",
-     "street": "Sebastians Run"
-    },
-    {
-     "nums": "108 – 411",
-     "street": "Aria Dr"
-    },
-    {
-     "nums": "102",
-     "street": "Whitley Dr"
-    }
-   ]
-  },
-  {
-   "no": "4",
-   "short": "101 Hensley Cir",
-   "full": "101 Hensley Cir, Austin, TX 78738",
-   "lat": 30.3343255,
-   "lng": -97.9589005,
-   "segments": [
-    {
-     "nums": "101 – 110",
-     "street": "Hensley Cir"
-    },
-    {
-     "nums": "103 – 309",
-     "street": "Hensley Dr"
-    },
-    {
-     "nums": "103 – 130",
-     "street": "Whitley Dr"
-    },
-    {
-     "nums": "135 – 143",
-     "street": "Lakota Cv"
-    },
-    {
-     "nums": "102 – 152",
-     "street": "Lakota Pass"
-    },
-    {
-     "nums": "110 – 118",
-     "street": "Burgess Cv"
-    },
-    {
-     "nums": "102 – 134",
-     "street": "Burgess Ln"
-    },
-    {
-     "nums": "101 – 233",
-     "street": "Vailco Ln"
-    }
-   ]
-  }
- ],
- "notes": []
+  ],
+  "notes": []
 }
