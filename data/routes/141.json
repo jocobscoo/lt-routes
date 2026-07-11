@@ -5,10 +5,10 @@
   "stops": [
     {
       "no": "1",
-      "short": "25 San Giovani Ct",
-      "full": "25 San Giovani Ct, Austin, TX 78738",
-      "lat": 30.3384944,
-      "lng": -97.9840305,
+      "short": "101 Jack Nicklaus Dr",
+      "full": "101 Jack Nicklaus Dr, Austin, TX 78738",
+      "lat": 30.33514,
+      "lng": -97.97754,
       "segments": [
         {
           "nums": "10 – 29",
@@ -73,10 +73,11 @@
     },
     {
       "no": "2",
-      "short": "104 Lodestone Cv",
-      "full": "104 Lodestone Cv, Lakeway, TX 78738",
-      "lat": 30.3319543,
-      "lng": -97.9882872,
+      "short": "301 Lodestone Ln",
+      "full": "301 Lodestone Ln, Austin, TX 78738",
+      "lat": 30.32954,
+      "lng": -97.98722,
+      30.32954° N, 97.98722° W
       "segments": [
         {
           "nums": "104-212",
@@ -96,10 +97,10 @@
     },
     {
       "no": "3",
-      "short": "103 Varco Dr",
-      "full": "103 Varco Dr, Austin, TX 78738",
-      "lat": 30.3348536,
-      "lng": -97.9563983,
+      "short": "100–198 Sunrise Ridge Loop",
+      "full": "100–198 Sunrise Ridge Loop, Austin, TX 78738",
+      "lat": 30.32922,
+      "lng": -97.96263,
       "segments": [
         {
           "nums": "101 – 226",
@@ -123,10 +124,10 @@
     },
     {
       "no": "4",
-      "short": "101 Hensley Cir",
-      "full": "101 Hensley Cir, Austin, TX 78738",
-      "lat": 30.3343255,
-      "lng": -97.9589005,
+      "short": "100–198 Sunrise Ridge Loop",
+      "full": "100–198 Sunrise Ridge Loop, Austin, TX 78738",
+      "lat": 30.32922,
+      "lng": -97.96263,
       "segments": [
         {
           "nums": "101 – 110",
